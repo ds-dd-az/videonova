@@ -1,5 +1,5 @@
 import React from "react"
-import Button from "./index"
+import Button from "./button"
 
 export default {
   title: "button",
@@ -8,6 +8,7 @@ export default {
     text: "button",
     disabled: { boolean: { action: false } },
     secondary: { boolean: { action: false } },
+    loading: { boolean: { action: false } },
   },
 }
 
@@ -25,6 +26,7 @@ Primary.args = {
   text: "Primary button",
   disabled: false,
   secondary: false,
+  loading: false,
 }
 
 export const Disabled = Template.bind({})
@@ -39,4 +41,11 @@ export const Secondary = Template.bind({})
 Secondary.args = {
   ...Primary.args,
   secondary: true,
+}
+
+export const Loading = Template.bind({})
+
+Loading.args = {
+  ...Primary.args,
+  loading: true,
 }
