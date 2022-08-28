@@ -1,7 +1,7 @@
 import React from "react"
 import propTypes from "prop-types"
-import BlueLogo from "../../../assets/logo-blue.png"
-import WhiteLogo from "../../../assets/logo-white.png"
+import BlueLogo from "../../../assets/logos/logo-blue.png"
+import WhiteLogo from "../../../assets/logos/logo-white.png"
 
 export default function Logo(props) {
   const { color } = props
@@ -18,7 +18,7 @@ export default function Logo(props) {
   }
   if (color === "blue") {
     return (
-      <div className="logo">
+      <div className="logo-blue">
         <img src={blueLogo.src} alt={blueLogo.alt} />
       </div>
     )
@@ -26,7 +26,7 @@ export default function Logo(props) {
 
   if (color === "white") {
     return (
-      <div className="logo">
+      <div className="logo-white">
         <img src={whiteLogo.src} alt={whiteLogo.alt} />
       </div>
     )

@@ -1,13 +1,13 @@
 import React from "react"
 import "./style.css"
 import Logo from "../logo/logo"
-import Socials from "../social/social"
+import Socials from "../socials/social"
 
 export default function Footer() {
   return (
     <div className="footer">
       <Logo color="white" />
-      All rights Reserved 2022
+      <div className="footer_text">All rights Reserved 2022</div>
       <Socials />
     </div>
   )
