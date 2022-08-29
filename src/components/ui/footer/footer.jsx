@@ -1,7 +1,7 @@
 import React from "react"
 import "./style.css"
 import Logo from "../logo/logo"
-import Socials from "../socials/social"
+import Socials from "../socials/socials"
 
 export default function Footer() {
   return (
