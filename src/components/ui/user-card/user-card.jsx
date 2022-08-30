@@ -9,7 +9,7 @@ export default function UserCard(props) {
   const { userName } = props
   UserCard.propTypes = {
     /**
-     * name of user on card
+     * name of a user on card
      */
     userName: propTypes.string,
   }
@@ -18,7 +18,7 @@ export default function UserCard(props) {
   }
   return (
     <div className="user-card">
-      <UserIcon />
+      <UserIcon size="medium" />
       <h3>{userName}</h3>
       <UserStats />
       <Button text="To profile" />

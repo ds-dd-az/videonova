@@ -1,12 +1,27 @@
 .user-card__stats{
   display: flex;
-  gap: 42px;
-  justify-content: space-between;
+  justify-content: stretch;
   align-items: center;
+  flex-direction: row;
+  width: 220px;
 }
+
+
 
 .like-video-count{
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   gap: 8px;
+  align-items: center;
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+.like-video-count img{
+  width: 24px;
+  height: 24px;
+}
+
+.user-card__stats>*:first-child{
+  justify-content: flex-start;
 }
