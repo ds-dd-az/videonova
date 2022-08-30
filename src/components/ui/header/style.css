@@ -1,0 +1,16 @@
+.header{
+  display: flex;
+  padding: 0 50px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+}
+
+.header__user-info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  gap: 16px;
+}
