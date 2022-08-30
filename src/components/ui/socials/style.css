@@ -1,0 +1,12 @@
+.social-icons{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 43px;
+  width: 184px;
+}
+
+.social-icons>a{
+  cursor: pointer;
+}

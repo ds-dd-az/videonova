@@ -1,0 +1,22 @@
+.user-icon{
+  display: flex;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.user-icon_big{
+  height: 154px;
+  width: 154px;
+
+}
+
+.user-icon_medium{
+  height: 133px;
+  width: 133px;
+}
+
+.user-icon_small{
+  height: 54px;
+  width: 54px;
+
+}

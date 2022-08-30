@@ -1,0 +1,26 @@
+.footer{
+  height: 136px;
+  background: #232323;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 55px;
+  padding-right: 55px;
+}
+
+.logo-white{
+  flex: 0 0 25%;
+}
+
+.footer_text{
+  display: flex;
+  justify-content: center;
+  flex: 0 0 50%;
+  justify-self: center;
+}
+
+
+.social-icons{
+  flex: 0 0 25%;
+}
