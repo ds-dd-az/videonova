@@ -1,0 +1,12 @@
+.user-card__stats{
+  display: flex;
+  gap: 42px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.like-video-count{
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+}
