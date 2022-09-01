@@ -34,6 +34,19 @@ export default function InputField(props) {
     Styles.push("form_big")
   }
   if (hide === true) {
+    if (withIcon) {
+      return (
+        <div>
+          <input
+            className={Styles.join(" ")}
+            type="password"
+            placeholder={placeholder}
+          />
+          <EyeToggle />
+        </div>
+      )
+    }
+
     return (
       <div>
         <input
@@ -44,18 +57,7 @@ export default function InputField(props) {
       </div>
     )
   }
-  if (withIcon) {
-    return (
-      <div>
-        <input
-          className={Styles.join(" ")}
-          type="text"
-          placeholder={placeholder}
-        />
-        <EyeToggle />
-      </div>
-    )
-  }
+
   return (
     <div>
       <input

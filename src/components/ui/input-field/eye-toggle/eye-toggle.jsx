@@ -18,7 +18,7 @@ export default function EyeToggle(props) {
     click: undefined,
   }
 
-  const [variant, setVariant] = useState("regular")
+  const [crossed, setCrossed] = useState(false)
   const regularIcon = {
     src: Regular,
     alt: "eye",
@@ -27,29 +27,16 @@ export default function EyeToggle(props) {
     src: Crossed,
     alt: "crossed eye",
   }
-  let icon = regularIcon
+  const icon = crossed ? regularIcon : crossedIcon
 
-  function changeIcon() {
-    if (variant === "regular") {
-      setVariant("crossed")
-      icon = regularIcon
-    }
-    if (variant === "crossed") {
-      setVariant("regular")
-      icon = crossedIcon
-    }
+  function toggle() {
+    setCrossed(!crossed)
   }
-  function toggleFunctions() {
-    EyeToggle.click()
-
-    changeIcon()
-  }
-
   return (
     <div
       className="eye-icon"
-      onClick={toggleFunctions}
-      onKeyDown={toggleFunctions}
+      onClick={toggle}
+      onKeyDown={toggle}
       tabIndex="0"
       role="button"
     >
