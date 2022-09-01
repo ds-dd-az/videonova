@@ -1,12 +1,13 @@
 import React from "react"
 import "./style.css"
 import propTypes from "prop-types"
+import EyeToggle from "./eye-toggle/eye-toggle"
 
 export default function InputField(props) {
   const { size, hide, placeholder, withIcon } = props
   InputField.propTypes = {
     /**
-     * size of the form
+     * size of the input-field
      */
     size: propTypes.oneOf(["small", "big"]),
     /**
@@ -34,11 +35,25 @@ export default function InputField(props) {
   }
   if (hide === true) {
     return (
-      <input
-        className={Styles.join(" ")}
-        type="password"
-        placeholder={placeholder}
-      />
+      <div>
+        <input
+          className={Styles.join(" ")}
+          type="password"
+          placeholder={placeholder}
+        />
+      </div>
+    )
+  }
+  if (withIcon) {
+    return (
+      <div>
+        <input
+          className={Styles.join(" ")}
+          type="text"
+          placeholder={placeholder}
+        />
+        <EyeToggle />
+      </div>
     )
   }
   return (
