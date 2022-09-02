@@ -1,0 +1,13 @@
+.player-wrapper{
+  border-radius: 14px;
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  overflow: hidden;
+  }
+
+.react-player{
+  width: 314px;
+  height: 178px;
+  display: flex;
+}
