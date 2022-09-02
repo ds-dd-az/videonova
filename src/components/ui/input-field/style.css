@@ -1,0 +1,21 @@
+.field {
+  display: inline-flex;
+  width: 416px;
+  height: fit-content;
+  font-size: 16px;
+  background: #E9EEF8;
+  border-radius: 14px;
+  padding: 24px;
+
+}
+
+.field_big{
+  min-height: 134px;
+  resize: none;
+}
+
+.field-wrapper{
+  display: flex;
+  position: relative;
+}
+
