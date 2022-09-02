@@ -4,9 +4,17 @@ import "./style.css"
 import Regular from "./eye-icon.png"
 import Crossed from "./crossed-eye-icon.png"
 
+const regularIcon = {
+  src: Regular,
+  alt: "eye",
+}
+const crossedIcon = {
+  src: Crossed,
+  alt: "crossed eye",
+}
+
 export default function EyeToggle(props) {
   const { click } = props
-
   EyeToggle.propTypes = {
     /**
      * onclick function
@@ -19,28 +27,22 @@ export default function EyeToggle(props) {
   }
 
   const [crossed, setCrossed] = useState(false)
-  const regularIcon = {
-    src: Regular,
-    alt: "eye",
-  }
-  const crossedIcon = {
-    src: Crossed,
-    alt: "crossed eye",
-  }
-  const icon = crossed ? regularIcon : crossedIcon
 
+  const icon = crossed ? regularIcon : crossedIcon
   function toggle() {
     setCrossed(!crossed)
   }
+  const e = [{ click }, toggle]
   return (
     <div
       className="eye-icon"
-      onClick={toggle}
-      onKeyDown={toggle}
+      onClick={click}
+      onKeyDown={click}
       tabIndex="0"
       role="button"
     >
-      <img src={icon.src} alt={icon.alt} />
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions */}
+      <img onClick={toggle} onKeyDown={toggle} src={icon.src} alt={icon.alt} />
     </div>
   )
 }

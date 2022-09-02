@@ -1,15 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
 import "./style.css"
 import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
+import Button from "../button/button"
 
 export default function InputField(props) {
-  const { size, hide, placeholder, withIcon } = props
+  const { isBig, hide, placeholder, withIcon } = props
   InputField.propTypes = {
     /**
      * size of the input-field
      */
-    size: propTypes.oneOf(["small", "big"]),
+    isBig: propTypes.bool,
     /**
      * enables hiding of symbols
      */
@@ -24,25 +25,40 @@ export default function InputField(props) {
     withIcon: propTypes.bool,
   }
   InputField.defaultProps = {
-    size: "small",
+    isBig: false,
     hide: false,
     placeholder: "insert text please",
     withIcon: false,
   }
-  const Styles = ["form"]
-  if (size === "big") {
-    Styles.push("form_big")
+  const [hiding, setHiding] = useState(true)
+  function changeHide() {
+    setHiding(!hiding)
   }
-  if (hide === true) {
+  const type = hiding ? "password" : "text"
+  const Styles = ["field"]
+  if (isBig) {
+    Styles.push("field_big")
+    return (
+      <div>
+        <textarea
+          maxLength={445}
+          className={Styles.join(" ")}
+          placeholder={placeholder}
+        />
+      </div>
+    )
+  }
+  if (hide) {
     if (withIcon) {
       return (
-        <div>
+        <div className="field-wrapper">
           <input
             className={Styles.join(" ")}
-            type="password"
+            type={type}
             placeholder={placeholder}
           />
-          <EyeToggle />
+          {/* eslint-disable-next-line react/jsx-no-bind */}
+          <EyeToggle click={changeHide} />
         </div>
       )
     }

@@ -5,10 +5,7 @@ export default {
   title: "input field",
   component: InputField,
   argTypes: {
-    size: {
-      options: ["small", "big"],
-      control: { type: "radio" },
-    },
+    isBig: { boolean: { action: false } },
     hide: { boolean: { action: false } },
     placeholder: "text",
     withIcon: { boolean: { action: false } },
@@ -27,7 +24,7 @@ function Template(args) {
 export const Text = Template.bind({})
 
 Text.args = {
-  size: "small",
+  isBig: false,
   hide: false,
   placeholder: "text",
   withIcon: false,
@@ -44,7 +41,7 @@ export const Big = Template.bind({})
 
 Big.args = {
   ...Text.args,
-  size: "big",
+  isBig: true,
 }
 
 export const PasswordWithToggle = Template.bind({})
