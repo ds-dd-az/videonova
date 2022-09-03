@@ -3,6 +3,7 @@ import propTypes from "prop-types"
 import "./style.css"
 import SignIn from "./sign-in-form/sign-in-form"
 import XIcon from "./close-form-button/close-form"
+import SignUp from "./sign-up-form/sign-up-form"
 
 export default function Form(props) {
   const { signIn, signUp, addVideo } = props
@@ -31,6 +32,14 @@ export default function Form(props) {
       <div className="form-wrapper">
         <XIcon />
         <SignIn />
+      </div>
+    )
+  }
+  if (signUp) {
+    return (
+      <div className="form-wrapper">
+        <XIcon />
+        <SignUp />
       </div>
     )
   }

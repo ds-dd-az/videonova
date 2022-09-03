@@ -23,7 +23,7 @@ export default function SignIn(props) {
   return (
     <div className="sign-in">
       <h1>Sign In</h1>
-      <div className={incorrectStyles}>
+      <div className={incorrectStyles.join(" ")}>
         Your password is incorrect. Please,try again
       </div>
       <form>
