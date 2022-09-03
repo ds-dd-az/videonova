@@ -28,6 +28,20 @@
   align-items: center;
 }
 
+.add-new-vid{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.form-buttons{
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  margin-top: 20px;
+}
+
 form{
   display: flex;
   gap: 30px;

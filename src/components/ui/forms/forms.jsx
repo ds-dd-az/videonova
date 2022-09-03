@@ -4,6 +4,7 @@ import "./style.css"
 import SignIn from "./sign-in-form/sign-in-form"
 import XIcon from "./close-form-button/close-form"
 import SignUp from "./sign-up-form/sign-up-form"
+import VideoForm from "./add-new-video/add-new-video"
 
 export default function Form(props) {
   const { signIn, signUp, addVideo } = props
@@ -27,11 +28,10 @@ export default function Form(props) {
     signUp: false,
     addVideo: false,
   }
-  if (signIn) {
+  if (addVideo) {
     return (
       <div className="form-wrapper">
-        <XIcon />
-        <SignIn />
+        <VideoForm />
       </div>
     )
   }
@@ -43,4 +43,10 @@ export default function Form(props) {
       </div>
     )
   }
+  return (
+    <div className="form-wrapper">
+      <XIcon />
+      <SignIn />
+    </div>
+  )
 }
