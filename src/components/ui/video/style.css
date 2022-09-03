@@ -1,13 +1,27 @@
+.video-component{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+}
+
 .player-wrapper{
   border-radius: 14px;
   display: flex;
-  height: fit-content;
-  width: fit-content;
+  height: 174px;
+  width: 314px;
   overflow: hidden;
   }
 
 .react-player{
-  width: 314px;
-  height: 178px;
-  display: flex;
+  margin-top: -22.3%;
 }
+
+.react-player__preview{
+  margin-top: -5%;
+}
+
+
+
