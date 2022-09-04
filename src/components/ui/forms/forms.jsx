@@ -34,16 +34,17 @@ export default function Form(props) {
     addVideo: false,
     videoLoading: false,
   }
+
   if (addVideo) {
     return (
-      <div className="form-wrapper">
+      <div id="formId" className="form-wrapper">
         <VideoForm />
       </div>
     )
   }
   if (signUp) {
     return (
-      <div className="form-wrapper">
+      <div id="formId" className="form-wrapper">
         <XIcon />
         <SignUp />
       </div>
@@ -51,13 +52,13 @@ export default function Form(props) {
   }
   if (videoLoading) {
     return (
-      <div className="form-wrapper">
+      <div id="formId" className="form-wrapper">
         <VideoLoading progress="eeee" />
       </div>
     )
   }
   return (
-    <div className="form-wrapper">
+    <div id="formId" className="form-wrapper">
       <XIcon />
       <SignIn />
     </div>
