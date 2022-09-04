@@ -1,7 +1,7 @@
 .user-card{
   display: flex;
-  height: 325px;
-  width: 220px;
+  height: fit-content;
+  width: fit-content;
   padding: 35px 35px;
   flex-direction: column;
   justify-content: flex-start;
