@@ -35,6 +35,21 @@
   align-items: center;
 }
 
+.video-loading{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.video-loading>div{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 22px;
+}
+
 .form-buttons{
   display: flex;
   flex-direction: row;
@@ -78,3 +93,17 @@ label>div{
 .incorrect-password_visible{
   display: flex;
 }
+
+.vid-preview{
+  display: flex;
+  flex-direction: column;
+  width: 378px;
+  height: 178px;
+  border-radius: 11px;
+  overflow: hidden;
+  }
+
+.video-loading .button{
+  margin-top: 28px;
+}
+

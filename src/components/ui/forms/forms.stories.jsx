@@ -8,6 +8,7 @@ export default {
     signIn: { boolean: { action: false } },
     signUp: { boolean: { action: false } },
     addVideo: { boolean: { action: false } },
+    videoLoading: { boolean: { action: false } },
   },
 }
 
@@ -25,6 +26,7 @@ SignIn.args = {
   signIn: true,
   signUp: false,
   addVideo: false,
+  videoLoading: false,
 }
 
 export const SignUp = Template.bind({})
@@ -41,4 +43,12 @@ AddVideo.args = {
   ...SignIn.args,
   signIn: false,
   addVideo: true,
+}
+
+export const VideoLoading = Template.bind({})
+
+VideoLoading.args = {
+  ...SignIn.args,
+  signIn: false,
+  videoLoading: true,
 }
