@@ -5,6 +5,7 @@
   justify-content: space-between;
   align-items: center;
   height: fit-content;
+  margin-top: 33px;
 }
 
 .header__user-info{
