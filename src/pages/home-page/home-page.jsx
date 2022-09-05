@@ -4,6 +4,8 @@ import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
 import "./style.css"
+// eslint-disable-next-line import/order
+import { useDispatch } from "react-redux"
 
 const star = {
   src: StarImage,
@@ -11,6 +13,16 @@ const star = {
 }
 
 export default function HomePage() {
+  const dispatch = useDispatch()
+  function login() {
+    dispatch({
+      type: "user/authorise",
+      payload: {
+        userName: "very registered user",
+        userId: 3,
+      },
+    })
+  }
   return (
     <Layout>
       <div className="home-page">
@@ -19,7 +31,8 @@ export default function HomePage() {
           Create videos with single click. Add subtitles, transcribe audio and
           more
         </div>
-        <Button text="Start Now" />
+        {/* eslint-disable-next-line react/jsx-no-bind */}
+        <Button text="Start Now" click={login} />
         <div className="best-creators">
           <div className="best-creators__text">
             <h2>Best creators</h2>

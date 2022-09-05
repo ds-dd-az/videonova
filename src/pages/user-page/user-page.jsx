@@ -29,11 +29,11 @@ export default function UserPage() {
         <div className="videos">
           <Video videoUrl="https://www.youtube.com/watch?v=F0DbezQV8Gk" />
           <Video videoUrl="https://www.youtube.com/watch?v=087gJdYkYF0" />
-          <Video videoUrl="https://www.youtube.com/watch?v=609NuhGH3Y0" />
+          <Video videoUrl="https://www.youtube.com/watch?v=087gJdYkYF0" />
           <Video videoUrl="https://www.youtube.com/watch?v=BsJCT4UGpwo" />
           <Video videoUrl="https://www.youtube.com/watch?v=F0DbezQV8Gk" />
           <Video videoUrl="https://www.youtube.com/watch?v=087gJdYkYF0" />
-          <Video videoUrl="https://www.youtube.com/watch?v=609NuhGH3Y0" />
+          <Video videoUrl="https://www.youtube.com/watch?v=087gJdYkYF0" />
           <Video videoUrl="https://www.youtube.com/watch?v=BsJCT4UGpwo" />
         </div>
       </div>

@@ -12,10 +12,13 @@ const formSlice = createSlice({
       state.visibility = true
       state.kind = action.payload
     },
+    hide(state, action) {
+      state.visibility = false
+    },
   },
 })
 
 const { reducer } = formSlice
-const { show } = formSlice.actions
+const { show, hide } = formSlice.actions
 
-export { reducer, show }
+export { reducer, show, hide }

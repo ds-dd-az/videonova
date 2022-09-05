@@ -4,7 +4,7 @@ import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
 
 export default function InputField(props) {
-  const { isBig, hide, placeholder, withIcon } = props
+  const { isBig, hide, placeholder, withIcon, anotherid } = props
   InputField.propTypes = {
     /**
      * size of the input-field
@@ -22,12 +22,17 @@ export default function InputField(props) {
      * adds eye icon to toggle visibility
      */
     withIcon: propTypes.bool,
+    /**
+     * provides another id
+     */
+    anotherid: propTypes.bool,
   }
   InputField.defaultProps = {
     isBig: false,
     hide: false,
     placeholder: "insert text please",
     withIcon: false,
+    anotherid: false,
   }
   const [hiding, setHiding] = useState(true)
   function changeHide() {
@@ -50,6 +55,20 @@ export default function InputField(props) {
   }
   if (hide) {
     if (withIcon) {
+      if (anotherid) {
+        return (
+          <div className="field-wrapper">
+            <input
+              id="password-toggle2"
+              className={Styles.join(" ")}
+              type={type}
+              placeholder={placeholder}
+            />
+            {/* eslint-disable-next-line react/jsx-no-bind */}
+            <EyeToggle click={changeHide} />
+          </div>
+        )
+      }
       return (
         <div className="field-wrapper">
           <input

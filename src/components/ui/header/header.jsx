@@ -1,5 +1,5 @@
 import React from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import "./style.css"
 import propTypes from "prop-types"
 import Logo from "../logo/logo"
@@ -10,6 +10,13 @@ import { selectUserName } from "../../../modules/user"
 export default function Header(props) {
   const { login } = props
   const username = useSelector(selectUserName)
+  const dispatch = useDispatch()
+  function showForm() {
+    dispatch({
+      type: "form/show",
+      payload: "signUp",
+    })
+  }
   Header.propTypes = {
     /**
      * variation of header based on authorisation
@@ -35,7 +42,8 @@ export default function Header(props) {
   return (
     <div className="header">
       <Logo color="blue" />
-      <Button text="Sign up" />
+      {/* eslint-disable-next-line react/jsx-no-bind */}
+      <Button text="Sign up" click={showForm} />
     </div>
   )
 }

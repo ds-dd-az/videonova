@@ -1,5 +1,5 @@
 import React from "react"
-import propTypes from "prop-types"
+import { useDispatch } from "react-redux"
 import Icon from "./close-form.png"
 import "../style.css"
 
@@ -8,24 +8,20 @@ const xIcon = {
   alt: "close form",
 }
 
-export default function XIcon(props) {
-  const { click } = props
-  XIcon.propTypes = {
-    /**
-     * onclick function
-     */
-    click: propTypes.func,
-  }
-  XIcon.defaultProps = {
-    click: undefined,
+export default function XIcon() {
+  const dispatch = useDispatch()
+  function closeForm() {
+    dispatch({
+      type: "form/hide",
+    })
   }
   return (
     <div
       className="x-icon"
       role="button"
-      onClick={click}
+      onClick={closeForm}
       tabIndex={0}
-      onKeyDown={click}
+      onKeyDown={closeForm}
     >
       <img src={xIcon.src} alt={xIcon.alt} />
     </div>

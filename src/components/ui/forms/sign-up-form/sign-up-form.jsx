@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react"
+import React from "react"
 import "../style.css"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
@@ -19,8 +19,9 @@ export default function SignUp() {
         </label>
         <label>
           Repeat Password
-          <InputField hide placeholder="Repeat password..." />
+          <InputField hide anotherid placeholder="Repeat password..." />
         </label>
+        {/* eslint-disable-next-line react/jsx-no-bind */}
         <Button text="Sign up" />
         Already have an account? Sign in
       </form>

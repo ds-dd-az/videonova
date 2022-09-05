@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable jsx-a11y/label-has-associated-control,prefer-const */
 import React from "react"
 import propTypes from "prop-types"
 import "../style.css"
@@ -6,17 +6,9 @@ import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 
 const incorrectStyles = ["incorrect-password"]
-export default function SignIn(props) {
-  const { error } = props
-  SignIn.propTypes = {
-    /**
-     * shows wrong passport message
-     */
-    error: propTypes.bool,
-  }
-  SignIn.defaultProps = {
-    error: false,
-  }
+export default function SignIn() {
+  let error = false
+
   if (error) {
     incorrectStyles.push("incorrect-password_visible")
   }
