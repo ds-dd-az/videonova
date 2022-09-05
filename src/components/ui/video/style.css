@@ -13,7 +13,20 @@
   height: 174px;
   width: 314px;
   overflow: hidden;
+  position: relative;
   }
+
+.play-icon{
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+  height: 35px;
+  width: 35px;
+}
 
 .thumbnail-wrapper img{
   height: 100%;
@@ -28,6 +41,14 @@
   top: 0;
   bottom: 0;
   margin: auto auto;
+}
+
+.closing-div{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 

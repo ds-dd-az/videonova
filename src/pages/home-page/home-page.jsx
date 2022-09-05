@@ -4,7 +4,6 @@ import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
 import "./style.css"
-import Video from "../../components/ui/video/video"
 
 const star = {
   src: StarImage,
@@ -33,7 +32,6 @@ export default function HomePage() {
             <UserCard />
           </div>
         </div>
-        <Video />
       </div>
     </Layout>
   )
