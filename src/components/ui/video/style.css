@@ -7,21 +7,52 @@
   height: fit-content;
 }
 
-.player-wrapper{
+.thumbnail-wrapper{
   border-radius: 14px;
   display: flex;
   height: 174px;
   width: 314px;
   overflow: hidden;
+  position: relative;
   }
 
-.react-player{
-  margin-top: -22.3%;
+.play-icon{
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+  height: 35px;
+  width: 35px;
 }
 
-.react-player__preview{
-  margin-top: -5%;
+.thumbnail-wrapper img{
+  height: 100%;
+  width: 100%;
 }
+
+.react-player{
+  position: fixed;
+  display: flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+  z-index: 2;
+}
+
+.closing-div{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 150vh;
+}
+
+
 
 
 

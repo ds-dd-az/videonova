@@ -1,0 +1,44 @@
+.user{
+  margin-top: 100px;
+  margin-bottom: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.user-videos{
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.user-videos__header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.videos-text{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.videos-text img{
+  width: 20px;
+  height: 20px;
+}
+
+.videos{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: space-between;
+}
