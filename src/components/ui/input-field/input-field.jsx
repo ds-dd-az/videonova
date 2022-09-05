@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import "./style.css"
 import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
-import Button from "../button/button"
 
 export default function InputField(props) {
   const { isBig, hide, placeholder, withIcon } = props
@@ -41,6 +40,7 @@ export default function InputField(props) {
     return (
       <div>
         <textarea
+          id="description"
           maxLength={445}
           className={Styles.join(" ")}
           placeholder={placeholder}
@@ -53,6 +53,7 @@ export default function InputField(props) {
       return (
         <div className="field-wrapper">
           <input
+            id="password-toggle"
             className={Styles.join(" ")}
             type={type}
             placeholder={placeholder}
@@ -77,6 +78,7 @@ export default function InputField(props) {
   return (
     <div>
       <input
+        id="name"
         className={Styles.join(" ")}
         type="text"
         placeholder={placeholder}

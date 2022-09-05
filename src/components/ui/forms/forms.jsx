@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react"
 import propTypes from "prop-types"
 import "./style.css"
@@ -8,41 +9,16 @@ import VideoForm from "./add-new-video/add-new-video"
 import VideoLoading from "./add-new-video_loading/video-loading"
 
 export default function Form(props) {
-  const { signIn, signUp, addVideo, videoLoading } = props
-
-  Form.propTypes = {
-    /**
-     * if true will return sign in form
-     */
-    signIn: propTypes.bool,
-    /**
-     * if true will return sign up form
-     */
-    signUp: propTypes.bool,
-    /**
-     * if true will return "add video" form
-     */
-    addVideo: propTypes.bool,
-    /**
-     * if true will return loading screen
-     */
-    videoLoading: propTypes.bool,
-  }
-  Form.defaultProps = {
-    signIn: false,
-    signUp: false,
-    addVideo: false,
-    videoLoading: false,
-  }
-
-  if (addVideo) {
+  // eslint-disable-next-line react/prop-types
+  const { variant } = props
+  if (variant == "addVideo") {
     return (
       <div id="formId" className="form-wrapper">
         <VideoForm />
       </div>
     )
   }
-  if (signUp) {
+  if (variant == "signUp") {
     return (
       <div id="formId" className="form-wrapper">
         <XIcon />
@@ -50,17 +26,19 @@ export default function Form(props) {
       </div>
     )
   }
-  if (videoLoading) {
+  if (variant == "videoLoading") {
     return (
       <div id="formId" className="form-wrapper">
         <VideoLoading progress="eeee" />
       </div>
     )
   }
-  return (
-    <div id="formId" className="form-wrapper">
-      <XIcon />
-      <SignIn />
-    </div>
-  )
+  if (variant == "signIn") {
+    return (
+      <div id="formId" className="form-wrapper">
+        <XIcon />
+        <SignIn />
+      </div>
+    )
+  }
 }

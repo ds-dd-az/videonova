@@ -4,10 +4,12 @@ import { configureStore } from "@reduxjs/toolkit"
 import { Provider } from "react-redux"
 import propTypes from "prop-types"
 import { reducer as userReducer } from "./modules/user/index"
+import { reducer as formReducer } from "./modules/form/index"
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
+    form: formReducer,
   },
 })
 
