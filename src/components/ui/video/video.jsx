@@ -54,6 +54,7 @@ export default function Video(props) {
           url={videoUrl}
           width="854px"
           height="480px"
+          playing
           config={{
             youtube: {
               playerVars: {

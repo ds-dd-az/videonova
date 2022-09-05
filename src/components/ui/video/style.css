@@ -34,21 +34,22 @@
 }
 
 .react-player{
-  position: absolute;
+  position: fixed;
   display: flex;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
   margin: auto auto;
+  z-index: 2;
 }
 
 .closing-div{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  min-height: 150vh;
 }
 
 
