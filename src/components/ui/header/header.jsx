@@ -5,7 +5,7 @@ import propTypes from "prop-types"
 import Logo from "../logo/logo"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
-import { selectUserName } from "../../../modules/user"
+import { selectUserId, selectUserName } from "../../../modules/user"
 
 export default function Header(props) {
   const { login } = props
@@ -16,6 +16,10 @@ export default function Header(props) {
       type: "form/show",
       payload: "signUp",
     })
+  }
+  const userId = useSelector(selectUserId)
+  function redirect() {
+    window.location.href = `http://localhost:3000/user/${userId}`
   }
   Header.propTypes = {
     /**
@@ -31,7 +35,13 @@ export default function Header(props) {
     return (
       <div className="header">
         <Logo color="blue" />
-        <div className="header__user-info">
+        <div
+          className="header__user-info"
+          role="button"
+          tabIndex={0}
+          onKeyDown={redirect}
+          onClick={redirect}
+        >
           <UserIcon size="small" />
           {username}
         </div>

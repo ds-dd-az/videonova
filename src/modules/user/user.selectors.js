@@ -8,6 +8,10 @@ export const selectUserId = (state) =>
 export const selectUserName = (state) =>
   state.user.authorised && state.user.userInfo.userName
 
+export const selectOthersUserName = (state) => state.user.userInfo.userName
+
+export const selectOthersUserId = (state) => state.user.userInfo.userId
+
 export const selectUserPassword = (state) =>
   state.user.authorised && state.user.userInfo.userPassword
 

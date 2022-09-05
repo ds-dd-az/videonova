@@ -5,7 +5,7 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     authorised: false,
-    userInfo: null,
+    userInfo: { userName: "big user", userId: 22 },
     registeredUser: null,
   },
   reducers: {

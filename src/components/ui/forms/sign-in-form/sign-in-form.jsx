@@ -2,6 +2,7 @@
 import React from "react"
 import propTypes from "prop-types"
 import "../style.css"
+import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 
@@ -11,6 +12,16 @@ export default function SignIn() {
 
   if (error) {
     incorrectStyles.push("incorrect-password_visible")
+  }
+  const dispatch = useDispatch()
+  function login() {
+    dispatch({
+      type: "user/authorise",
+      payload: { userName: "mega user", userId: 35 },
+    })
+    dispatch({
+      type: "form/hide",
+    })
   }
   return (
     <div className="sign-in">
@@ -27,7 +38,8 @@ export default function SignIn() {
           Password
           <InputField withIcon hide placeholder="Type password..." />
         </label>
-        <Button text="Sign in" />
+        {/* eslint-disable-next-line react/jsx-no-bind */}
+        <Button text="Sign in" click={login} />
         Don`t have account? Sign up
       </form>
     </div>

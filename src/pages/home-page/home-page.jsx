@@ -14,13 +14,10 @@ const star = {
 
 export default function HomePage() {
   const dispatch = useDispatch()
-  function login() {
+  function signInForm() {
     dispatch({
-      type: "user/authorise",
-      payload: {
-        userName: "very registered user",
-        userId: 3,
-      },
+      type: "form/show",
+      payload: "signIn",
     })
   }
   return (
@@ -32,7 +29,7 @@ export default function HomePage() {
           more
         </div>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button text="Start Now" click={login} />
+        <Button text="Start Now" click={signInForm} />
         <div className="best-creators">
           <div className="best-creators__text">
             <h2>Best creators</h2>

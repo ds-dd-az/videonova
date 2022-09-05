@@ -1,7 +1,8 @@
 .popup{
   position: absolute;
   width: 100%;
-  min-height: 100vh;
+  min-height: 150vh;
+  z-index: 3;
 }
 
 .popup_show{
