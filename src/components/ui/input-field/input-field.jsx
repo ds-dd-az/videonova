@@ -2,10 +2,9 @@ import React, { useState } from "react"
 import "./style.css"
 import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
-import Button from "../button/button"
 
 export default function InputField(props) {
-  const { isBig, hide, placeholder, withIcon } = props
+  const { isBig, hide, placeholder, withIcon, anotherid } = props
   InputField.propTypes = {
     /**
      * size of the input-field
@@ -23,12 +22,17 @@ export default function InputField(props) {
      * adds eye icon to toggle visibility
      */
     withIcon: propTypes.bool,
+    /**
+     * provides another id
+     */
+    anotherid: propTypes.bool,
   }
   InputField.defaultProps = {
     isBig: false,
     hide: false,
     placeholder: "insert text please",
     withIcon: false,
+    anotherid: false,
   }
   const [hiding, setHiding] = useState(true)
   function changeHide() {
@@ -41,6 +45,7 @@ export default function InputField(props) {
     return (
       <div>
         <textarea
+          id="description"
           maxLength={445}
           className={Styles.join(" ")}
           placeholder={placeholder}
@@ -50,9 +55,24 @@ export default function InputField(props) {
   }
   if (hide) {
     if (withIcon) {
+      if (anotherid) {
+        return (
+          <div className="field-wrapper">
+            <input
+              id="password-toggle2"
+              className={Styles.join(" ")}
+              type={type}
+              placeholder={placeholder}
+            />
+            {/* eslint-disable-next-line react/jsx-no-bind */}
+            <EyeToggle click={changeHide} />
+          </div>
+        )
+      }
       return (
         <div className="field-wrapper">
           <input
+            id="password-toggle"
             className={Styles.join(" ")}
             type={type}
             placeholder={placeholder}
@@ -77,6 +97,7 @@ export default function InputField(props) {
   return (
     <div>
       <input
+        id="name"
         className={Styles.join(" ")}
         type="text"
         placeholder={placeholder}

@@ -19,8 +19,9 @@ export default function SignUp() {
         </label>
         <label>
           Repeat Password
-          <InputField hide placeholder="Repeat password..." />
+          <InputField hide anotherid placeholder="Repeat password..." />
         </label>
+        {/* eslint-disable-next-line react/jsx-no-bind */}
         <Button text="Sign up" />
         Already have an account? Sign in
       </form>

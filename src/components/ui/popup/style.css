@@ -2,6 +2,14 @@
   position: absolute;
   width: 100%;
   min-height: 100vh;
+}
+
+.popup_show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup_hide{
   opacity: 0;
   pointer-events: none;
 }
