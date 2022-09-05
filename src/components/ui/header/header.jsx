@@ -1,13 +1,15 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import "./style.css"
 import propTypes from "prop-types"
 import Logo from "../logo/logo"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
+import { selectUserName } from "../../../modules/user"
 
 export default function Header(props) {
   const { login } = props
-
+  const username = useSelector(selectUserName)
   Header.propTypes = {
     /**
      * variation of header based on authorisation
@@ -24,7 +26,7 @@ export default function Header(props) {
         <Logo color="blue" />
         <div className="header__user-info">
           <UserIcon size="small" />
-          User Name
+          {username}
         </div>
       </div>
     )
