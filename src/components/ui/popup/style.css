@@ -1,7 +1,7 @@
 .popup{
   position: absolute;
   width: 100%;
-  min-height: 150vh;
+  min-height: 100%;
   z-index: 3;
 }
 
@@ -16,14 +16,10 @@
 }
 
 .bgBlur{
-  position: absolute;
+  position: fixed;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   background: rgba(5, 0, 34, 0.2);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
 }

@@ -7,6 +7,10 @@
   justify-content: space-between;
   padding-left: 55px;
   padding-right: 55px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .logo-white{
