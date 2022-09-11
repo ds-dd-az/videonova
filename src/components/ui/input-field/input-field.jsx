@@ -4,7 +4,8 @@ import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
 
 export default function InputField(props) {
-  const { isBig, hide, placeholder, withIcon, anotherid } = props
+  const { isBig, hide, placeholder, withIcon, id } = props
+  const [input, setInput] = useState("")
   InputField.propTypes = {
     /**
      * size of the input-field
@@ -25,14 +26,14 @@ export default function InputField(props) {
     /**
      * provides another id
      */
-    anotherid: propTypes.bool,
+    id: propTypes.string,
   }
   InputField.defaultProps = {
     isBig: false,
     hide: false,
     placeholder: "insert text please",
     withIcon: false,
-    anotherid: false,
+    id: undefined,
   }
   const [hiding, setHiding] = useState(true)
   function changeHide() {
@@ -45,7 +46,7 @@ export default function InputField(props) {
     return (
       <div>
         <textarea
-          id="description"
+          id={id}
           maxLength={445}
           className={Styles.join(" ")}
           placeholder={placeholder}
@@ -55,24 +56,10 @@ export default function InputField(props) {
   }
   if (hide) {
     if (withIcon) {
-      if (anotherid) {
-        return (
-          <div className="field-wrapper">
-            <input
-              id="password-toggle2"
-              className={Styles.join(" ")}
-              type={type}
-              placeholder={placeholder}
-            />
-            {/* eslint-disable-next-line react/jsx-no-bind */}
-            <EyeToggle click={changeHide} />
-          </div>
-        )
-      }
       return (
         <div className="field-wrapper">
           <input
-            id="password-toggle"
+            id={id}
             className={Styles.join(" ")}
             type={type}
             placeholder={placeholder}
@@ -86,6 +73,7 @@ export default function InputField(props) {
     return (
       <div>
         <input
+          id={id}
           className={Styles.join(" ")}
           type="password"
           placeholder={placeholder}
@@ -97,7 +85,9 @@ export default function InputField(props) {
   return (
     <div>
       <input
-        id="name"
+        value={input}
+        onInput={(e) => setInput(e.target.value)}
+        id={id}
         className={Styles.join(" ")}
         type="text"
         placeholder={placeholder}

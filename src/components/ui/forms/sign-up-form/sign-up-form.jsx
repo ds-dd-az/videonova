@@ -1,16 +1,21 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from "react"
+import React, { useEffect, useId } from "react"
 import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 
 export default function SignUp() {
+  const name = useId()
+  let nameField
+  useEffect(() => {
+    nameField = document.getElementById(`${name}`)
+  })
   const dispatch = useDispatch()
   function login() {
     dispatch({
       type: "user/authorise",
-      payload: { userName: "mega user", userId: 35 },
+      payload: { userName: `${nameField.value}`, userId: 35 },
     })
     dispatch({
       type: "form/hide",
@@ -20,9 +25,9 @@ export default function SignUp() {
     <div className="sign-up">
       <h1>Sign Up</h1>
       <form>
-        <label>
+        <label htmlFor={name}>
           Name
-          <InputField placeholder="Type name..." />
+          <InputField id={name} placeholder="Type name..." />
         </label>
         <label>
           Password
