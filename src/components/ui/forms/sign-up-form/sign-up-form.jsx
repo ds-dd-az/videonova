@@ -18,7 +18,7 @@ export default function SignUp() {
     confirmPassField = document.getElementById(`${repeatPassword}`)
   })
   const dispatch = useDispatch()
-  function login() {
+  function register() {
     if (passwordField.value === confirmPassField.value) {
       dispatch({
         type: "user/authorise",
@@ -54,7 +54,7 @@ export default function SignUp() {
           />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button text="Sign up" click={login} />
+        <Button text="Sign up" click={register} />
         Already have an account? Sign in
       </form>
     </div>
