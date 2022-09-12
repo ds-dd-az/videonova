@@ -5,6 +5,7 @@ import Video from "../../components/ui/video/video"
 import UserIcon from "../../components/ui/user-icon/user-icon"
 import Button from "../../components/ui/button/button"
 import VidIcon from "./video-icon.png"
+import { selectUserName } from "../../modules/user"
 
 const vidIcon = {
   src: VidIcon,
@@ -12,6 +13,7 @@ const vidIcon = {
 }
 
 export default function UserPage() {
+  const userName = useSelector(selectUserName)
   const dispatch = useDispatch()
   function showForm() {
     dispatch({
@@ -24,12 +26,12 @@ export default function UserPage() {
       <div className="page-block">
         <div className="user">
           <UserIcon size="big" />
-          <h1>User Name</h1>
+          <h1>{userName}</h1>
         </div>
         <div className="user-videos">
           <div className="user-videos__header">
             <div className="videos-text">
-              <h2>users videos</h2>
+              <h2>{userName}s videos</h2>
               <img src={vidIcon.src} alt={vidIcon.alt} />
             </div>
             {/* eslint-disable-next-line react/jsx-no-bind */}
