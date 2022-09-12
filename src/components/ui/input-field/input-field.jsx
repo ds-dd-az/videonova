@@ -47,6 +47,8 @@ export default function InputField(props) {
       <div>
         <textarea
           id={id}
+          value={input}
+          onInput={(e) => setInput(e.target.value)}
           maxLength={445}
           className={Styles.join(" ")}
           placeholder={placeholder}
@@ -60,6 +62,8 @@ export default function InputField(props) {
         <div className="field-wrapper">
           <input
             id={id}
+            value={input}
+            onInput={(e) => setInput(e.target.value)}
             className={Styles.join(" ")}
             type={type}
             placeholder={placeholder}
@@ -73,6 +77,8 @@ export default function InputField(props) {
     return (
       <div>
         <input
+          value={input}
+          onInput={(e) => setInput(e.target.value)}
           id={id}
           className={Styles.join(" ")}
           type="password"
