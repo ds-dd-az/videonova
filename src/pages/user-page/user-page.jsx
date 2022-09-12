@@ -1,4 +1,5 @@
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 import Layout from "../../components/layout/layout"
 import Video from "../../components/ui/video/video"
 import UserIcon from "../../components/ui/user-icon/user-icon"
@@ -11,6 +12,13 @@ const vidIcon = {
 }
 
 export default function UserPage() {
+  const dispatch = useDispatch()
+  function showForm() {
+    dispatch({
+      type: "form/show",
+      payload: "addVideo",
+    })
+  }
   return (
     <Layout>
       <div className="page-block">
@@ -24,7 +32,8 @@ export default function UserPage() {
               <h2>users videos</h2>
               <img src={vidIcon.src} alt={vidIcon.alt} />
             </div>
-            <Button text="Add video" />
+            {/* eslint-disable-next-line react/jsx-no-bind */}
+            <Button text="Add video" click={showForm} />
           </div>
           <div className="videos">
             <Video videoUrl="https://www.youtube.com/watch?v=F0DbezQV8Gk" />
