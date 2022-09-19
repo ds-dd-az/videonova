@@ -5,11 +5,13 @@ import { Provider } from "react-redux"
 import propTypes from "prop-types"
 import { reducer as userReducer } from "./modules/user/index"
 import { reducer as formReducer } from "./modules/form/index"
+import { reducer as videoReducer } from "./modules/video/index"
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
     form: formReducer,
+    videos: videoReducer,
   },
 })
 
