@@ -11,7 +11,7 @@ export const store = configureStore({
   reducer: {
     user: userReducer,
     form: formReducer,
-    videos: videoReducer,
+    video: videoReducer,
   },
 })
 
