@@ -1,22 +1,16 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit"
 
+const initialState = {
+  videos: [],
+}
+
 const videoSlice = createSlice({
   name: "video",
-  initialState: { videos: {} },
+  initialState,
   reducers: {
     addVideo(state, action) {
-      return {
-        ...state,
-        videos: [
-          ...state.videos,
-          {
-            videoUrl: action.payload,
-            videoName: action.payload,
-            description: action.payload,
-          },
-        ],
-      }
+      state.videos.push(action.payload)
     },
   },
 })
