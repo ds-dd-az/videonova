@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/label-has-associated-control,prefer-const */
-import React from "react"
-import propTypes from "prop-types"
+/* eslint-disable jsx-a11y/label-has-associated-control,prefer-const,react-hooks/exhaustive-deps */
+import React, { useEffect, useId } from "react"
 import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
@@ -8,6 +7,14 @@ import Button from "../../button/button"
 
 const incorrectStyles = ["incorrect-password"]
 export default function SignIn() {
+  const name = useId()
+  const password = useId()
+  let nameField
+  let passwordField
+  useEffect(() => {
+    nameField = document.getElementById(`${name}`)
+    passwordField = document.getElementById(`${password}`)
+  })
   let error = false
 
   if (error) {
@@ -17,7 +24,7 @@ export default function SignIn() {
   function login() {
     dispatch({
       type: "user/authorise",
-      payload: { userName: "mega user", userId: 35 },
+      payload: { userName: `${nameField.value}`, userId: 35 },
     })
     dispatch({
       type: "form/hide",
@@ -30,13 +37,18 @@ export default function SignIn() {
         Your password is incorrect. Please,try again
       </div>
       <form>
-        <label>
+        <label htmlFor={name}>
           Name
-          <InputField placeholder="Type name..." />
+          <InputField id={name} placeholder="Type name..." />
         </label>
-        <label>
+        <label htmlFor={password}>
           Password
-          <InputField withIcon hide placeholder="Type password..." />
+          <InputField
+            id={password}
+            withIcon
+            hide
+            placeholder="Type password..."
+          />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
         <Button text="Sign in" click={login} />

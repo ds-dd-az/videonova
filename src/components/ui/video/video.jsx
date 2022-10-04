@@ -29,9 +29,6 @@ export default function Video(props) {
      * description
      */
     videoDescription: propTypes.string,
-    /**
-     * visibility of big player
-     */
   }
 
   Video.defaultProps = {

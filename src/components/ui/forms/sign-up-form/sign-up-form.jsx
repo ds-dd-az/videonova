@@ -1,39 +1,60 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React from "react"
+/* eslint-disable jsx-a11y/label-has-associated-control,react-hooks/exhaustive-deps */
+import React, { useEffect, useId } from "react"
 import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 
 export default function SignUp() {
+  const name = useId()
+  const password = useId()
+  const repeatPassword = useId()
+  let nameField
+  let passwordField
+  let confirmPassField
+  useEffect(() => {
+    nameField = document.getElementById(`${name}`)
+    passwordField = document.getElementById(`${password}`)
+    confirmPassField = document.getElementById(`${repeatPassword}`)
+  })
   const dispatch = useDispatch()
-  function login() {
-    dispatch({
-      type: "user/authorise",
-      payload: { userName: "mega user", userId: 35 },
-    })
-    dispatch({
-      type: "form/hide",
-    })
+  function register() {
+    if (passwordField.value === confirmPassField.value) {
+      dispatch({
+        type: "user/authorise",
+        payload: {
+          userName: `${nameField.value}`,
+          userId: 35,
+          password: `${passwordField.value}`,
+        },
+      })
+      dispatch({
+        type: "form/hide",
+      })
+    } else alert("password must be the same")
   }
   return (
     <div className="sign-up">
       <h1>Sign Up</h1>
       <form>
-        <label>
+        <label htmlFor={name}>
           Name
-          <InputField placeholder="Type name..." />
+          <InputField id={name} placeholder="Type name..." />
         </label>
-        <label>
+        <label htmlFor={password}>
           Password
-          <InputField hide placeholder="Type password..." />
+          <InputField hide id={password} placeholder="Type password..." />
         </label>
-        <label>
+        <label htmlFor={repeatPassword}>
           Repeat Password
-          <InputField hide anotherid placeholder="Repeat password..." />
+          <InputField
+            hide
+            id={repeatPassword}
+            placeholder="Repeat password..."
+          />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button text="Sign up" click={login} />
+        <Button text="Sign up" click={register} />
         Already have an account? Sign in
       </form>
     </div>
