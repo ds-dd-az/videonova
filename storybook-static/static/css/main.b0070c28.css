@@ -1,0 +1,30 @@
+.button{
+  display: flex;
+  background: #5B4DFF;
+  border-radius: 44px;
+  color: white;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 56px;
+  gap: 10px;
+  min-width: 166px;
+  height: 54px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.button_secondary{
+  height: 54px;
+  background: none;
+  border: 2px solid #5B4DFF;
+  color: #5B4DFF;
+}
+
+.button_disabled{
+  background: rgba(91, 77, 255, 0.6);
+  pointer-events: none;
+}
+
+
+/*# sourceMappingURL=main.b0070c28.css.map*/
