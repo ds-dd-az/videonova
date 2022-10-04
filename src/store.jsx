@@ -6,12 +6,14 @@ import propTypes from "prop-types"
 import { reducer as userReducer } from "./modules/user/index"
 import { reducer as formReducer } from "./modules/form/index"
 import { reducer as videoReducer } from "./modules/video/index"
+import { reducer as dataReducer } from "./modules/userdata/index"
 
 export const store = configureStore({
   reducer: {
     user: userReducer,
     form: formReducer,
     video: videoReducer,
+    data: dataReducer,
   },
 })
 
