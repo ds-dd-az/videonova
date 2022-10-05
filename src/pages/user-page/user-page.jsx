@@ -6,7 +6,6 @@ import UserIcon from "../../components/ui/user-icon/user-icon"
 import Button from "../../components/ui/button/button"
 import VidIcon from "./video-icon.png"
 import { selectUserName } from "../../modules/user"
-import getUserData from "../../api/users"
 
 const vidIcon = {
   src: VidIcon,
@@ -14,7 +13,6 @@ const vidIcon = {
 }
 
 export default function UserPage() {
-  getUserData()
   const userName = useSelector(selectUserName)
   const dispatch = useDispatch()
   function showForm() {

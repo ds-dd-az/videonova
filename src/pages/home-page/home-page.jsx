@@ -5,6 +5,7 @@ import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
 // eslint-disable-next-line import/order
 import { useDispatch } from "react-redux"
+import getUserData from "../../api/users"
 
 const star = {
   src: StarImage,
@@ -13,6 +14,14 @@ const star = {
 
 export default function HomePage() {
   const dispatch = useDispatch()
+  async function dispatchUsers() {
+    const users = await getUserData()
+    dispatch({
+      type: "data/getData",
+      payload: users,
+    })
+  }
+  dispatchUsers()
   function signInForm() {
     dispatch({
       type: "form/show",
