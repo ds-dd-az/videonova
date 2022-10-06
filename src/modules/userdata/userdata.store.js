@@ -12,6 +12,12 @@ const userDataSlice = createSlice({
     getData(state, action) {
       state.allUsers = action.payload
     },
+    addUser(state, action) {
+      state.allUsers.push(action.payload)
+    },
+    delUser(state) {
+      state.allUsers.pop()
+    },
   },
 })
 
