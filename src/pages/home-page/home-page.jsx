@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
@@ -7,12 +8,12 @@ import UserCard from "../../components/ui/user-card/user-card"
 import { useDispatch } from "react-redux"
 import getUserData from "../../api/users"
 import getVideos from "../../api/videos"
+import { SelectUsers } from "../../modules/userdata"
 
 const star = {
   src: StarImage,
   alt: "",
 }
-
 export default function HomePage() {
   const dispatch = useDispatch()
   async function dispatchVideos() {
@@ -22,6 +23,7 @@ export default function HomePage() {
       payload: videos,
     })
   }
+  let allUsers
   async function dispatchUsers() {
     const users = await getUserData()
     dispatch({
@@ -55,9 +57,6 @@ export default function HomePage() {
               <img src={star.src} alt={star.alt} />
             </div>
             <div className="best-creators__users">
-              <UserCard />
-              <UserCard />
-              <UserCard />
               <UserCard />
             </div>
           </div>
