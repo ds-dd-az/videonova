@@ -6,6 +6,7 @@ import UserCard from "../../components/ui/user-card/user-card"
 // eslint-disable-next-line import/order
 import { useDispatch } from "react-redux"
 import getUserData from "../../api/users"
+import getVideos from "../../api/videos"
 
 const star = {
   src: StarImage,
@@ -14,6 +15,13 @@ const star = {
 
 export default function HomePage() {
   const dispatch = useDispatch()
+  async function dispatchVideos() {
+    const videos = await getVideos()
+    dispatch({
+      type: "data/getVideos",
+      payload: videos,
+    })
+  }
   async function dispatchUsers() {
     const users = await getUserData()
     dispatch({
@@ -22,6 +30,7 @@ export default function HomePage() {
     })
   }
   dispatchUsers()
+  dispatchVideos()
   function signInForm() {
     dispatch({
       type: "form/show",

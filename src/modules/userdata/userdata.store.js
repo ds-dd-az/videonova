@@ -13,7 +13,7 @@ const userDataSlice = createSlice({
     getUsers(state, action) {
       state.allUsers = action.payload
     },
-    getVids(state, action) {
+    getVideos(state, action) {
       state.videos = action.payload
     },
     addUser(state, action) {
