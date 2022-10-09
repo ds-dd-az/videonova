@@ -3,14 +3,18 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   allUsers: {},
+  videos: {},
 }
 
 const userDataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    getData(state, action) {
+    getUsers(state, action) {
       state.allUsers = action.payload
+    },
+    getVids(state, action) {
+      state.videos = action.payload
     },
     addUser(state, action) {
       state.allUsers.push(action.payload)

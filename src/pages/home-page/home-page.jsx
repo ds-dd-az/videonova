@@ -17,7 +17,7 @@ export default function HomePage() {
   async function dispatchUsers() {
     const users = await getUserData()
     dispatch({
-      type: "data/getData",
+      type: "data/getUsers",
       payload: users,
     })
   }
