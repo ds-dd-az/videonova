@@ -1,15 +1,27 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { useDispatch } from "react-redux"
+import getVideos from "../../api/videos"
 
 const initialState = {
   allUsers: {},
   videos: {},
 }
 
+export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
+  const dispatch = useDispatch()
+  const videos = await getVideos()
+  dispatch({
+    type: "data/getVideos",
+    payload: videos,
+  })
+})
+
 const userDataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
+    fetchUsers() {},
     getUsers(state, action) {
       state.allUsers = action.payload
     },
