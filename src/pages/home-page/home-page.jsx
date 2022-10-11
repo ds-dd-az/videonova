@@ -23,9 +23,7 @@ export default function HomePage() {
       payload: videos,
     })
   }
-  dispatch({
-    type: "data/fetchUsers",
-  })
+  dispatch(fetchUsers())
   /* let allUsers
   async function dispatchUsers() {
     const users = await getUserData()

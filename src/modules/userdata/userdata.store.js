@@ -1,7 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { useDispatch } from "react-redux"
-import getVideos from "../../api/videos"
+import getUsers from "../../api/users"
 
 const initialState = {
   allUsers: {},
@@ -9,31 +8,27 @@ const initialState = {
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
-  const dispatch = useDispatch()
-  const videos = await getVideos()
-  dispatch({
-    type: "data/getVideos",
-    payload: videos,
-  })
+  const users = await fetch(
+    "https://wonderful-app-lmk4d.cloud.serverless.com/user"
+  )
+  return users.json()
 })
 
 const userDataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    fetchUsers() {},
-    getUsers(state, action) {
-      state.allUsers = action.payload
-    },
-    getVideos(state, action) {
-      state.videos = action.payload
-    },
     addUser(state, action) {
       state.allUsers.push(action.payload)
     },
     delUser(state) {
       state.allUsers.pop()
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchUsers.fulfilled, (state, action) => {
+      state.allUsers = action.payload
+    })
   },
 })
 
