@@ -1,12 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-// eslint-disable-next-line import/order
-import { useDispatch, useSelector } from "react-redux"
-import getUserData from "../../api/users"
 import getVideos from "../../api/videos"
 import { SelectUsers, fetchUsers } from "../../modules/userdata"
 
@@ -40,6 +38,7 @@ export default function HomePage() {
       payload: "signIn",
     })
   }
+  console.log(SelectUsers())
   return (
     <Layout>
       <div className="page-block">

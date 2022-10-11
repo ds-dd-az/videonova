@@ -8,10 +8,8 @@ const initialState = {
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
-  const users = await fetch(
-    "https://wonderful-app-lmk4d.cloud.serverless.com/user"
-  )
-  return users.json()
+  const users = await getUsers()
+  return users
 })
 
 const userDataSlice = createSlice({
