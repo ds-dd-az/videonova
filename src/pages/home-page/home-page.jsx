@@ -1,12 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react"
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
 import getVideos from "../../api/videos"
-import { SelectUsers, fetchUsers } from "../../modules/userdata"
+import {
+  SelectUsers,
+  fetchUsers,
+  selectAllVideos,
+} from "../../modules/userdata"
 
 const star = {
   src: StarImage,
@@ -14,6 +18,7 @@ const star = {
 }
 export default function HomePage() {
   const dispatch = useDispatch()
+  dispatch(fetchUsers())
   async function dispatchVideos() {
     const videos = await getVideos()
     dispatch({
@@ -21,7 +26,6 @@ export default function HomePage() {
       payload: videos,
     })
   }
-  dispatch(fetchUsers())
   /* let allUsers
   async function dispatchUsers() {
     const users = await getUserData()
@@ -38,7 +42,9 @@ export default function HomePage() {
       payload: "signIn",
     })
   }
-  console.log(SelectUsers())
+  dispatch({ type: "data/addUser", payload: {} })
+  const users = useSelector((state) => state.data.allUsers)
+  console.log(users)
   return (
     <Layout>
       <div className="page-block">
