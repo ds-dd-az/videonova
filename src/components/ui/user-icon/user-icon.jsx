@@ -3,7 +3,7 @@ import "./style.css"
 import propTypes from "prop-types"
 
 export default function UserIcon(props) {
-  const { size, className } = props
+  const { size, className, src } = props
   const userIconClasses = className
     ? ["user-icon", ...className.split(" ")]
     : ["user-icon"]
@@ -18,6 +18,10 @@ export default function UserIcon(props) {
      * class name of icon
      */
     className: propTypes.string,
+    /**
+     * source of userIcon
+     */
+    src: propTypes.string.isRequired,
   }
 
   UserIcon.defaultProps = {
@@ -29,7 +33,7 @@ export default function UserIcon(props) {
   }
   return (
     <div className={userIconClasses.join(" ")}>
-      <img src="https://picsum.photos/200" alt="your avatar" />
+      <img src={src} alt="your avatar" />
     </div>
   )
 }

@@ -5,7 +5,7 @@ import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-import { SelectUsers, selectVideos } from "../../modules/userdata"
+import { SelectUsers } from "../../modules/userdata"
 
 const star = {
   src: StarImage,
@@ -20,7 +20,6 @@ export default function HomePage() {
     })
   }
   const users = useSelector(SelectUsers)
-  console.log(users)
   return (
     <Layout>
       <div className="page-block">
@@ -39,7 +38,14 @@ export default function HomePage() {
               <img src={star.src} alt={star.alt} />
             </div>
             <div className="best-creators__users">
-              <UserCard />
+              {users.forEach.map(({ userName, id, userPic }) => (
+                <UserCard
+                  key={id}
+                  name={userName}
+                  userId={id}
+                  iconSrc={userPic}
+                />
+              ))}
             </div>
           </div>
         </div>
