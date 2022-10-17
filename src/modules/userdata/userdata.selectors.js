@@ -1,5 +1,3 @@
-import { useSelector } from "react-redux"
-
 export const rootSelector = (state) => state
 
 export const SelectUsers = (state) => state.data.allUsers

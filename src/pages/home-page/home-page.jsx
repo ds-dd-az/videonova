@@ -18,7 +18,6 @@ const star = {
 }
 export default function HomePage() {
   const dispatch = useDispatch()
-  dispatch(fetchUsers())
   async function dispatchVideos() {
     const videos = await getVideos()
     dispatch({
@@ -26,15 +25,6 @@ export default function HomePage() {
       payload: videos,
     })
   }
-  /* let allUsers
-  async function dispatchUsers() {
-    const users = await getUserData()
-    dispatch({
-      type: "data/getUsers",
-      payload: users,
-    })
-  }
-  dispatchUsers() */
   dispatchVideos()
   function signInForm() {
     dispatch({
@@ -42,8 +32,10 @@ export default function HomePage() {
       payload: "signIn",
     })
   }
-  dispatch({ type: "data/addUser", payload: {} })
-  const users = useSelector((state) => state.data.allUsers)
+  useEffect(() => {
+    dispatch(fetchUsers())
+  }, [])
+  const users = useSelector(SelectUsers)
   console.log(users)
   return (
     <Layout>
