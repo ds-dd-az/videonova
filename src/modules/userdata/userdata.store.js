@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import getUsers from "../../api/users"
+import getVideos from "../../api/videos"
 
 const initialState = {
   allUsers: {},
@@ -9,6 +10,11 @@ const initialState = {
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
   const users = await getUsers()
+  return users
+})
+
+export const fetchVideos = createAsyncThunk("data/fetchVideos", async () => {
+  const users = await getVideos()
   return users
 })
 
@@ -26,6 +32,9 @@ const userDataSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
       state.allUsers = action.payload
+    })
+    builder.addCase(fetchVideos.fulfilled, (state, action) => {
+      state.videos = action.payload
     })
   },
 })

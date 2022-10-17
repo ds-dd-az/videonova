@@ -1,16 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { useEffect } from "react"
+import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-import getVideos from "../../api/videos"
-import {
-  SelectUsers,
-  fetchUsers,
-  selectAllVideos,
-} from "../../modules/userdata"
+import { SelectUsers, selectVideos } from "../../modules/userdata"
 
 const star = {
   src: StarImage,
@@ -18,14 +13,6 @@ const star = {
 }
 export default function HomePage() {
   const dispatch = useDispatch()
-  async function dispatchVideos() {
-    const videos = await getVideos()
-    dispatch({
-      type: "data/getVideos",
-      payload: videos,
-    })
-  }
-  dispatchVideos()
   function signInForm() {
     dispatch({
       type: "form/show",
