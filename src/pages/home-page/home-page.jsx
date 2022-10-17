@@ -32,9 +32,6 @@ export default function HomePage() {
       payload: "signIn",
     })
   }
-  useEffect(() => {
-    dispatch(fetchUsers())
-  }, [])
   const users = useSelector(SelectUsers)
   console.log(users)
   return (
