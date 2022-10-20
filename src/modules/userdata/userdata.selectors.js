@@ -1,3 +1,5 @@
 export const rootSelector = (state) => state
 
-export const selectAllUsers = (state) => state.allUsers
+export const SelectUsers = (state) => state.data.allUsers
+
+export const selectVideos = (state) => state.data.videos

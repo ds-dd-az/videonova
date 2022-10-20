@@ -1,42 +1,34 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-// eslint-disable-next-line import/order
-import { useDispatch } from "react-redux"
-import getUserData from "../../api/users"
-import getVideos from "../../api/videos"
+import { SelectUsers } from "../../modules/userdata"
 
 const star = {
   src: StarImage,
   alt: "",
 }
-
 export default function HomePage() {
   const dispatch = useDispatch()
-  async function dispatchVideos() {
-    const videos = await getVideos()
-    dispatch({
-      type: "data/getVideos",
-      payload: videos,
-    })
-  }
-  async function dispatchUsers() {
-    const users = await getUserData()
-    dispatch({
-      type: "data/getUsers",
-      payload: users,
-    })
-  }
-  dispatchUsers()
-  dispatchVideos()
   function signInForm() {
     dispatch({
       type: "form/show",
       payload: "signIn",
     })
   }
+  const users = useSelector(SelectUsers)
+  const val = users.values()
+  // users.map(({ userPic, id, userName }) => console.log(userPic, id, userName))
+  // console.log(val)
+  // users.forEach((element) => console.log(element.userPic))
+  const renderUsers = users.map((element) => (
+    <UserCard data={element} key={element.id} />
+  ))
+  console.log(renderUsers)
+
   return (
     <Layout>
       <div className="page-block">
@@ -54,12 +46,7 @@ export default function HomePage() {
               <h2>Best creators</h2>
               <img src={star.src} alt={star.alt} />
             </div>
-            <div className="best-creators__users">
-              <UserCard />
-              <UserCard />
-              <UserCard />
-              <UserCard />
-            </div>
+            <div className="best-creators__users">{renderUsers}</div>
           </div>
         </div>
       </div>
