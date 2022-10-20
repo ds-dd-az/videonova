@@ -21,19 +21,9 @@ export default function HomePage() {
   }
   const users = useSelector(SelectUsers)
   const val = users.values()
-  console.log(users)
-  console.log(val)
-  users.forEach((element) => console.log(element.id))
-  function renderUsers() {
-    users.forEach((element) => (
-      <UserCard
-        key={element.id}
-        name={element.userName}
-        userId={element.id}
-        iconSrc={element.userPic}
-      />
-    ))
-  }
+  users.map(({ userPic, id, userName }) => console.log(userPic, id, userName))
+  // console.log(val)
+  // users.forEach((element) => console.log(element.userPic))
   return (
     <Layout>
       <div className="page-block">
@@ -51,7 +41,20 @@ export default function HomePage() {
               <h2>Best creators</h2>
               <img src={star.src} alt={star.alt} />
             </div>
-            <div className="best-creators__users">{renderUsers()}</div>
+            <div className="best-creators__users">
+              {users.map(({ userPic, id, userName }) => (
+                <div>
+                  {" "}
+                  {userPic} {id} {userName}{" "}
+                </div>
+                /** <UserCard
+                  iconSrc={userPic.toString}
+                  key={id.toString}
+                  name={userName.toString}
+                  userId={id.toString}
+                /> * */
+              ))}
+            </div>
           </div>
         </div>
       </div>
