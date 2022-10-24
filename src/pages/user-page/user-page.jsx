@@ -6,6 +6,7 @@ import UserIcon from "../../components/ui/user-icon/user-icon"
 import Button from "../../components/ui/button/button"
 import VidIcon from "./video-icon.png"
 import { selectUserName } from "../../modules/user"
+import { selectVideos } from "../../modules/userdata"
 
 const vidIcon = {
   src: VidIcon,
@@ -21,6 +22,10 @@ export default function UserPage() {
       payload: "addVideo",
     })
   }
+  const videos = useSelector(selectVideos)
+  const renderVideos = videos.map((element) => (
+    <Video data={element} key={element.id} />
+  ))
   return (
     <Layout>
       <div className="page-block">
@@ -37,16 +42,7 @@ export default function UserPage() {
             {/* eslint-disable-next-line react/jsx-no-bind */}
             <Button text="Add video" click={showForm} />
           </div>
-          <div className="videos">
-            <Video videoUrl="https://www.youtube.com/watch?v=F0DbezQV8Gk" />
-            <Video videoUrl="https://www.youtube.com/watch?v=087gJdYkYF0" />
-            <Video videoUrl="https://www.youtube.com/watch?v=087gJdYkYF0" />
-            <Video videoUrl="https://www.youtube.com/watch?v=BsJCT4UGpwo" />
-            <Video videoUrl="https://www.youtube.com/watch?v=F0DbezQV8Gk" />
-            <Video videoUrl="https://www.youtube.com/watch?v=087gJdYkYF0" />
-            <Video videoUrl="https://www.youtube.com/watch?v=087gJdYkYF0" />
-            <Video videoUrl="https://www.youtube.com/watch?v=BsJCT4UGpwo" />
-          </div>
+          <div className="videos">{renderVideos}</div>
         </div>
       </div>
     </Layout>
