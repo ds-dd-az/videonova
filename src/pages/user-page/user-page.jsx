@@ -15,7 +15,6 @@ const vidIcon = {
 export default function UserPage() {
   const dispatch = useDispatch()
   const pageId = window.location.href.split("user/")[1]
-  console.log(pageId)
   function showForm() {
     dispatch({
       type: "form/show",
@@ -26,11 +25,14 @@ export default function UserPage() {
   const owner = users.find((value) => value.id === pageId)
   const allVideos = useSelector(SelectVideos)
   const usersVideos = allVideos.filter((value) => value.userId === pageId)
-  console.log(usersVideos)
-  const renderVideos = usersVideos.map((element) => (
-    <Video data={element} key={element.id} />
-  ))
-
+  let renderVideos
+  if (usersVideos.length > 0) {
+    renderVideos = usersVideos.map((element) => (
+      <Video data={element} key={element.id} />
+    ))
+  } else {
+    renderVideos = <h1>Nothing here.. yet</h1>
+  }
   return (
     <Layout>
       <div className="page-block">
