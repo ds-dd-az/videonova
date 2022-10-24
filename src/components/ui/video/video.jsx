@@ -20,13 +20,11 @@ export default function Video({ data }) {
     videoId = url.split("embed/")[1]
   } else {
     videoId = url.split("v=")[1]
-    console.log(videoId)
     if (videoId.includes("&")) {
       const ampersandPosition = videoId.indexOf("&")
       videoId = videoId.substring(0, ampersandPosition)
     }
   }
-
   const [visibility, setVisibility] = useState(false)
   function toggleVisibility() {
     setVisibility(!visibility)

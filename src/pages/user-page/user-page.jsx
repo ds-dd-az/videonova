@@ -5,8 +5,7 @@ import Video from "../../components/ui/video/video"
 import UserIcon from "../../components/ui/user-icon/user-icon"
 import Button from "../../components/ui/button/button"
 import VidIcon from "./video-icon.png"
-import { selectUserName } from "../../modules/user"
-import { selectVideos } from "../../modules/userdata"
+import { SelectVideos, SelectUsers } from "../../modules/userdata"
 
 const vidIcon = {
   src: VidIcon,
@@ -14,15 +13,19 @@ const vidIcon = {
 }
 
 export default function UserPage() {
-  const userName = useSelector(selectUserName)
   const dispatch = useDispatch()
+  const pageId = window.location.href.split("user/")[1]
+  console.log(pageId)
   function showForm() {
     dispatch({
       type: "form/show",
       payload: "addVideo",
     })
   }
-  const videos = useSelector(selectVideos)
+  const users = useSelector(SelectUsers)
+  const owner = users.find((value, index) => value.id === pageId)
+  console.log(owner)
+  const videos = useSelector(SelectVideos)
   const renderVideos = videos.map((element) => (
     <Video data={element} key={element.id} />
   ))
@@ -30,13 +33,13 @@ export default function UserPage() {
     <Layout>
       <div className="page-block">
         <div className="user">
-          <UserIcon size="big" />
-          <h1>{userName}</h1>
+          <UserIcon iconSrc={owner.userPic} size="big" />
+          <h1>{owner.userName}</h1>
         </div>
         <div className="user-videos">
           <div className="user-videos__header">
             <div className="videos-text">
-              <h2>{userName}s videos</h2>
+              <h2>{owner.userName}s videos</h2>
               <img src={vidIcon.src} alt={vidIcon.alt} />
             </div>
             {/* eslint-disable-next-line react/jsx-no-bind */}
