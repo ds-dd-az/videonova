@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react"
 import "./style.css"
-import { propTypes } from "prop-types"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
 import UserStats from "./user-card__stats/user-card__stats"

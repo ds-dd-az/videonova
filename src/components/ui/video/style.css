@@ -3,8 +3,9 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: fit-content;
+  width: 314px;
   height: fit-content;
+  flex-wrap: wrap;
 }
 
 .thumbnail-wrapper{
@@ -50,6 +51,9 @@
   left: 0;
   width: 100vw;
   min-height: 150vh;
+  background-color: black;
+  opacity: 50%;
+  z-index: 1;
 }
 
 

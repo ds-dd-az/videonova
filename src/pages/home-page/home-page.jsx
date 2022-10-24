@@ -20,14 +20,9 @@ export default function HomePage() {
     })
   }
   const users = useSelector(SelectUsers)
-  const val = users.values()
-  // users.map(({ userPic, id, userName }) => console.log(userPic, id, userName))
-  // console.log(val)
-  // users.forEach((element) => console.log(element.userPic))
   const renderUsers = users.map((element) => (
     <UserCard data={element} key={element.id} />
   ))
-  console.log(renderUsers)
 
   return (
     <Layout>

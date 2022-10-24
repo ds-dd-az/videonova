@@ -1,6 +1,7 @@
+/* eslint-disable prefer-destructuring */
+/* eslint-disable react/prop-types */
 import React, { useState } from "react"
 import ReactPlayer from "react-player"
-import propTypes from "prop-types"
 import "./style.css"
 import Play from "./play-icon.png"
 
@@ -9,32 +10,20 @@ const play = {
   alt: "",
 }
 
-export default function Video(props) {
-  const { videoUrl, videoName, videoDescription } = props
-  let videoId = videoUrl.split("v=")[1]
-  const ampersandPosition = videoId.indexOf("&")
-  if (ampersandPosition !== -1) {
-    videoId = videoId.substring(0, ampersandPosition)
-  }
-  Video.propTypes = {
-    /**
-     * url of video that will be shown
-     */
-    videoUrl: propTypes.string,
-    /**
-     * name of video
-     */
-    videoName: propTypes.string,
-    /**
-     * description
-     */
-    videoDescription: propTypes.string,
-  }
-
-  Video.defaultProps = {
-    videoUrl: "https://www.youtube.com/watch?v=VSNb6944cE8",
-    videoName: "Your great video",
-    videoDescription: "very great video, everyone likes it",
+export default function Video({ data }) {
+  // eslint-disable-next-line prefer-destructuring
+  const url = data.url
+  let videoId
+  if (url.includes("youtu.be")) {
+    videoId = url.split("youtu.be/")[1]
+  } else if (url.includes("embed/")) {
+    videoId = url.split("embed/")[1]
+  } else {
+    videoId = url.split("v=")[1]
+    if (videoId.includes("&")) {
+      const ampersandPosition = videoId.indexOf("&")
+      videoId = videoId.substring(0, ampersandPosition)
+    }
   }
   const [visibility, setVisibility] = useState(false)
   function toggleVisibility() {
@@ -48,7 +37,7 @@ export default function Video(props) {
         <div className="closing-div" onClick={toggleVisibility} role="button" />
         <ReactPlayer
           className="react-player"
-          url={videoUrl}
+          url={data.url}
           width="854px"
           height="480px"
           playing
@@ -74,8 +63,8 @@ export default function Video(props) {
           </div>
           <img src={`https://img.youtube.com/vi/${videoId}/0.jpg`} alt="" />
         </div>
-        <h3>{videoName}</h3>
-        {videoDescription}
+        <h3>{data.title}</h3>
+        {data.description}
       </div>
     )
   }
@@ -94,8 +83,8 @@ export default function Video(props) {
         </div>
         <img src={`https://img.youtube.com/vi/${videoId}/0.jpg`} alt="" />
       </div>
-      <h3>{videoName}</h3>
-      {videoDescription}
+      <h3>{data.title}</h3>
+      {data.description}
     </div>
   )
 }
