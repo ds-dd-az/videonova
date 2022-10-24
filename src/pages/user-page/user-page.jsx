@@ -23,12 +23,14 @@ export default function UserPage() {
     })
   }
   const users = useSelector(SelectUsers)
-  const owner = users.find((value, index) => value.id === pageId)
-  console.log(owner)
-  const videos = useSelector(SelectVideos)
-  const renderVideos = videos.map((element) => (
+  const owner = users.find((value) => value.id === pageId)
+  const allVideos = useSelector(SelectVideos)
+  const usersVideos = allVideos.filter((value) => value.userId === pageId)
+  console.log(usersVideos)
+  const renderVideos = usersVideos.map((element) => (
     <Video data={element} key={element.id} />
   ))
+
   return (
     <Layout>
       <div className="page-block">
