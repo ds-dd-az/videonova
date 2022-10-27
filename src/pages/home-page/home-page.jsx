@@ -5,7 +5,7 @@ import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-import { SelectUsers } from "../../modules/userdata"
+import { SelectUsers, SelectVideos } from "../../modules/userdata"
 
 const star = {
   src: StarImage,
@@ -20,9 +20,17 @@ export default function HomePage() {
     })
   }
   const users = useSelector(SelectUsers)
-  const renderUsers = users.map((element) => (
-    <UserCard data={element} key={element.id} />
-  ))
+  const videos = useSelector(SelectVideos)
+  const renderUsers = users.map((element) => {
+    const countVideos = videos.filter((value) => value.userId === element.id)
+    return (
+      <UserCard
+        vidAmount={countVideos.length}
+        data={element}
+        key={element.id}
+      />
+    )
+  })
 
   return (
     <Layout>
