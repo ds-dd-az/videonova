@@ -1,10 +1,12 @@
 .user-card{
+  box-sizing: border-box;
   display: flex;
-  height: fit-content;
-  width: fit-content;
+  max-height: fit-content;
+  max-width: 290px;
   padding: 35px 35px;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   background: #E6E8FF;
   border-radius: 14px;
@@ -13,8 +15,8 @@
 .user-card h3{
   padding-top: -7px;
   display: flex;
-  flex-wrap: wrap;
-  font-size: 25px;
+  flex-wrap: nowrap;
+  font-size: 1.538vw;
 }
 
 .user-card .user-card__stats{
