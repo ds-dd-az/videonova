@@ -5,7 +5,7 @@ import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
 import UserStats from "./user-card__stats/user-card__stats"
 
-export default function UserCard({ data }) {
+export default function UserCard({ data, vidAmount, likeAmount }) {
   function redirect() {
     window.location.href = `http://localhost:3000/user/${data.id}`
   }
@@ -14,7 +14,7 @@ export default function UserCard({ data }) {
     <div className="user-card">
       <UserIcon iconSrc={data.userPic} size="medium" />
       <h3>{data.userName}</h3>
-      <UserStats />
+      <UserStats videos={vidAmount} likes={likeAmount} />
       {/* eslint-disable-next-line react/jsx-no-bind */}
       <Button text="To profile" click={redirect} />
     </div>
