@@ -31,7 +31,7 @@ export default function SignUp() {
       dispatch({
         type: "form/hide",
       })
-    } else alert("password must be the same")
+    } else alert("passwords must be the same")
   }
   return (
     <div className="sign-up">
