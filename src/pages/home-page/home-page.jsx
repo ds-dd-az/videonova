@@ -6,7 +6,12 @@ import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-import { SelectUsers, SelectVideos, registerUser } from "../../modules/userdata"
+import {
+  SelectUsers,
+  SelectVideos,
+  registerUser,
+  fetchUsers,
+} from "../../modules/userdata"
 
 const star = {
   src: StarImage,
@@ -23,10 +28,11 @@ export default function HomePage() {
   function testReg() {
     dispatch(
       registerUser({
-        username: "kocubinskiy",
+        username: "cei son",
         password: "1111",
       })
     )
+    dispatch(fetchUsers())
   }
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)
