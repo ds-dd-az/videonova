@@ -5,13 +5,22 @@ export async function getUsers() {
   return response.json()
 }
 
-export async function postUser(data) {
+// eslint-disable-next-line consistent-return
+export async function postUser(userdata) {
   const response = await fetch(
     "https://wonderful-app-lmk4d.cloud.serverless.com/register",
     {
       method: "POST",
-      body: data,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userdata),
     }
   )
-  return response.json()
+  if (response.ok) {
+    console.log(response)
+    return response.json()
+  }
+  console.log(response)
+  console.log("eeeee")
 }

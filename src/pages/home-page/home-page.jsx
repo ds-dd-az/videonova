@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -5,7 +6,7 @@ import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-import { SelectUsers, SelectVideos } from "../../modules/userdata"
+import { SelectUsers, SelectVideos, registerUser } from "../../modules/userdata"
 
 const star = {
   src: StarImage,
@@ -18,6 +19,14 @@ export default function HomePage() {
       type: "form/show",
       payload: "signIn",
     })
+  }
+  function testReg() {
+    dispatch(
+      registerUser({
+        username: "kocubinskiy",
+        password: "1111",
+      })
+    )
   }
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)
@@ -40,8 +49,8 @@ export default function HomePage() {
             <h1>Welcome to VideoNova</h1>
             Create videos with single click. Add subtitles, transcribe audio and
             more
-            {/* eslint-disable-next-line react/jsx-no-bind */}
             <Button text="Start Now" click={signInForm} />
+            <Button text="regoleg" click={testReg} />
           </div>
 
           <div className="best-creators">
