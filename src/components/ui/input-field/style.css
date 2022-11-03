@@ -6,7 +6,12 @@
   background: #E9EEF8;
   border-radius: 14px;
   padding: 24px;
+  border: none;
+}
 
+textarea:focus, input:focus{
+  border: #576783 4px solid;
+  outline: none;
 }
 
 .field_big{
@@ -17,5 +22,9 @@
 .field-wrapper{
   display: flex;
   position: relative;
+}
+
+.field_red{
+  border: salmon 4px solid;
 }
 

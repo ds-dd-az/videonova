@@ -4,7 +4,7 @@ import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
 
 export default function InputField(props) {
-  const { isBig, hide, placeholder, withIcon, id } = props
+  const { isBig, hide, placeholder, withIcon, error, id } = props
   const [input, setInput] = useState("")
   InputField.propTypes = {
     /**
@@ -24,25 +24,32 @@ export default function InputField(props) {
      */
     withIcon: propTypes.bool,
     /**
-     * provides another id
+     * provides unique id
      */
-    id: propTypes.string,
+    id: propTypes.string.isRequired,
+    /**
+     *  turns error effect on
+     */
+    error: propTypes.bool,
   }
   InputField.defaultProps = {
     isBig: false,
     hide: false,
     placeholder: "insert text please",
     withIcon: false,
-    id: undefined,
+    error: false,
   }
   const [hiding, setHiding] = useState(true)
   function changeHide() {
     setHiding(!hiding)
   }
   const type = hiding ? "password" : "text"
-  const Styles = ["field"]
+  const styles = ["field"]
+  if (error) {
+    styles.push("field_red")
+  }
   if (isBig) {
-    Styles.push("field_big")
+    styles.push("field_big")
     return (
       <div>
         <textarea
@@ -50,7 +57,7 @@ export default function InputField(props) {
           value={input}
           onInput={(e) => setInput(e.target.value)}
           maxLength={445}
-          className={Styles.join(" ")}
+          className={styles.join(" ")}
           placeholder={placeholder}
         />
       </div>
@@ -64,7 +71,7 @@ export default function InputField(props) {
             id={id}
             value={input}
             onInput={(e) => setInput(e.target.value)}
-            className={Styles.join(" ")}
+            className={styles.join(" ")}
             type={type}
             placeholder={placeholder}
           />
@@ -80,7 +87,7 @@ export default function InputField(props) {
           value={input}
           onInput={(e) => setInput(e.target.value)}
           id={id}
-          className={Styles.join(" ")}
+          className={styles.join(" ")}
           type="password"
           placeholder={placeholder}
         />
@@ -94,7 +101,7 @@ export default function InputField(props) {
         value={input}
         onInput={(e) => setInput(e.target.value)}
         id={id}
-        className={Styles.join(" ")}
+        className={styles.join(" ")}
         type="text"
         placeholder={placeholder}
       />

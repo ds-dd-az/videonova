@@ -18,6 +18,7 @@ export default function SignUp() {
     confirmPassField = document.getElementById(`${repeatPassword}`)
   })
   const dispatch = useDispatch()
+  let inputError = false
   function register() {
     if (passwordField.value === confirmPassField.value) {
       dispatch({
@@ -31,7 +32,10 @@ export default function SignUp() {
       dispatch({
         type: "form/hide",
       })
-    } else alert("passwords must be the same")
+    } else {
+      inputError = true
+      console.log(inputError)
+    }
   }
   return (
     <div className="sign-up">
@@ -43,7 +47,12 @@ export default function SignUp() {
         </label>
         <label htmlFor={password}>
           Password
-          <InputField hide id={password} placeholder="Type password..." />
+          <InputField
+            hide
+            id={password}
+            error={inputError}
+            placeholder="Type password..."
+          />
         </label>
         <label htmlFor={repeatPassword}>
           Repeat Password
