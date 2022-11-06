@@ -3,12 +3,14 @@
   display: flex;
   padding: 35px 35px;
   flex-direction: column;
-  flex-wrap: wrap;
   align-items: center;
   background: #E6E8FF;
   border-radius: 14px;
-  flex-basis: 23%;
+  flex-basis: 22%;
   margin-bottom: 38px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
  }
 
  @media screen and (max-width: 1330px) {
@@ -17,9 +19,9 @@
   }
  }
 
- @media screen and (max-width: 1024px) {
+ @media screen and (max-width: 1228px) {
   .user-card {
-    flex-basis: 48%;
+    flex-basis: 47%;
   }
  }
 

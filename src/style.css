@@ -13,7 +13,14 @@ body{
   width: 100%;
   padding: 0 50px 85px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
+
+@media screen and (max-width: 767px) {
+  .page-block{
+    padding: 15px;
+  }
+ }
 
 .home-heading{
   padding-top: 44px;
