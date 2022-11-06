@@ -1,15 +1,32 @@
 .user-card{
   box-sizing: border-box;
   display: flex;
-  max-height: fit-content;
-  max-width: 290px;
   padding: 35px 35px;
   flex-direction: column;
-  justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
   background: #E6E8FF;
   border-radius: 14px;
+  flex-basis: 23%;
+  margin-bottom: 38px;
+ }
+
+ @media screen and (max-width: 1330px) {
+  .user-card {
+    flex-basis: 31%;
+  }
+ }
+
+ @media screen and (max-width: 1024px) {
+  .user-card {
+    flex-basis: 48%;
+  }
+ }
+
+ @media screen and (max-width: 767px) {
+  .user-card {
+    flex-basis: 99%;
+  }
  }
 
 .user-card h3{
