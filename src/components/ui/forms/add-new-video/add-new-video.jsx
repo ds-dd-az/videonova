@@ -35,15 +35,27 @@ export default function VideoForm() {
       <form>
         <label htmlFor={link}>
           Youtube Link
-          <InputField id={link} placeholder="Past link..." />
+          <InputField
+            variant="smallText"
+            id={link}
+            placeholder="Past link..."
+          />
         </label>
         <label htmlFor={videoName}>
           Name of video
-          <InputField id={videoName} placeholder="Type name..." />
+          <InputField
+            variant="smallText"
+            id={videoName}
+            placeholder="Type name..."
+          />
         </label>
         <label htmlFor={videoDesc}>
           Description
-          <InputField id={videoDesc} isBig placeholder="Type description..." />
+          <InputField
+            id={videoDesc}
+            variant="bigText"
+            placeholder="Type description..."
+          />
         </label>
         <div className="form-buttons">
           <Button text="Cancel" secondary click={closeForm} />
