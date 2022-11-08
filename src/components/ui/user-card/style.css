@@ -7,7 +7,6 @@
   background: #E6E8FF;
   border-radius: 14px;
   flex-basis: 22%;
-  margin-bottom: 38px;
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
@@ -19,7 +18,7 @@
   }
  }
 
- @media screen and (max-width: 1228px) {
+ @media screen and (max-width: 1023px) {
   .user-card {
     flex-basis: 47%;
   }
