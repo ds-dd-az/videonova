@@ -4,25 +4,13 @@ import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
 
 export default function InputField(props) {
-  const { isBig, hide, placeholder, withIcon, error, id } = props
+  const { placeholder, error, id, variant } = props
   const [input, setInput] = useState("")
   InputField.propTypes = {
-    /**
-     * size of the input-field
-     */
-    isBig: propTypes.bool,
-    /**
-     * enables hiding of symbols
-     */
-    hide: propTypes.bool,
     /**
      * default text on input field
      */
     placeholder: propTypes.string,
-    /**
-     * adds eye icon to toggle visibility
-     */
-    withIcon: propTypes.bool,
     /**
      * provides unique id
      */
@@ -31,12 +19,13 @@ export default function InputField(props) {
      *  turns error effect on
      */
     error: propTypes.bool,
+    /**
+     * variant of input field
+     */
+    variant: propTypes.oneOf(["password", "smallText", "bigText"]).isRequired,
   }
   InputField.defaultProps = {
-    isBig: false,
-    hide: false,
     placeholder: "insert text please",
-    withIcon: false,
     error: false,
   }
   const [hiding, setHiding] = useState(true)
@@ -48,7 +37,7 @@ export default function InputField(props) {
   if (error) {
     styles.push("field_red")
   }
-  if (isBig) {
+  if (variant === "bigText") {
     styles.push("field_big")
     return (
       <div>
@@ -63,34 +52,19 @@ export default function InputField(props) {
       </div>
     )
   }
-  if (hide) {
-    if (withIcon) {
-      return (
-        <div className="field-wrapper">
-          <input
-            id={id}
-            value={input}
-            onInput={(e) => setInput(e.target.value)}
-            className={styles.join(" ")}
-            type={type}
-            placeholder={placeholder}
-          />
-          {/* eslint-disable-next-line react/jsx-no-bind */}
-          <EyeToggle click={changeHide} />
-        </div>
-      )
-    }
-
+  if (variant === "password") {
     return (
-      <div>
+      <div className="field-wrapper">
         <input
+          id={id}
           value={input}
           onInput={(e) => setInput(e.target.value)}
-          id={id}
           className={styles.join(" ")}
-          type="password"
+          type={type}
           placeholder={placeholder}
         />
+        {/* eslint-disable-next-line react/jsx-no-bind */}
+        <EyeToggle click={changeHide} />
       </div>
     )
   }
