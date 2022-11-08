@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control,react-hooks/exhaustive-deps */
-import React, { useEffect, useId } from "react"
+import React, { useEffect, useId, useState } from "react"
 import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
@@ -17,54 +17,84 @@ export default function SignUp() {
     passwordField = document.getElementById(`${password}`)
     confirmPassField = document.getElementById(`${repeatPassword}`)
   })
+  const [passwordError, setPasswordError] = useState(false)
   const dispatch = useDispatch()
-  let inputError = false
+  function changeForm() {
+    dispatch({
+      type: "form/hide",
+    })
+    dispatch({
+      type: "form/show",
+      payload: "signIn",
+    })
+  }
   function register() {
     if (passwordField.value === confirmPassField.value) {
-      dispatch({
-        type: "user/authorise",
-        payload: {
-          userName: `${nameField.value}`,
-          userId: 35,
-          password: `${passwordField.value}`,
-        },
-      })
+      console.log("user registered")
       dispatch({
         type: "form/hide",
       })
+      setPasswordError(false)
     } else {
-      inputError = true
-      console.log(inputError)
+      setPasswordError(true)
+      console.log(passwordError)
     }
+  }
+  let errorMessage
+  function errorText() {
+    if (passwordError) {
+      errorMessage = "Passwords must be identical"
+      setTimeout(() => setPasswordError(false), 3000)
+      return <h3 style={{ color: "salmon" }}> {errorMessage}</h3>
+    }
+    return null
   }
   return (
     <div className="sign-up">
       <h1>Sign Up</h1>
+      {errorText()}
       <form>
         <label htmlFor={name}>
           Name
-          <InputField id={name} placeholder="Type name..." />
+          <InputField
+            variant="smallText"
+            id={name}
+            placeholder="Type name..."
+          />
         </label>
         <label htmlFor={password}>
           Password
           <InputField
-            hide
+            variant="password"
             id={password}
-            error={inputError}
+            error={passwordError}
             placeholder="Type password..."
           />
         </label>
         <label htmlFor={repeatPassword}>
           Repeat Password
           <InputField
-            hide
+            variant="password"
             id={repeatPassword}
+            error={passwordError}
             placeholder="Repeat password..."
           />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
         <Button text="Sign up" click={register} />
-        Already have an account? Sign in
+        <span>
+          Already have an account?{" "}
+          {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+          /* eslint-disable jsx-a11y/no-static-element-interactions */}
+          <span
+            style={{ color: "blue", cursor: "pointer" }}
+            onClick={changeForm}
+            tabIndex={0}
+            onKeyDown={changeForm}
+          >
+            Sign in
+          </span>
+        </span>
       </form>
     </div>
   )
