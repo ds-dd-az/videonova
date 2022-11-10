@@ -29,7 +29,7 @@ export default function HomePage() {
     dispatch(
       registerUser({
         username: "cei son",
-        password: "1111",
+        password: "1112",
       })
     )
     dispatch(fetchUsers())

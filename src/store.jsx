@@ -18,11 +18,13 @@ import { PersistGate } from "redux-persist/integration/react"
 import { reducer as userReducer } from "./modules/user/index"
 import { reducer as formReducer } from "./modules/form/index"
 import { reducer as dataReducer } from "./modules/userdata/index"
+import { reducer as errorReducer } from "./modules/current_error/index"
 
 const rootReducer = combineReducers({
   user: userReducer,
   form: formReducer,
   data: dataReducer,
+  error: errorReducer,
 })
 const persistConfig = {
   key: "root",
