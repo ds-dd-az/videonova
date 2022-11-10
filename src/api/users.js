@@ -18,8 +18,10 @@ export async function postUser(userdata) {
     }
   )
   if (response.ok) {
-    console.log(response)
     return response.json()
+  }
+  if (response.status === 409) {
+    console.log("hey dats 409")
   }
   console.log(response)
   console.log("eeeee")
