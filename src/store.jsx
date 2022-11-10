@@ -24,7 +24,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   form: formReducer,
   data: dataReducer,
-  error: errorReducer,
+  errors: errorReducer,
 })
 const persistConfig = {
   key: "root",

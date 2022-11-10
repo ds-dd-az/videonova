@@ -2,11 +2,11 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
-  currentError: {},
+  currentError: null,
 }
 
 const errorSlice = createSlice({
-  name: "error",
+  name: "errors",
   initialState,
   reducers: {
     addError(state, action) {
