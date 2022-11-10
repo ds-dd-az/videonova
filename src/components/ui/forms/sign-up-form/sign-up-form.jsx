@@ -3,6 +3,7 @@ import React, { useEffect, useId, useState } from "react"
 import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
+import ErrorMessage from "../form_error/form-error"
 import Button from "../../button/button"
 
 export default function SignUp() {
@@ -40,19 +41,11 @@ export default function SignUp() {
       console.log(passwordError)
     }
   }
-  let errorMessage
-  function errorText() {
-    if (passwordError) {
-      errorMessage = "Passwords must be identical"
-      setTimeout(() => setPasswordError(false), 3000)
-      return <h3 style={{ color: "salmon" }}> {errorMessage}</h3>
-    }
-    return null
-  }
+
   return (
     <div className="sign-up">
       <h1>Sign Up</h1>
-      {errorText()}
+      {ErrorMessage()}
       <form>
         <label htmlFor={name}>
           Name

@@ -1,0 +1,7 @@
+.error-message{
+  line-height: 66px;
+  text-align: center;
+  border-radius: 14px;
+  background-color: salmon;
+  width: 100%;
+}
