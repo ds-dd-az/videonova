@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
 import ErrorMessage from "../form_error/form-error"
 import Button from "../../button/button"
+import { registerUser, fetchUsers } from "../../../../modules/userdata"
 
 export default function SignUp() {
   const name = useId()
@@ -31,7 +32,13 @@ export default function SignUp() {
   }
   function register() {
     if (passwordField.value === confirmPassField.value) {
-      console.log("user registered")
+      dispatch(
+        registerUser({
+          username: nameField.value,
+          password: passwordField.value,
+        })
+      )
+      dispatch(fetchUsers())
       dispatch({
         type: "form/hide",
       })
