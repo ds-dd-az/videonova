@@ -6,7 +6,6 @@ import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-import { SelectError } from "../../modules/current_error"
 import {
   SelectUsers,
   SelectVideos,
@@ -47,8 +46,6 @@ export default function HomePage() {
       />
     )
   })
-  const errors = useSelector(SelectError)
-  console.log(`reror: ${errors}`)
   return (
     <Layout>
       <div className="page-block">

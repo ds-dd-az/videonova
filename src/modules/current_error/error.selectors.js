@@ -1,3 +1,7 @@
 export const rootSelector = (state) => state
 
-export const SelectError = (state) => state.errors.currentError
+export const SelectErrorMessage = (state) => state.errors.errorMessage
+
+export const SelectPasswordError = (state) => state.errors.passwordError
+
+export const SelectNameError = (state) => state.errors.nameError
