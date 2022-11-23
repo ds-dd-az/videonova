@@ -20,18 +20,19 @@ import { reducer as formReducer } from "./modules/form/index"
 import { reducer as dataReducer } from "./modules/userdata/index"
 import { reducer as errorReducer } from "./modules/current_error/index"
 
-const rootReducer = combineReducers({
+const ReducerToPersist = combineReducers({
   user: userReducer,
   form: formReducer,
   data: dataReducer,
   errors: errorReducer,
 })
+
 const persistConfig = {
   key: "root",
   storage,
 }
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer(persistConfig, ReducerToPersist)
 
 export const store = configureStore({
   reducer: persistedReducer,
