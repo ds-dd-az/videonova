@@ -18,6 +18,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "react-select": "^5.3.2",
+    "reduce-reducers": "^1.0.4",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
     "storybook-addon-react-router-v6": "^0.1.10",
