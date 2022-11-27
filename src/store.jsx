@@ -24,7 +24,6 @@ const ReducerToPersist = combineReducers({
   user: userReducer,
   form: formReducer,
   data: dataReducer,
-  errors: errorReducer,
 })
 
 const persistConfig = {
@@ -34,8 +33,12 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, ReducerToPersist)
 
+const rootReducer = combineReducers({
+  main: persistedReducer,
+  errors: errorReducer,
+})
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

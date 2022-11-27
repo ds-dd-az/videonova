@@ -1,24 +1,24 @@
 export const rootSelector = (state) => state
 
-export const selectAuthorised = (state) => state.user.authorised
+export const selectAuthorised = (state) => state.main.user.authorised
 
 export const selectUserId = (state) =>
-  state.user.authorised && state.user.userInfo.userId
+  state.main.user.authorised && state.main.user.userInfo.userId
 
 export const selectUserName = (state) =>
-  state.user.authorised && state.user.userInfo.userName
+  state.main.user.authorised && state.main.user.userInfo.userName
 
-export const selectOthersUserName = (state) => state.user.userInfo.userName
+export const selectOthersUserName = (state) => state.main.user.userInfo.userName
 
-export const selectOthersUserId = (state) => state.user.userInfo.userId
+export const selectOthersUserId = (state) => state.main.user.userInfo.userId
 
 export const selectUserPassword = (state) =>
-  state.user.authorised && state.user.userInfo.userPassword
+  state.user.authorised && state.main.user.userInfo.userPassword
 
-export const selectRegisteredUser = (state) => state.user.registeredUser
+export const selectRegisteredUser = (state) => state.main.user.registeredUser
 
 export const selectRegisteredPassword = (state) =>
-  state.user.registeredUser.userPassword
+  state.main.user.registeredUser.userPassword
 
 export const selectRegisteredName = (state) =>
-  state.user.registeredUser.userName
+  state.main.user.registeredUser.userName
