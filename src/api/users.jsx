@@ -1,3 +1,4 @@
+import { func } from "prop-types"
 import React from "react"
 import { useDispatch } from "react-redux"
 
@@ -7,11 +8,13 @@ export async function getUsers() {
   )
   return response.json()
 }
-function Exception(message) {
-  this.message = message
+
+function logSomething(thing) {
+  console.log(thing)
+  return thing
 }
 
-export async function postUser(userdata) {
+export async function postUser(userdata, { dispatch }) {
   const response = await fetch(
     "https://wonderful-app-lmk4d.cloud.serverless.com/register",
     {
@@ -22,5 +25,8 @@ export async function postUser(userdata) {
       body: JSON.stringify(userdata),
     }
   )
+  if (response.status === 409) {
+    dispatch({ type: "errors/addNameError", payload: "this name is taken" })
+  }
   console.log(response.status)
 }

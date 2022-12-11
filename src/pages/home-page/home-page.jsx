@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { unwrapResult } from "@reduxjs/toolkit"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
@@ -28,10 +29,13 @@ export default function HomePage() {
   function testReg() {
     dispatch(
       registerUser({
-        username: "cei son",
+        username: "testik",
         password: "1112",
       })
     )
+    /* .then((originalPromiseResult) => {
+        console.log(originalPromiseResult)
+      }) */
     dispatch(fetchUsers())
   }
   const users = useSelector(SelectUsers)
