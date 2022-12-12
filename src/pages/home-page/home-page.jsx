@@ -29,13 +29,14 @@ export default function HomePage() {
   function testReg() {
     dispatch(
       registerUser({
-        username: "disha2",
+        username: "nice name",
         password: "1112",
       })
     )
       .then(unwrapResult)
       .then((promiseResult) => {
-        console.log({ promiseResult })
+        console.log(promiseResult)
+        dispatch(fetchUsers())
       })
       .catch((error) => {
         if (error.message === "Request failed with status code 409") {
@@ -44,9 +45,13 @@ export default function HomePage() {
             payload:
               "This name is already taken or you have already registered",
           })
+        } else {
+          dispatch({
+            type: "errors/addError",
+            payload: "Unexpected error ocurred, try again later",
+          })
         }
       })
-    dispatch(fetchUsers())
   }
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)

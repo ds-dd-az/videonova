@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   passwordError: false,
+  unexpectedError: false,
   nameError: false,
   errorMessage: null,
 }
@@ -17,6 +18,10 @@ const errorSlice = createSlice({
     },
     addNameError(state, action) {
       state.nameError = true
+      state.errorMessage = action.payload
+    },
+    addError(state, action) {
+      state.unexpectedError = true
       state.errorMessage = action.payload
     },
     cleanError(state) {
