@@ -21,11 +21,12 @@ export const fetchVideos = createAsyncThunk("data/fetchVideos", async () => {
 })
 
 export const registerUser = createAsyncThunk("data/register", async (data) => {
-  const { user } = axios.post(
+  const user = axios.post(
     "https://wonderful-app-lmk4d.cloud.serverless.com/register",
     data
   )
-  return user
+  console.log(user)
+  return (await user).data.id
 })
 
 const userDataSlice = createSlice({
