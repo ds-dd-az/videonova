@@ -13,6 +13,7 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist"
+import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2"
 import propTypes from "prop-types"
 import { PersistGate } from "redux-persist/integration/react"
 import { reducer as userReducer } from "./modules/user/index"
@@ -28,6 +29,7 @@ const ReducerToPersist = combineReducers({
 
 const persistConfig = {
   key: "root",
+  stateReconciler: autoMergeLevel2,
   storage,
 }
 

@@ -7,6 +7,7 @@ import getVideos from "../../api/videos"
 const initialState = {
   allUsers: {},
   videos: {},
+  currentUser: {},
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -44,6 +45,9 @@ const userDataSlice = createSlice({
     })
     builder.addCase(fetchVideos.fulfilled, (state, action) => {
       state.videos = action.payload
+    })
+    builder.addCase(registerUser.fulfilled, (state, action) => {
+      state.currentUser = action.payload
     })
   },
 })
