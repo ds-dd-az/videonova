@@ -1,5 +1,6 @@
 .error-message{
-  line-height: 66px;
+  padding: 33px 10px;
+  color: rgb(37, 37, 37);
   text-align: center;
   border-radius: 14px;
   background-color: salmon;
