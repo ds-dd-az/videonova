@@ -2,13 +2,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { unwrapResult } from "@reduxjs/toolkit"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
 import { SelectUsers, SelectVideos } from "../../modules/userdata"
-import useReg from "../../external_func/register-and-signup/register"
 
 const star = {
   src: StarImage,
@@ -43,7 +41,6 @@ export default function HomePage() {
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={signInForm} />
-            <Button text="regoleg" click={useReg} />
           </div>
 
           <div className="best-creators">

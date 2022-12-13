@@ -2,6 +2,7 @@
 import React, { useEffect, useId, useState } from "react"
 import "../style.css"
 import { useDispatch } from "react-redux"
+import { unwrapResult } from "@reduxjs/toolkit"
 import InputField from "../../input-field/input-field"
 import ErrorMessage from "../form_error/form-error"
 import Button from "../../button/button"
@@ -21,6 +22,40 @@ export default function SignUp() {
   })
   const [passwordError, setPasswordError] = useState(false)
   const dispatch = useDispatch()
+  function register(userName, userPassword) {
+    dispatch(
+      registerUser({
+        username: userName,
+        password: userPassword,
+      })
+    )
+      .then(unwrapResult)
+      .then((promiseResult) => {
+        console.log(promiseResult)
+        dispatch({
+          type: "form/hide",
+        })
+        dispatch({
+          type: "errors/cleanError",
+        })
+        setPasswordError(false)
+        dispatch(fetchUsers())
+      })
+      .catch((error) => {
+        if (error.message === "Request failed with status code 409") {
+          dispatch({
+            type: "errors/addNameError",
+            payload:
+              "This name is already taken or you have already registered",
+          })
+        } else {
+          dispatch({
+            type: "errors/addError",
+            payload: "Unexpected error ocurred, try again later",
+          })
+        }
+      })
+  }
   function changeForm() {
     dispatch({
       type: "form/hide",
@@ -30,22 +65,15 @@ export default function SignUp() {
       payload: "signIn",
     })
   }
-  function register() {
+  function registration() {
     if (passwordField.value === confirmPassField.value) {
-      dispatch(
-        registerUser({
-          username: nameField.value,
-          password: passwordField.value,
-        })
-      )
-      dispatch(fetchUsers())
-      dispatch({
-        type: "form/hide",
-      })
-      setPasswordError(false)
+      register(nameField.value, passwordField.value)
     } else {
       setPasswordError(true)
-      console.log(passwordError)
+      dispatch({
+        type: "errors/addPasswordError",
+        payload: "Passwords must be the same",
+      })
     }
   }
 
@@ -81,7 +109,7 @@ export default function SignUp() {
           />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button text="Sign up" click={register} />
+        <Button text="Sign up" click={registration} />
         <span>
           Already have an account?{" "}
           {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
