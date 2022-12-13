@@ -1,3 +1,7 @@
+body{
+  box-sizing: border-box;
+}
+
 .home-page{
   display: flex;
   flex-direction: column;
@@ -6,9 +10,17 @@
 }
 
 .page-block{
+  width: 100%;
   padding: 0 50px 85px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
+
+@media screen and (max-width: 767px) {
+  .page-block{
+    padding: 15px;
+  }
+ }
 
 .home-heading{
   padding-top: 44px;
@@ -42,9 +54,9 @@
 .best-creators__users{
   display: flex;
   flex-direction: row;
-  gap: 38px;
+  row-gap: 38px;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 

@@ -4,45 +4,41 @@ import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
 
 export default function InputField(props) {
-  const { isBig, hide, placeholder, withIcon, id } = props
+  const { placeholder, error, id, variant } = props
   const [input, setInput] = useState("")
   InputField.propTypes = {
-    /**
-     * size of the input-field
-     */
-    isBig: propTypes.bool,
-    /**
-     * enables hiding of symbols
-     */
-    hide: propTypes.bool,
     /**
      * default text on input field
      */
     placeholder: propTypes.string,
     /**
-     * adds eye icon to toggle visibility
+     * provides unique id
      */
-    withIcon: propTypes.bool,
+    id: propTypes.string.isRequired,
     /**
-     * provides another id
+     *  turns error effect on
      */
-    id: propTypes.string,
+    error: propTypes.bool,
+    /**
+     * variant of input field
+     */
+    variant: propTypes.oneOf(["password", "smallText", "bigText"]).isRequired,
   }
   InputField.defaultProps = {
-    isBig: false,
-    hide: false,
     placeholder: "insert text please",
-    withIcon: false,
-    id: undefined,
+    error: false,
   }
   const [hiding, setHiding] = useState(true)
   function changeHide() {
     setHiding(!hiding)
   }
   const type = hiding ? "password" : "text"
-  const Styles = ["field"]
-  if (isBig) {
-    Styles.push("field_big")
+  const styles = ["field"]
+  if (error) {
+    styles.push("field_red")
+  }
+  if (variant === "bigText") {
+    styles.push("field_big")
     return (
       <div>
         <textarea
@@ -50,40 +46,25 @@ export default function InputField(props) {
           value={input}
           onInput={(e) => setInput(e.target.value)}
           maxLength={445}
-          className={Styles.join(" ")}
+          className={styles.join(" ")}
           placeholder={placeholder}
         />
       </div>
     )
   }
-  if (hide) {
-    if (withIcon) {
-      return (
-        <div className="field-wrapper">
-          <input
-            id={id}
-            value={input}
-            onInput={(e) => setInput(e.target.value)}
-            className={Styles.join(" ")}
-            type={type}
-            placeholder={placeholder}
-          />
-          {/* eslint-disable-next-line react/jsx-no-bind */}
-          <EyeToggle click={changeHide} />
-        </div>
-      )
-    }
-
+  if (variant === "password") {
     return (
-      <div>
+      <div className="field-wrapper">
         <input
+          id={id}
           value={input}
           onInput={(e) => setInput(e.target.value)}
-          id={id}
-          className={Styles.join(" ")}
-          type="password"
+          className={styles.join(" ")}
+          type={type}
           placeholder={placeholder}
         />
+        {/* eslint-disable-next-line react/jsx-no-bind */}
+        <EyeToggle click={changeHide} />
       </div>
     )
   }
@@ -94,7 +75,7 @@ export default function InputField(props) {
         value={input}
         onInput={(e) => setInput(e.target.value)}
         id={id}
-        className={Styles.join(" ")}
+        className={styles.join(" ")}
         type="text"
         placeholder={placeholder}
       />

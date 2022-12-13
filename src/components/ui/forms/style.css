@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: fit-content;
+  width: 44%;
   height: fit-content;
   padding: 90px;
   position: absolute;
@@ -14,6 +14,7 @@
   margin-right: auto;
   margin-top: 50px;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .form-wrapper h1{
@@ -21,6 +22,7 @@
 }
 
 .sign-in{
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -28,6 +30,7 @@
 }
 
 .sign-up{
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -35,6 +38,7 @@
 }
 
 .add-new-vid{
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -46,6 +50,12 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+label{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .video-loading>div{
@@ -65,6 +75,7 @@
 
 form{
   display: flex;
+  width: 100%;
   gap: 30px;
   flex-direction: column;
   justify-content: flex-start;
@@ -77,8 +88,8 @@ label>div{
 
 .x-icon{
   position: absolute;
-  left: 590px;
-  top: 40px;
+  left: 91%;
+  top: 5.6%;
   cursor: pointer;
 }
 

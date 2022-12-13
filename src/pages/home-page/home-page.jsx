@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
@@ -31,7 +32,6 @@ export default function HomePage() {
       />
     )
   })
-
   return (
     <Layout>
       <div className="page-block">
@@ -40,7 +40,6 @@ export default function HomePage() {
             <h1>Welcome to VideoNova</h1>
             Create videos with single click. Add subtitles, transcribe audio and
             more
-            {/* eslint-disable-next-line react/jsx-no-bind */}
             <Button text="Start Now" click={signInForm} />
           </div>
 

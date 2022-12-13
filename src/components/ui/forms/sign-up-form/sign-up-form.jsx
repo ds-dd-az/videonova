@@ -1,9 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control,react-hooks/exhaustive-deps */
 import React, { useEffect, useId } from "react"
 import "../style.css"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { unwrapResult } from "@reduxjs/toolkit"
 import InputField from "../../input-field/input-field"
+import ErrorMessage from "../form_error/form-error"
 import Button from "../../button/button"
+import { registerUser, fetchUsers } from "../../../../modules/userdata"
+import {
+  SelectPasswordError,
+  SelectNameError,
+} from "../../../../modules/current_error"
 
 export default function SignUp() {
   const name = useId()
@@ -17,45 +24,124 @@ export default function SignUp() {
     passwordField = document.getElementById(`${password}`)
     confirmPassField = document.getElementById(`${repeatPassword}`)
   })
+  const passwordError = useSelector(SelectPasswordError)
+  const nameError = useSelector(SelectNameError)
   const dispatch = useDispatch()
-  function register() {
-    if (passwordField.value === confirmPassField.value) {
-      dispatch({
-        type: "user/authorise",
-        payload: {
-          userName: `${nameField.value}`,
-          userId: 35,
-          password: `${passwordField.value}`,
-        },
+  function register(userName, userPassword) {
+    dispatch(
+      registerUser({
+        username: userName,
+        password: userPassword,
       })
-      dispatch({
-        type: "form/hide",
+    )
+      .then(unwrapResult)
+      .then((promiseResult) => {
+        console.log(promiseResult)
+        dispatch({
+          type: "form/hide",
+        })
+        dispatch({
+          type: "errors/cleanError",
+        })
+        dispatch(fetchUsers())
       })
-    } else alert("password must be the same")
+      .catch((error) => {
+        if (error.message === "Request failed with status code 409") {
+          dispatch({
+            type: "errors/addNameError",
+            payload:
+              "This name is already taken or you have already registered",
+          })
+        } else {
+          dispatch({
+            type: "errors/addError",
+            payload: "Unexpected error ocurred, try again later",
+          })
+        }
+      })
   }
+  function changeForm() {
+    dispatch({
+      type: "form/hide",
+    })
+    dispatch({
+      type: "form/show",
+      payload: "signIn",
+    })
+  }
+  function registration() {
+    dispatch({
+      type: "errors/cleanError",
+    })
+    if (passwordField.value !== confirmPassField.value) {
+      dispatch({
+        type: "errors/addPasswordError",
+        payload: "Passwords must be the same",
+      })
+      if (passwordField.value.length < 8) {
+        dispatch({
+          type: "errors/addPasswordError",
+          payload: "Password must be at least eight symbols long",
+        })
+      }
+      if (nameField.value.length < 4) {
+        dispatch({
+          type: "errors/addNameError",
+          payload: "Name must be at least four symbols long",
+        })
+      }
+    } else {
+      register(nameField.value, passwordField.value)
+    }
+  }
+
   return (
     <div className="sign-up">
       <h1>Sign Up</h1>
+      {ErrorMessage()}
       <form>
         <label htmlFor={name}>
           Name
-          <InputField id={name} placeholder="Type name..." />
+          <InputField
+            variant="smallText"
+            id={name}
+            error={nameError}
+            placeholder="Type name..."
+          />
         </label>
         <label htmlFor={password}>
           Password
-          <InputField hide id={password} placeholder="Type password..." />
+          <InputField
+            variant="password"
+            id={password}
+            error={passwordError}
+            placeholder="Type password..."
+          />
         </label>
         <label htmlFor={repeatPassword}>
           Repeat Password
           <InputField
-            hide
+            variant="password"
             id={repeatPassword}
+            error={passwordError}
             placeholder="Repeat password..."
           />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button text="Sign up" click={register} />
-        Already have an account? Sign in
+        <Button text="Sign up" click={registration} />
+        <span>
+          Already have an account?{" "}
+          {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
+          /* eslint-disable jsx-a11y/no-static-element-interactions */}
+          <span
+            style={{ color: "blue", cursor: "pointer" }}
+            onClick={changeForm}
+            tabIndex={0}
+            onKeyDown={changeForm}
+          >
+            Sign in
+          </span>
+        </span>
       </form>
     </div>
   )

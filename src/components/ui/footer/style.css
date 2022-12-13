@@ -13,6 +13,15 @@
   box-sizing: border-box;
 }
 
+@media screen and (max-width: 767px) {
+  .footer{
+    padding: 55px;
+    flex-direction: column;
+    gap: 20px;
+    height: fit-content;
+  }
+ }
+
 .logo-white{
   flex: 0 0 25%;
   display: flex;

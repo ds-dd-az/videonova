@@ -39,14 +39,17 @@ export default function SignIn() {
       <form>
         <label htmlFor={name}>
           Name
-          <InputField id={name} placeholder="Type name..." />
+          <InputField
+            variant="smallText"
+            id={name}
+            placeholder="Type name..."
+          />
         </label>
         <label htmlFor={password}>
           Password
           <InputField
             id={password}
-            withIcon
-            hide
+            variant="password"
             placeholder="Type password..."
           />
         </label>
