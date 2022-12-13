@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/label-has-associated-control,react-hooks/exhaustive-deps */
-import React, { useEffect, useId, useState } from "react"
+import React, { useEffect, useId } from "react"
 import "../style.css"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { unwrapResult } from "@reduxjs/toolkit"
 import InputField from "../../input-field/input-field"
 import ErrorMessage from "../form_error/form-error"
 import Button from "../../button/button"
 import { registerUser, fetchUsers } from "../../../../modules/userdata"
+import {
+  SelectPasswordError,
+  SelectNameError,
+} from "../../../../modules/current_error"
 
 export default function SignUp() {
   const name = useId()
@@ -20,7 +24,8 @@ export default function SignUp() {
     passwordField = document.getElementById(`${password}`)
     confirmPassField = document.getElementById(`${repeatPassword}`)
   })
-  const [passwordError, setPasswordError] = useState(false)
+  const passwordError = useSelector(SelectPasswordError)
+  const nameError = useSelector(SelectNameError)
   const dispatch = useDispatch()
   function register(userName, userPassword) {
     dispatch(
@@ -38,7 +43,6 @@ export default function SignUp() {
         dispatch({
           type: "errors/cleanError",
         })
-        setPasswordError(false)
         dispatch(fetchUsers())
       })
       .catch((error) => {
@@ -66,14 +70,28 @@ export default function SignUp() {
     })
   }
   function registration() {
-    if (passwordField.value === confirmPassField.value) {
-      register(nameField.value, passwordField.value)
-    } else {
-      setPasswordError(true)
+    dispatch({
+      type: "errors/cleanError",
+    })
+    if (passwordField.value !== confirmPassField.value) {
       dispatch({
         type: "errors/addPasswordError",
         payload: "Passwords must be the same",
       })
+      if (passwordField.value.length < 8) {
+        dispatch({
+          type: "errors/addPasswordError",
+          payload: "Password must be at least eight symbols long",
+        })
+      }
+      if (nameField.value.length < 4) {
+        dispatch({
+          type: "errors/addNameError",
+          payload: "Name must be at least four symbols long",
+        })
+      }
+    } else {
+      register(nameField.value, passwordField.value)
     }
   }
 
@@ -87,6 +105,7 @@ export default function SignUp() {
           <InputField
             variant="smallText"
             id={name}
+            error={nameError}
             placeholder="Type name..."
           />
         </label>
