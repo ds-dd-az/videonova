@@ -1,12 +1,13 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { useDispatch } from "react-redux"
-import { getUsers, postUser } from "../../api/users"
+import axios from "axios"
+import getUsers from "../../api/users"
 import getVideos from "../../api/videos"
 
 const initialState = {
   allUsers: {},
   videos: {},
+  currentUser: {},
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -20,8 +21,12 @@ export const fetchVideos = createAsyncThunk("data/fetchVideos", async () => {
 })
 
 export const registerUser = createAsyncThunk("data/register", async (data) => {
-  const user = await postUser(data)
-  return user
+  const user = axios.post(
+    "https://wonderful-app-lmk4d.cloud.serverless.com/register",
+    data
+  )
+  console.log(user)
+  return (await user).data.id
 })
 
 const userDataSlice = createSlice({
@@ -41,6 +46,9 @@ const userDataSlice = createSlice({
     })
     builder.addCase(fetchVideos.fulfilled, (state, action) => {
       state.videos = action.payload
+    })
+    builder.addCase(registerUser.fulfilled, (state, action) => {
+      state.currentUser = action.payload
     })
   },
 })

@@ -6,12 +6,7 @@ import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-import {
-  SelectUsers,
-  SelectVideos,
-  registerUser,
-  fetchUsers,
-} from "../../modules/userdata"
+import { SelectUsers, SelectVideos } from "../../modules/userdata"
 
 const star = {
   src: StarImage,
@@ -25,15 +20,6 @@ export default function HomePage() {
       payload: "signIn",
     })
   }
-  function testReg() {
-    dispatch(
-      registerUser({
-        username: "cei son",
-        password: "1111",
-      })
-    )
-    dispatch(fetchUsers())
-  }
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)
   const renderUsers = users.map((element) => {
@@ -46,7 +32,6 @@ export default function HomePage() {
       />
     )
   })
-
   return (
     <Layout>
       <div className="page-block">
@@ -56,7 +41,6 @@ export default function HomePage() {
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={signInForm} />
-            <Button text="regoleg" click={testReg} />
           </div>
 
           <div className="best-creators">
