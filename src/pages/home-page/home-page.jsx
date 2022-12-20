@@ -7,6 +7,7 @@ import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
 import { SelectUsers, SelectVideos } from "../../modules/userdata"
+import { SelectLoading } from "../../modules/userdata/userdata.selectors"
 
 const star = {
   src: StarImage,
@@ -22,6 +23,7 @@ export default function HomePage() {
   }
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)
+  const loading = useSelector(SelectLoading)
   const renderUsers = users.map((element) => {
     const countVideos = videos.filter((value) => value.userId === element.id)
     return (
@@ -48,7 +50,7 @@ export default function HomePage() {
               <h2>Best creators</h2>
               <img src={star.src} alt={star.alt} />
             </div>
-            <div className="best-creators__users">{renderUsers}</div>
+            <div className="best-creators__users">{loading ? <div>eeeeee</div> : renderUsers}</div>
           </div>
         </div>
       </div>
