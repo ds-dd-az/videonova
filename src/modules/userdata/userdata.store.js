@@ -8,6 +8,7 @@ const initialState = {
   allUsers: {},
   videos: {},
   currentUser: {},
+  loading: false,
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -43,6 +44,9 @@ const userDataSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
       state.allUsers = action.payload
+    })
+    builder.addCase(fetchUsers.pending, (state, action) => {
+      state.loading = true
     })
     builder.addCase(fetchVideos.fulfilled, (state, action) => {
       state.videos = action.payload
