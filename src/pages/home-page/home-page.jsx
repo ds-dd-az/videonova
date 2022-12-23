@@ -50,7 +50,9 @@ export default function HomePage() {
               <h2>Best creators</h2>
               <img src={star.src} alt={star.alt} />
             </div>
-            <div className="best-creators__users">{loading ? <div>eeeeee</div> : renderUsers}</div>
+            <div className="best-creators__users">
+              {loading ? <div>eeeeee</div> : renderUsers}
+            </div>
           </div>
         </div>
       </div>

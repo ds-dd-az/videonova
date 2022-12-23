@@ -43,6 +43,7 @@ const userDataSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
+      state.loading = false
       state.allUsers = action.payload
     })
     builder.addCase(fetchUsers.pending, (state, action) => {
