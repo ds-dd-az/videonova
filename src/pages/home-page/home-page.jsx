@@ -8,6 +8,7 @@ import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
 import { SelectUsers, SelectVideos } from "../../modules/userdata"
 import { SelectLoading } from "../../modules/userdata/userdata.selectors"
+import LoadRing from "../../components/ui/Loading-ring/load-ring"
 
 const star = {
   src: StarImage,
@@ -42,6 +43,7 @@ export default function HomePage() {
             <h1>Welcome to VideoNova</h1>
             Create videos with single click. Add subtitles, transcribe audio and
             more
+            <LoadRing isBig />
             <Button text="Start Now" click={signInForm} />
           </div>
 
@@ -51,7 +53,7 @@ export default function HomePage() {
               <img src={star.src} alt={star.alt} />
             </div>
             <div className="best-creators__users">
-              {loading ? <div>eeeeee</div> : renderUsers}
+              {loading ? <LoadRing isBig /> : renderUsers}
             </div>
           </div>
         </div>
