@@ -46,11 +46,15 @@ const userDataSlice = createSlice({
       state.loading = false
       state.allUsers = action.payload
     })
-    builder.addCase(fetchUsers.pending, (state, action) => {
+    builder.addCase(fetchUsers.pending, (state) => {
       state.loading = true
     })
     builder.addCase(fetchVideos.fulfilled, (state, action) => {
+      state.loading = false
       state.videos = action.payload
+    })
+    builder.addCase(fetchVideos.pending, (state) => {
+      state.loading = true
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.currentUser = action.payload
