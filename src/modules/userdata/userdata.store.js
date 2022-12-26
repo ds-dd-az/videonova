@@ -9,6 +9,7 @@ const initialState = {
   videos: {},
   currentUser: {},
   loading: false,
+  loginLoading: false,
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -58,6 +59,10 @@ const userDataSlice = createSlice({
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.currentUser = action.payload
+      state.loginLoading = false
+    })
+    builder.addCase(registerUser.pending, (state) => {
+      state.loginLoading = true
     })
   },
 })
