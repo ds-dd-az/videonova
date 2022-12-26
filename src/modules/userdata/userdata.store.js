@@ -64,6 +64,15 @@ const userDataSlice = createSlice({
     builder.addCase(registerUser.pending, (state) => {
       state.loginLoading = true
     })
+    builder.addCase(fetchUsers.rejected, (state) => {
+      state.loading = false
+    })
+    builder.addCase(fetchVideos.rejected, (state) => {
+      state.loading = false
+    })
+    builder.addCase(registerUser.rejected, (state) => {
+      state.loginLoading = false
+    })
   },
 })
 
