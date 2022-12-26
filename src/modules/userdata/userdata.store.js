@@ -8,6 +8,8 @@ const initialState = {
   allUsers: {},
   videos: {},
   currentUser: {},
+  loading: false,
+  loginLoading: false,
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -42,13 +44,34 @@ const userDataSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
+      state.loading = false
       state.allUsers = action.payload
     })
+    builder.addCase(fetchUsers.pending, (state) => {
+      state.loading = true
+    })
     builder.addCase(fetchVideos.fulfilled, (state, action) => {
+      state.loading = false
       state.videos = action.payload
+    })
+    builder.addCase(fetchVideos.pending, (state) => {
+      state.loading = true
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.currentUser = action.payload
+      state.loginLoading = false
+    })
+    builder.addCase(registerUser.pending, (state) => {
+      state.loginLoading = true
+    })
+    builder.addCase(fetchUsers.rejected, (state) => {
+      state.loading = false
+    })
+    builder.addCase(fetchVideos.rejected, (state) => {
+      state.loading = false
+    })
+    builder.addCase(registerUser.rejected, (state) => {
+      state.loginLoading = false
     })
   },
 })

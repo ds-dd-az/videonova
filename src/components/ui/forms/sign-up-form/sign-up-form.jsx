@@ -6,7 +6,11 @@ import { unwrapResult } from "@reduxjs/toolkit"
 import InputField from "../../input-field/input-field"
 import ErrorMessage from "../form_error/form-error"
 import Button from "../../button/button"
-import { registerUser, fetchUsers } from "../../../../modules/userdata"
+import {
+  registerUser,
+  fetchUsers,
+  SelectLoginLoading,
+} from "../../../../modules/userdata"
 import {
   SelectPasswordError,
   SelectNameError,
@@ -94,7 +98,7 @@ export default function SignUp() {
       register(nameField.value, passwordField.value)
     }
   }
-
+  const loginLoading = useSelector(SelectLoginLoading)
   return (
     <div className="sign-up">
       <h1>Sign Up</h1>
@@ -128,7 +132,7 @@ export default function SignUp() {
           />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button text="Sign up" click={registration} />
+        <Button text="Sign up" loading={loginLoading} click={registration} />
         <span>
           Already have an account?{" "}
           {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
