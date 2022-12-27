@@ -31,6 +31,15 @@ export const registerUser = createAsyncThunk("data/register", async (data) => {
   return (await user).data.id
 })
 
+export const loginUser = createAsyncThunk("data/login", async (data) => {
+  const user = axios.post(
+    "https://wonderful-app-lmk4d.cloud.serverless.com/auth",
+    data
+  )
+  console.log(user)
+  return (await user).data.id
+})
+
 const userDataSlice = createSlice({
   name: "data",
   initialState,

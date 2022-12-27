@@ -45,7 +45,6 @@ export default function HomePage() {
             more
             <Button text="Start Now" click={signInForm} />
           </div>
-
           <div className="best-creators">
             <div className="best-creators__text">
               <h2>Best creators</h2>
