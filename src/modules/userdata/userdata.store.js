@@ -82,6 +82,16 @@ const userDataSlice = createSlice({
     builder.addCase(registerUser.rejected, (state) => {
       state.loginLoading = false
     })
+    builder.addCase(loginUser.fulfilled, (state, action) => {
+      state.currentUser = action.payload
+      state.loginLoading = false
+    })
+    builder.addCase(loginUser.pending, (state) => {
+      state.loginLoading = true
+    })
+    builder.addCase(loginUser.rejected, (state) => {
+      state.loginLoading = false
+    })
   },
 })
 

@@ -6,7 +6,7 @@ import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import UserCard from "../../components/ui/user-card/user-card"
-import { SelectUsers, SelectVideos } from "../../modules/userdata"
+import { SelectUsers, SelectVideos, loginUser } from "../../modules/userdata"
 import { SelectLoading } from "../../modules/userdata/userdata.selectors"
 import LoadRing from "../../components/ui/Loading-ring/load-ring"
 
@@ -21,6 +21,14 @@ export default function HomePage() {
       type: "form/show",
       payload: "signIn",
     })
+  }
+  function loginster() {
+    dispatch(
+      loginUser({
+        username: "olezhka250",
+        password: "12345678",
+      })
+    )
   }
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)
@@ -44,6 +52,7 @@ export default function HomePage() {
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={signInForm} />
+            <Button text="loginster" click={loginster} />
           </div>
           <div className="best-creators">
             <div className="best-creators__text">
