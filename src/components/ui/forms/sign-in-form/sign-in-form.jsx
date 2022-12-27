@@ -4,6 +4,7 @@ import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
+import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
 
 export default function SignIn() {
   const name = useId()
@@ -37,7 +38,9 @@ export default function SignIn() {
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
         <Button text="Sign in" />
-        Don`t have account? Sign up
+        <span>
+          Don`t have account? <FormSwitcher />
+        </span>
       </form>
     </div>
   )

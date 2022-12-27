@@ -2,7 +2,7 @@ import React from "react"
 import "./style.css"
 import { useSelector } from "react-redux"
 import Form from "../forms/forms"
-import { selectKind, selectVisibility } from "../../../modules/form"
+import { selectType, selectVisibility } from "../../../modules/form"
 
 export default function Popup() {
   const visible = useSelector(selectVisibility)
@@ -10,7 +10,7 @@ export default function Popup() {
   return (
     <div className={`popup ${show}`}>
       <div className="bgBlur" />
-      <Form variant={useSelector(selectKind)} />
+      <Form variant={useSelector(selectType)} />
     </div>
   )
 }
