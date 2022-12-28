@@ -4,6 +4,7 @@ import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
+import SignInContainer from "../../../../external_func/sign-in-form/signin-functions"
 import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
 
 export default function SignIn() {
@@ -15,7 +16,13 @@ export default function SignIn() {
     nameField = document.getElementById(`${name}`)
     passwordField = document.getElementById(`${password}`)
   })
-  const dispatch = useDispatch()
+  function logs() {
+    console.log(nameField.value)
+  }
+  function loginer() {
+    SignInContainer(nameField.value, passwordField.value)
+  }
+  const randomText = "eeee2"
   return (
     <div className="sign-in">
       <h1>Sign In</h1>
@@ -37,7 +44,9 @@ export default function SignIn() {
           />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button text="Sign in" />
+        <SignInContainer userName={nameField} userPassword="no" />
+        {/* eslint-disable-next-line react/jsx-no-bind */}
+        <Button text={nameField} click={loginer} />
         <span>
           Don`t have account? <FormSwitcher />
         </span>
