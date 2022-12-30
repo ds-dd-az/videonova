@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control,prefer-const,react-hooks/exhaustive-deps */
-import React, { useEffect, useId } from "react"
+import React, { useEffect, useId, useState } from "react"
 import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
@@ -10,15 +10,13 @@ import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
 export default function SignIn() {
   const name = useId()
   const password = useId()
-  let nameField
-  let passwordField
+  let nameField = document.getElementById(`${name}`)
+  const passwordField = document.getElementById(`${password}`)
+  const [nameValue, setNameValue] = useState("")
   useEffect(() => {
     nameField = document.getElementById(`${name}`)
-    passwordField = document.getElementById(`${password}`)
+    setNameValue(nameField.value)
   })
-  function logs() {
-    console.log(nameField.value)
-  }
   function loginer() {
     SignInContainer(nameField.value, passwordField.value)
   }
@@ -44,9 +42,9 @@ export default function SignIn() {
           />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <SignInContainer userName={nameField} userPassword="no" />
+        <SignInContainer userName={nameValue} userPassword="no" />
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button text={nameField} click={loginer} />
+        <Button />
         <span>
           Don`t have account? <FormSwitcher />
         </span>
