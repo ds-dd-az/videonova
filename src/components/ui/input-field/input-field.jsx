@@ -79,6 +79,7 @@ export default function InputField(props) {
         type="text"
         placeholder={placeholder}
       />
+      <span>{input}</span>
     </div>
   )
 }

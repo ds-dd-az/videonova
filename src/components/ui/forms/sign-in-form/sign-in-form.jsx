@@ -18,6 +18,7 @@ export default function SignIn() {
     setNameValue(nameField.value)
   })
   function loginer() {
+    console.log(nameField.value, passwordField.value)
     SignInContainer(nameField.value, passwordField.value)
   }
   const randomText = "eeee2"
@@ -44,7 +45,7 @@ export default function SignIn() {
         {/* eslint-disable-next-line react/jsx-no-bind */}
         <SignInContainer userName={nameValue} userPassword="no" />
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button />
+        <Button click={loginer} />
         <span>
           Don`t have account? <FormSwitcher />
         </span>
