@@ -1,5 +1,5 @@
-/* eslint-disable jsx-a11y/label-has-associated-control,prefer-const,react-hooks/exhaustive-deps */
-import React, { useEffect, useId, useState } from "react"
+/* eslint-disable jsx-a11y/label-has-associated-control,prefer-const,react-hooks/exhaustive-deps, react/jsx-no-bind  */
+import React, { useEffect, useId } from "react"
 import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
@@ -18,11 +18,9 @@ export default function SignIn() {
     nameField = document.getElementById(`${name}`)
     passwordField = document.getElementById(`${password}`)
   })
-  function loginer() {
-    console.log(nameField.value, passwordField.value)
+  function login() {
     signInFunc(dispatch, nameField.value, passwordField.value)
   }
-  const randomText = "eeee2"
   return (
     <div className="sign-in">
       <h1>Sign In</h1>
@@ -44,10 +42,7 @@ export default function SignIn() {
             placeholder="Type password..."
           />
         </label>
-        {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button text="signin" click={loginer} />
-        {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button click={loginer} />
+        <Button text="Sign In" click={login} />
         <span>
           Don`t have account? <FormSwitcher />
         </span>
