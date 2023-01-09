@@ -15,11 +15,11 @@ export default function SignIn() {
   const [nameValue, setNameValue] = useState("")
   useEffect(() => {
     nameField = document.getElementById(`${name}`)
+    console.log(nameValue)
     setNameValue(nameField.value)
   })
   function loginer() {
     console.log(nameField.value, passwordField.value)
-    SignInContainer(nameField.value, passwordField.value)
   }
   const randomText = "eeee2"
   return (
@@ -45,7 +45,7 @@ export default function SignIn() {
         {/* eslint-disable-next-line react/jsx-no-bind */}
         <SignInContainer userName={nameValue} userPassword="no" />
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button click={loginer} />
+        <Button click={loginer} text={nameValue} />
         <span>
           Don`t have account? <FormSwitcher />
         </span>

@@ -5,7 +5,7 @@ import { unwrapResult } from "@reduxjs/toolkit"
 import { loginUser } from "../../modules/userdata"
 import Button from "../../components/ui/button/button"
 
-export default function SignInContainer(userName, userPassword) {
+export default function SignInButton(userName, userPassword) {
   const dispatch = useDispatch()
   function login() {
     console.log(userName, userPassword)
