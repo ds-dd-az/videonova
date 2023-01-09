@@ -4,27 +4,29 @@ import "../style.css"
 import { useDispatch } from "react-redux"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
-import SignInContainer from "../../../../external_func/sign-in-form/signin-functions"
+import signInFunc from "../../../../external_func/sign-in-form/signin-functions"
 import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
+import ErrorMessage from "../form_error/form-error"
 
 export default function SignIn() {
+  const dispatch = useDispatch()
   const name = useId()
   const password = useId()
-  let nameField = document.getElementById(`${name}`)
-  const passwordField = document.getElementById(`${password}`)
-  const [nameValue, setNameValue] = useState("")
+  let nameField
+  let passwordField
   useEffect(() => {
     nameField = document.getElementById(`${name}`)
-    console.log(nameValue)
-    setNameValue(nameField.value)
+    passwordField = document.getElementById(`${password}`)
   })
   function loginer() {
     console.log(nameField.value, passwordField.value)
+    signInFunc(dispatch, nameField.value, passwordField.value)
   }
   const randomText = "eeee2"
   return (
     <div className="sign-in">
       <h1>Sign In</h1>
+      {ErrorMessage()}
       <form>
         <label htmlFor={name}>
           Name
@@ -43,9 +45,9 @@ export default function SignIn() {
           />
         </label>
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <SignInContainer userName={nameValue} userPassword="no" />
+        <Button text="signin" click={loginer} />
         {/* eslint-disable-next-line react/jsx-no-bind */}
-        <Button click={loginer} text={nameValue} />
+        <Button click={loginer} />
         <span>
           Don`t have account? <FormSwitcher />
         </span>
