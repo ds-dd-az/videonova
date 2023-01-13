@@ -9,7 +9,7 @@ const initialState = {
   videos: {},
   currentUser: {},
   loading: false,
-  loginLoading: false,
+  postLoading: false,
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -18,8 +18,8 @@ export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
 })
 
 export const fetchVideos = createAsyncThunk("data/fetchVideos", async () => {
-  const users = await getVideos()
-  return users
+  const videos = await getVideos()
+  return videos
 })
 
 export const registerUser = createAsyncThunk("data/register", async (data) => {
@@ -38,6 +38,14 @@ export const loginUser = createAsyncThunk("data/login", async (data) => {
   )
   console.log(user)
   return (await user).data.id
+})
+
+export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
+  const video = axios.post(
+    "https://wonderful-app-lmk4d.cloud.serverless.com/video",
+    data
+  )
+  console.log(video)
 })
 
 const userDataSlice = createSlice({
@@ -68,10 +76,10 @@ const userDataSlice = createSlice({
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.currentUser = action.payload
-      state.loginLoading = false
+      state.postLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
-      state.loginLoading = true
+      state.postLoading = true
     })
     builder.addCase(fetchUsers.rejected, (state) => {
       state.loading = false
@@ -80,7 +88,7 @@ const userDataSlice = createSlice({
       state.loading = false
     })
     builder.addCase(registerUser.rejected, (state) => {
-      state.loginLoading = false
+      state.postLoading = false
     })
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.currentUser = action.payload
@@ -90,7 +98,16 @@ const userDataSlice = createSlice({
       state.loginLoading = true
     })
     builder.addCase(loginUser.rejected, (state) => {
-      state.loginLoading = false
+      state.postLoading = false
+    })
+    builder.addCase(addVideo.pending, (state) => {
+      state.postLoading = true
+    })
+    builder.addCase(addVideo.fulfilled, (state) => {
+      state.postLoading = false
+    })
+    builder.addCase(addVideo.rejected, (state) => {
+      state.postLoading = false
     })
   },
 })
