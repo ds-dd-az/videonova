@@ -2,6 +2,7 @@ import { unwrapResult } from "@reduxjs/toolkit"
 import { addVideo } from "../../modules/userdata"
 
 export default function addNewVideo(dispatch, url, title, description) {
+  console.log("adding vid")
   dispatch(
     addVideo({
       url,

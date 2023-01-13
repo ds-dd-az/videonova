@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux"
 import "../style.css"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
+import addNewVideo from "../../../../external_func/add-video/add-video"
 
 export default function VideoForm() {
   const dispatch = useDispatch()
@@ -24,10 +25,7 @@ export default function VideoForm() {
     descField = document.getElementById(`${videoDesc}`)
   })
   function addVideo() {
-    console.log(
-      `video added, link:${linkField.value}, name:${nameField.value}, description:${descField.value}`
-    )
-    closeForm()
+    addNewVideo(dispatch, linkField.value, nameField.value, descField.value)
   }
   return (
     <div className="add-new-vid">
