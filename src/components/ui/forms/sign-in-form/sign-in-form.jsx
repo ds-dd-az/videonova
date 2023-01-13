@@ -24,7 +24,7 @@ export default function SignIn() {
   return (
     <div className="sign-in">
       <h1>Sign In</h1>
-      {ErrorMessage()}
+      <ErrorMessage />
       <form>
         <label htmlFor={name}>
           Name
