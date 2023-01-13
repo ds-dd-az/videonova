@@ -43,10 +43,8 @@ export default function HomePage() {
             <h1>Welcome to VideoNova</h1>
             Create videos with single click. Add subtitles, transcribe audio and
             more
-            <LoadRing isBig />
             <Button text="Start Now" click={signInForm} />
           </div>
-
           <div className="best-creators">
             <div className="best-creators__text">
               <h2>Best creators</h2>

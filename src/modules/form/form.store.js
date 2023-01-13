@@ -5,14 +5,14 @@ const formSlice = createSlice({
   name: "form",
   initialState: {
     visibility: false,
-    kind: null,
+    type: null,
   },
   reducers: {
     show(state, action) {
       state.visibility = true
-      state.kind = action.payload
+      state.type = action.payload
     },
-    hide(state, action) {
+    hide(state) {
       state.visibility = false
     },
   },

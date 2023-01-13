@@ -15,6 +15,7 @@ import {
   SelectPasswordError,
   SelectNameError,
 } from "../../../../modules/current_error"
+import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
 
 export default function SignUp() {
   const name = useId()
@@ -64,15 +65,6 @@ export default function SignUp() {
         }
       })
   }
-  function changeForm() {
-    dispatch({
-      type: "form/hide",
-    })
-    dispatch({
-      type: "form/show",
-      payload: "signIn",
-    })
-  }
   function registration() {
     dispatch({
       type: "errors/cleanError",
@@ -102,7 +94,7 @@ export default function SignUp() {
   return (
     <div className="sign-up">
       <h1>Sign Up</h1>
-      {ErrorMessage()}
+      <ErrorMessage />
       <form>
         <label htmlFor={name}>
           Name
@@ -134,17 +126,7 @@ export default function SignUp() {
         {/* eslint-disable-next-line react/jsx-no-bind */}
         <Button text="Sign up" loading={loginLoading} click={registration} />
         <span>
-          Already have an account?{" "}
-          {/* eslint-disable jsx-a11y/no-noninteractive-tabindex */
-          /* eslint-disable jsx-a11y/no-static-element-interactions */}
-          <span
-            style={{ color: "blue", cursor: "pointer" }}
-            onClick={changeForm}
-            tabIndex={0}
-            onKeyDown={changeForm}
-          >
-            Sign in
-          </span>
+          Already have an account? <FormSwitcher />
         </span>
       </form>
     </div>

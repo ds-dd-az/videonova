@@ -7,3 +7,5 @@ export const SelectVideos = (state) => state.main.data.videos
 export const SelectLoading = (state) => state.main.data.loading
 
 export const SelectLoginLoading = (state) => state.main.data.loginLoading
+
+export const SelectCurrentUser = (state) => state.main.data.currentUser
