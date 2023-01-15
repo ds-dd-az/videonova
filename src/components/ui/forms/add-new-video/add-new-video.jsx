@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control,react/jsx-no-bind,react-hooks/exhaustive-deps */
 import React, { useEffect, useId } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import "../style.css"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 import addNewVideo from "../../../../external_func/add-video/add-video"
+import { SelectCurrentUser } from "../../../../modules/userdata"
 
 export default function VideoForm() {
+  const userId = useSelector(SelectCurrentUser)
   const dispatch = useDispatch()
   function closeForm() {
     dispatch({
@@ -25,7 +27,13 @@ export default function VideoForm() {
     descField = document.getElementById(`${videoDesc}`)
   })
   function addVideo() {
-    addNewVideo(dispatch, linkField.value, nameField.value, descField.value)
+    addNewVideo(
+      dispatch,
+      linkField.value,
+      nameField.value,
+      descField.value,
+      userId
+    )
   }
   return (
     <div className="add-new-vid">

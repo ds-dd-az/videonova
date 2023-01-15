@@ -42,12 +42,20 @@ export const loginUser = createAsyncThunk("data/login", async (data) => {
 
 export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
   console.log(data)
+  const videoInfo = {
+    url: data.url,
+    title: data.title,
+    description: data.description,
+  }
+  console.log(videoInfo)
+  console.log(data.userId)
   const video = axios.post(
     "https://wonderful-app-lmk4d.cloud.serverless.com/video",
     data,
     {
-      // headers: {
-      // },
+      headers: {
+        id: data.userId,
+      },
     }
   )
   console.log(video)

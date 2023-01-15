@@ -1,13 +1,14 @@
 import { unwrapResult } from "@reduxjs/toolkit"
-import { addVideo } from "../../modules/userdata"
+import { addVideo, fetchVideos } from "../../modules/userdata"
 
-export default function addNewVideo(dispatch, url, title, description) {
+export default function addNewVideo(dispatch, url, title, description, userId) {
   console.log("adding vid")
   dispatch(
     addVideo({
       url,
       title,
       description,
+      userId,
     })
   )
     .then(unwrapResult)
@@ -19,6 +20,7 @@ export default function addNewVideo(dispatch, url, title, description) {
       dispatch({
         type: "errors/cleanError",
       })
+      dispatch(fetchVideos)
     })
     .catch((error) => {
       if (error.message === "Request failed with status code 403") {
