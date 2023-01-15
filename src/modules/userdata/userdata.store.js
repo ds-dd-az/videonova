@@ -7,7 +7,10 @@ import getVideos from "../../api/videos"
 const initialState = {
   allUsers: {},
   videos: {},
-  currentUser: {},
+  currentUser: {
+    userId: "",
+    authToken: "",
+  },
   loading: false,
   postLoading: false,
 }
@@ -37,7 +40,7 @@ export const loginUser = createAsyncThunk("data/login", async (data) => {
     data
   )
   console.log(user)
-  return (await user).data.id
+  return (await user).data
 })
 
 export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
@@ -51,22 +54,21 @@ export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
   console.log(data.userId)
   const video = axios.post(
     "https://wonderful-app-lmk4d.cloud.serverless.com/video",
-    data,
+    videoInfo,
     {
       headers: {
-        id: data.userId,
+        Authorization: `${data.userId}`,
       },
     }
   )
   console.log(video)
 })
-
 const userDataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
     addUser(state, action) {
-      state.allUsers.push(action.payload)
+      state.currentUser = action.payload
     },
     delUser(state) {
       state.allUsers.pop()
@@ -88,7 +90,7 @@ const userDataSlice = createSlice({
       state.loading = true
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
-      state.currentUser = action.payload
+      state.currentUser.userId = action.payload
       state.postLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
@@ -104,7 +106,8 @@ const userDataSlice = createSlice({
       state.postLoading = false
     })
     builder.addCase(loginUser.fulfilled, (state, action) => {
-      state.currentUser = action.payload
+      state.currentUser.userId = action.payload.id
+      state.currentUser.authToken = action.payload.authToken
       state.loginLoading = false
     })
     builder.addCase(loginUser.pending, (state) => {
