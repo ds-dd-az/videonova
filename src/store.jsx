@@ -4,7 +4,6 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { Provider } from "react-redux"
 import storage from "redux-persist/lib/storage"
 import {
-  createMigrate,
   persistReducer,
   persistStore,
   FLUSH,
@@ -46,6 +45,7 @@ export const store = configureStore({
       },
     }),
 })
+
 export const persistor = persistStore(store)
 export function Store(props) {
   const { children } = props
