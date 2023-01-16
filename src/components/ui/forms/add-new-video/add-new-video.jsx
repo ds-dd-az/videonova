@@ -6,6 +6,7 @@ import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 import addNewVideo from "../../../../external_func/add-video/add-video"
 import { SelectUserToken } from "../../../../modules/userdata"
+import ErrorMessage from "../form_error/form-error"
 
 export default function VideoForm() {
   const token = useSelector(SelectUserToken)
@@ -38,6 +39,7 @@ export default function VideoForm() {
   return (
     <div className="add-new-vid">
       <h1>Add New Video</h1>
+      <ErrorMessage />
       <form>
         <label htmlFor={link}>
           Youtube Link

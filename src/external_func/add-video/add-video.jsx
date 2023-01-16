@@ -25,7 +25,11 @@ export default function addNewVideo(dispatch, url, title, description, token) {
     })
     .catch((error) => {
       if (error.message === "Request failed with status code 403") {
-        console.log("hey wrong auth")
+        dispatch({
+          type: "errors/addNameError",
+          payload:
+            "There is a trouble with your authentification, please try to login again",
+        })
       }
       dispatch({
         type: "errors/addError",
