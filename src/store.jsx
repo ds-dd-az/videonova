@@ -4,6 +4,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { Provider } from "react-redux"
 import storage from "redux-persist/lib/storage"
 import {
+  createMigrate,
   persistReducer,
   persistStore,
   FLUSH,
@@ -16,31 +17,28 @@ import {
 import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2"
 import propTypes from "prop-types"
 import { PersistGate } from "redux-persist/integration/react"
-import { reducer as userReducer } from "./modules/user/index"
 import { reducer as formReducer } from "./modules/form/index"
 import { reducer as dataReducer } from "./modules/userdata/index"
 import { reducer as errorReducer } from "./modules/current_error/index"
 
-const ReducerToPersist = combineReducers({
-  user: userReducer,
+const rootReducer = combineReducers({
   form: formReducer,
   data: dataReducer,
+  errors: errorReducer,
 })
 
 const persistConfig = {
   key: "root",
+  version: 0,
   stateReconciler: autoMergeLevel2,
   storage,
+  blacklist: ["errors"],
 }
 
-const persistedReducer = persistReducer(persistConfig, ReducerToPersist)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-const rootReducer = combineReducers({
-  main: persistedReducer,
-  errors: errorReducer,
-})
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
