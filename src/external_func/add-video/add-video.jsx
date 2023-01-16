@@ -2,14 +2,14 @@ import { unwrapResult } from "@reduxjs/toolkit"
 import axios from "axios"
 import { addVideo, fetchVideos } from "../../modules/userdata"
 
-export default function addNewVideo(dispatch, url, title, description, userId) {
+export default function addNewVideo(dispatch, url, title, description, token) {
   console.log("adding vid")
   dispatch(
     addVideo({
       url,
       title,
       description,
-      userId,
+      token,
     })
   )
     .then(unwrapResult)

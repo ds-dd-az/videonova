@@ -57,7 +57,7 @@ export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
     videoInfo,
     {
       headers: {
-        Authorization: `${data.userId}`,
+        Authorization: `${data.token}`,
       },
     }
   )

@@ -5,10 +5,10 @@ import "../style.css"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 import addNewVideo from "../../../../external_func/add-video/add-video"
-import { SelectCurrentUser } from "../../../../modules/userdata"
+import { SelectUserToken } from "../../../../modules/userdata"
 
 export default function VideoForm() {
-  const userId = useSelector(SelectCurrentUser)
+  const token = useSelector(SelectUserToken)
   const dispatch = useDispatch()
   function closeForm() {
     dispatch({
@@ -32,7 +32,7 @@ export default function VideoForm() {
       linkField.value,
       nameField.value,
       descField.value,
-      userId
+      token
     )
   }
   return (
