@@ -31,7 +31,7 @@ export const registerUser = createAsyncThunk("data/register", async (data) => {
     data
   )
   console.log(user)
-  return (await user).data.id
+  return (await user).data
 })
 
 export const loginUser = createAsyncThunk("data/login", async (data) => {
@@ -90,7 +90,8 @@ const userDataSlice = createSlice({
       state.loading = true
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
-      state.currentUser.userId = action.payload
+      state.currentUser.userId = action.payload.id
+      state.currentUser.authToken = action.payload.authToken
       state.postLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
