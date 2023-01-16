@@ -98,5 +98,5 @@ body{
   flex-direction: row;
   flex-wrap: wrap;
   gap: 28px;
-  justify-content: space-between;
+  justify-content: flex-start;
 }

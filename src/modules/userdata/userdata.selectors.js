@@ -1,11 +1,13 @@
 export const rootSelector = (state) => state
 
-export const SelectUsers = (state) => state.main.data.allUsers
+export const SelectUsers = (state) => state.data.allUsers
 
-export const SelectVideos = (state) => state.main.data.videos
+export const SelectVideos = (state) => state.data.videos
 
-export const SelectLoading = (state) => state.main.data.loading
+export const SelectLoading = (state) => state.data.loading
 
-export const SelectLoginLoading = (state) => state.main.data.loginLoading
+export const SelectLoginLoading = (state) => state.data.loginLoading
 
-export const SelectCurrentUser = (state) => state.main.data.currentUser
+export const SelectCurrentUserId = (state) => state.data.currentUser.userId
+
+export const SelectUserToken = (state) => state.data.currentUser.authToken

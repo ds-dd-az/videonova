@@ -7,9 +7,12 @@ import getVideos from "../../api/videos"
 const initialState = {
   allUsers: {},
   videos: {},
-  currentUser: {},
+  currentUser: {
+    userId: "",
+    authToken: "",
+  },
   loading: false,
-  loginLoading: false,
+  postLoading: false,
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -18,8 +21,8 @@ export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
 })
 
 export const fetchVideos = createAsyncThunk("data/fetchVideos", async () => {
-  const users = await getVideos()
-  return users
+  const videos = await getVideos()
+  return videos
 })
 
 export const registerUser = createAsyncThunk("data/register", async (data) => {
@@ -37,15 +40,35 @@ export const loginUser = createAsyncThunk("data/login", async (data) => {
     data
   )
   console.log(user)
-  return (await user).data.id
+  return (await user).data
 })
 
+export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
+  console.log(data)
+  const videoInfo = {
+    url: data.url,
+    title: data.title,
+    description: data.description,
+  }
+  console.log(videoInfo)
+  console.log(data.userId)
+  const video = axios.post(
+    "https://wonderful-app-lmk4d.cloud.serverless.com/video",
+    videoInfo,
+    {
+      headers: {
+        Authorization: `${data.token}`,
+      },
+    }
+  )
+  console.log(video)
+})
 const userDataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
     addUser(state, action) {
-      state.allUsers.push(action.payload)
+      state.currentUser = action.payload
     },
     delUser(state) {
       state.allUsers.pop()
@@ -67,11 +90,11 @@ const userDataSlice = createSlice({
       state.loading = true
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
-      state.currentUser = action.payload
-      state.loginLoading = false
+      state.currentUser.userId = action.payload
+      state.postLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
-      state.loginLoading = true
+      state.postLoading = true
     })
     builder.addCase(fetchUsers.rejected, (state) => {
       state.loading = false
@@ -80,17 +103,27 @@ const userDataSlice = createSlice({
       state.loading = false
     })
     builder.addCase(registerUser.rejected, (state) => {
-      state.loginLoading = false
+      state.postLoading = false
     })
     builder.addCase(loginUser.fulfilled, (state, action) => {
-      state.currentUser = action.payload
+      state.currentUser.userId = action.payload.id
+      state.currentUser.authToken = action.payload.authToken
       state.loginLoading = false
     })
     builder.addCase(loginUser.pending, (state) => {
       state.loginLoading = true
     })
     builder.addCase(loginUser.rejected, (state) => {
-      state.loginLoading = false
+      state.postLoading = false
+    })
+    builder.addCase(addVideo.pending, (state) => {
+      state.postLoading = true
+    })
+    builder.addCase(addVideo.fulfilled, (state) => {
+      state.postLoading = false
+    })
+    builder.addCase(addVideo.rejected, (state) => {
+      state.postLoading = false
     })
   },
 })

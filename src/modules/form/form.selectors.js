@@ -1,5 +1,5 @@
 export const rootSelector = (state) => state
 
-export const selectVisibility = (state) => state.main.form.visibility
+export const selectVisibility = (state) => state.form.visibility
 
-export const selectType = (state) => state.main.form.type
+export const selectType = (state) => state.form.type

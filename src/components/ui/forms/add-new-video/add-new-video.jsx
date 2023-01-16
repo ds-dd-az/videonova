@@ -1,11 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control,react/jsx-no-bind,react-hooks/exhaustive-deps */
 import React, { useEffect, useId } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import "../style.css"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
+import addNewVideo from "../../../../external_func/add-video/add-video"
+import { SelectUserToken } from "../../../../modules/userdata"
+import ErrorMessage from "../form_error/form-error"
 
 export default function VideoForm() {
+  const token = useSelector(SelectUserToken)
   const dispatch = useDispatch()
   function closeForm() {
     dispatch({
@@ -24,14 +28,18 @@ export default function VideoForm() {
     descField = document.getElementById(`${videoDesc}`)
   })
   function addVideo() {
-    console.log(
-      `video added, link:${linkField.value}, name:${nameField.value}, description:${descField.value}`
+    addNewVideo(
+      dispatch,
+      linkField.value,
+      nameField.value,
+      descField.value,
+      token
     )
-    closeForm()
   }
   return (
     <div className="add-new-vid">
       <h1>Add New Video</h1>
+      <ErrorMessage />
       <form>
         <label htmlFor={link}>
           Youtube Link
