@@ -15,6 +15,13 @@ const initialState = {
   postLoading: false,
 }
 
+const axiosConfig = {
+  onUploadProgress: (progressEvent) => console.log(progressEvent.loaded),
+  headers: {
+    Authorization: `${data.token}`,
+  },
+}
+
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
   const users = await getUsers()
   return users
@@ -44,22 +51,15 @@ export const loginUser = createAsyncThunk("data/login", async (data) => {
 })
 
 export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
-  console.log(data)
   const videoInfo = {
     url: data.url,
     title: data.title,
     description: data.description,
   }
-  console.log(videoInfo)
-  console.log(data.userId)
   const video = axios.post(
     "https://wonderful-app-lmk4d.cloud.serverless.com/video",
     videoInfo,
-    {
-      headers: {
-        Authorization: `${data.token}`,
-      },
-    }
+    axiosConfig
   )
   console.log(video)
 })
