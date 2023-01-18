@@ -9,7 +9,6 @@ const initialState = {
   videos: {},
   currentUser: {
     userId: "",
-    authToken: "",
   },
   loading: false,
   postLoading: false,
@@ -18,7 +17,7 @@ const initialState = {
 const axiosConfig = {
   onUploadProgress: (progressEvent) => console.log(progressEvent.loaded),
   headers: {
-    Authorization: `${data.token}`,
+    Authorization: `token`,
   },
 }
 
@@ -91,7 +90,7 @@ const userDataSlice = createSlice({
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
-      state.currentUser.authToken = action.payload.authToken
+      document.cookie = `token= ${action.payload.authToken};max-age=31536000 `
       state.postLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
@@ -108,7 +107,8 @@ const userDataSlice = createSlice({
     })
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
-      state.currentUser.authToken = action.payload.authToken
+      document.cookie = `token= ${action.payload.authToken};max-age=31536000 `
+      console.log(document.cookie)
       state.loginLoading = false
     })
     builder.addCase(loginUser.pending, (state) => {
