@@ -14,10 +14,16 @@ const initialState = {
   postLoading: false,
 }
 
+function getToken() {
+  const { cookie } = document
+  const token = cookie.split("=")[1]
+  return token
+}
+
 const axiosConfig = {
   onUploadProgress: (progressEvent) => console.log(progressEvent.loaded),
   headers: {
-    Authorization: `token`,
+    Authorization: `${getToken()}`,
   },
 }
 
@@ -90,7 +96,7 @@ const userDataSlice = createSlice({
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
-      document.cookie = `token= ${action.payload.authToken};max-age=31536000 `
+      document.cookie = `token=${action.payload.authToken};max-age=31536000 `
       state.postLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
@@ -107,8 +113,7 @@ const userDataSlice = createSlice({
     })
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
-      document.cookie = `token= ${action.payload.authToken};max-age=31536000 `
-      console.log(document.cookie)
+      document.cookie = `token=${action.payload.authToken};max-age=31536000 `
       state.loginLoading = false
     })
     builder.addCase(loginUser.pending, (state) => {
