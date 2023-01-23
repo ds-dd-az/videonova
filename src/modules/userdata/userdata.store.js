@@ -29,6 +29,7 @@ const axiosConfig = {
     console.log(loaded)
     console.log(total)
     const percent = Math.floor((loaded * 100) / total)
+    console.log(`${loaded} bytes of ${total} bytes. ${percent}%`)
     console.log(percent)
     if (percent < 100)
       console.log(`${loaded} bytes of ${total} bytes. ${percent}%`)
