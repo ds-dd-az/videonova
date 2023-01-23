@@ -21,14 +21,17 @@ function getToken() {
 }
 
 const axiosConfig = {
-  onUploadProgress: (progressEvent) => {
-    const { loaded, total } = progressEvent
-    const percent = Math.floor((loaded * 100) / total)
-    if (percent < 100)
-      console.log(`${loaded} bytes of ${total} bytes. ${percent}%`)
-  },
   headers: {
     Authorization: `${getToken()}`,
+  },
+  onUploadProgress: function handleUpload(progressEvent) {
+    const { loaded, total } = progressEvent
+    console.log(loaded)
+    console.log(total)
+    const percent = Math.floor((loaded * 100) / total)
+    console.log(percent)
+    if (percent < 100)
+      console.log(`${loaded} bytes of ${total} bytes. ${percent}%`)
   },
 }
 
