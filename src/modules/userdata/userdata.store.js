@@ -24,16 +24,6 @@ const axiosConfig = {
   headers: {
     Authorization: `${getToken()}`,
   },
-  onUploadProgress: function handleUpload(progressEvent) {
-    const { loaded, total } = progressEvent
-    console.log(loaded)
-    console.log(total)
-    const percent = Math.floor((loaded * 100) / total)
-    console.log(`${loaded} bytes of ${total} bytes. ${percent}%`)
-    console.log(percent)
-    if (percent < 100)
-      console.log(`${loaded} bytes of ${total} bytes. ${percent}%`)
-  },
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
