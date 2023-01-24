@@ -18,7 +18,7 @@ export default function UserPage() {
   function showForm() {
     dispatch({
       type: "form/show",
-      payload: "addVideo",
+      payload: { type: "addVideo" },
     })
   }
   const users = useSelector(SelectUsers)
