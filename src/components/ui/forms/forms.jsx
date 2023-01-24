@@ -5,7 +5,7 @@ import SignIn from "./sign-in-form/sign-in-form"
 import XIcon from "./close-form-button/close-form"
 import SignUp from "./sign-up-form/sign-up-form"
 import VideoForm from "./add-new-video/add-new-video"
-import VideoLoading from "./add-new-video_loading/video-loading"
+import VideoAdded from "./add-new-video_added/video-added"
 
 export default function Form(props) {
   // eslint-disable-next-line react/prop-types
@@ -28,7 +28,7 @@ export default function Form(props) {
   if (variant === "videoLoading") {
     return (
       <div id="formId" className="form-wrapper">
-        <VideoLoading progress="eeee" />
+        <VideoAdded />
       </div>
     )
   }

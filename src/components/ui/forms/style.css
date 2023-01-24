@@ -45,7 +45,7 @@
   align-items: center;
 }
 
-.video-loading{
+.video-added{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -58,7 +58,7 @@ label{
   flex-direction: column;
 }
 
-.video-loading>div{
+.video-added>div{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -120,7 +120,7 @@ label>div{
   overflow: hidden;
   }
 
-.video-loading .button{
+.video-added .button{
   margin-top: 28px;
 }
 
