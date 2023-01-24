@@ -6,10 +6,11 @@ import XIcon from "./close-form-button/close-form"
 import SignUp from "./sign-up-form/sign-up-form"
 import VideoForm from "./add-new-video/add-new-video"
 import VideoAdded from "./add-new-video_added/video-added"
+import VideoAddedContainer from "../../../containers/video-added/video-added"
 
 export default function Form(props) {
   // eslint-disable-next-line react/prop-types
-  const { variant } = props
+  const { variant, additional } = props
   if (variant === "addVideo") {
     return (
       <div id="formId" className="form-wrapper">
@@ -25,10 +26,11 @@ export default function Form(props) {
       </div>
     )
   }
-  if (variant === "videoLoading") {
+  if (variant === "videoAdded") {
     return (
       <div id="formId" className="form-wrapper">
-        <VideoAdded />
+        <XIcon />
+        <VideoAddedContainer />
       </div>
     )
   }

@@ -16,9 +16,9 @@ export default function VideoAdded(props) {
       <h1>Video succesfully added</h1>
       <div>
         <div className="vid-preview">
-          <img src={img} alt="prev" />
+          <img src={`${img}`} alt="prev" />
         </div>
-        <Button text="To video" disabled />
+        <Button text="To video" />
       </div>
     </div>
   )
