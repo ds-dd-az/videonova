@@ -113,12 +113,17 @@ label>div{
 
 .vid-preview{
   display: flex;
-  flex-direction: column;
   width: 378px;
   height: 178px;
   border-radius: 11px;
   overflow: hidden;
+  position: relative;
   }
+
+.vid-preview img{
+  width: 100%;
+  height: 100%;
+}
 
 .video-added .button{
   margin-top: 28px;
