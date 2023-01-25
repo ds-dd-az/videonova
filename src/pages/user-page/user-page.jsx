@@ -5,7 +5,12 @@ import Video from "../../components/ui/video/video"
 import UserIcon from "../../components/ui/user-icon/user-icon"
 import Button from "../../components/ui/button/button"
 import VidIcon from "./video-icon.png"
-import { SelectVideos, SelectUsers } from "../../modules/userdata"
+import {
+  SelectVideos,
+  SelectUsers,
+  SelectLoading,
+} from "../../modules/userdata"
+import LoadRing from "../../components/ui/Loading-ring/load-ring"
 
 const vidIcon = {
   src: VidIcon,
@@ -24,6 +29,7 @@ export default function UserPage() {
   const users = useSelector(SelectUsers)
   const owner = users.find((value) => value.id === pageId)
   const allVideos = useSelector(SelectVideos)
+  const loading = useSelector(SelectLoading)
   const usersVideos = allVideos.filter((value) => value.userId === pageId)
   let renderVideos
   if (usersVideos.length > 0) {
@@ -49,7 +55,9 @@ export default function UserPage() {
             {/* eslint-disable-next-line react/jsx-no-bind */}
             <Button text="Add video" click={showForm} />
           </div>
-          <div className="videos">{renderVideos}</div>
+          <div className="videos">
+            {loading ? <LoadRing isBig /> : renderVideos}
+          </div>
         </div>
       </div>
     </Layout>
