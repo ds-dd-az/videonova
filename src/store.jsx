@@ -19,11 +19,13 @@ import { PersistGate } from "redux-persist/integration/react"
 import { reducer as formReducer } from "./modules/form/index"
 import { reducer as dataReducer } from "./modules/userdata/index"
 import { reducer as errorReducer } from "./modules/current_error/index"
+import { reducer as sortReducer } from "./modules/sorting/index"
 
 const rootReducer = combineReducers({
   form: formReducer,
   data: dataReducer,
   errors: errorReducer,
+  sorting: sortReducer,
 })
 
 const persistConfig = {
@@ -31,7 +33,7 @@ const persistConfig = {
   version: 0,
   stateReconciler: autoMergeLevel2,
   storage,
-  blacklist: ["errors"],
+  blacklist: ["errors", "form"],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
