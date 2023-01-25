@@ -120,12 +120,29 @@ label>div{
   position: relative;
   }
 
-.vid-preview img{
+.vid-preview__image{
   width: 100%;
   height: 100%;
 }
 
 .video-added .button{
   margin-top: 28px;
+}
+
+.vid-preview__check-icon{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 47px;
+}
+
+.vid-preview__shadow{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.64);
 }
 
