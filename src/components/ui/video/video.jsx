@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import ReactPlayer from "react-player"
 import "./style.css"
 import Play from "./play-icon.png"
+import findPreview from "../../../external_func/find-preview-src/find-preview-src"
 
 const play = {
   src: Play,
@@ -11,20 +12,7 @@ const play = {
 }
 
 export default function Video({ data }) {
-  // eslint-disable-next-line prefer-destructuring
   const url = data.url
-  let videoId
-  if (url.includes("youtu.be")) {
-    videoId = url.split("youtu.be/")[1]
-  } else if (url.includes("embed/")) {
-    videoId = url.split("embed/")[1]
-  } else {
-    videoId = url.split("v=")[1]
-    if (videoId.includes("&")) {
-      const ampersandPosition = videoId.indexOf("&")
-      videoId = videoId.substring(0, ampersandPosition)
-    }
-  }
   const [visibility, setVisibility] = useState(false)
   function toggleVisibility() {
     setVisibility(!visibility)
@@ -37,7 +25,7 @@ export default function Video({ data }) {
         <div className="closing-div" onClick={toggleVisibility} role="button" />
         <ReactPlayer
           className="react-player"
-          url={data.url}
+          url={url}
           width="854px"
           height="480px"
           playing
@@ -61,7 +49,7 @@ export default function Video({ data }) {
           <div className="play-icon">
             <img src={play.src} alt={play.alt} />
           </div>
-          <img src={`https://img.youtube.com/vi/${videoId}/0.jpg`} alt="" />
+          <img src={findPreview(url)} alt="" />
         </div>
         <h3>{data.title}</h3>
         {data.description}
@@ -81,7 +69,7 @@ export default function Video({ data }) {
         <div className="play-icon">
           <img src={play.src} alt={play.alt} />
         </div>
-        <img src={`https://img.youtube.com/vi/${videoId}/0.jpg`} alt="" />
+        <img src={findPreview(url)} alt="" />
       </div>
       <h3>{data.title}</h3>
       {data.description}

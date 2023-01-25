@@ -12,7 +12,7 @@ export default function Header(props) {
   function showForm() {
     dispatch({
       type: "form/show",
-      payload: "signUp",
+      payload: { type: "signUp" },
     })
   }
   // function redirect() {

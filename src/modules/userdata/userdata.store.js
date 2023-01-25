@@ -9,10 +9,21 @@ const initialState = {
   videos: {},
   currentUser: {
     userId: "",
-    authToken: "",
   },
   loading: false,
   postLoading: false,
+}
+
+function getToken() {
+  const { cookie } = document
+  const token = cookie.split("=")[1]
+  return token
+}
+
+const axiosConfig = {
+  headers: {
+    Authorization: `${getToken()}`,
+  },
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -44,22 +55,15 @@ export const loginUser = createAsyncThunk("data/login", async (data) => {
 })
 
 export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
-  console.log(data)
   const videoInfo = {
     url: data.url,
     title: data.title,
     description: data.description,
   }
-  console.log(videoInfo)
-  console.log(data.userId)
   const video = axios.post(
     "https://wonderful-app-lmk4d.cloud.serverless.com/video",
     videoInfo,
-    {
-      headers: {
-        Authorization: `${data.token}`,
-      },
-    }
+    axiosConfig
   )
   console.log(video)
 })
@@ -91,7 +95,7 @@ const userDataSlice = createSlice({
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
-      state.currentUser.authToken = action.payload.authToken
+      document.cookie = `token=${action.payload.authToken};max-age=31536000 `
       state.postLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
@@ -108,7 +112,7 @@ const userDataSlice = createSlice({
     })
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
-      state.currentUser.authToken = action.payload.authToken
+      document.cookie = `token=${action.payload.authToken};max-age=31536000 `
       state.loginLoading = false
     })
     builder.addCase(loginUser.pending, (state) => {

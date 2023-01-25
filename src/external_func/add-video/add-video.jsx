@@ -21,7 +21,14 @@ export default function addNewVideo(dispatch, url, title, description, token) {
       dispatch({
         type: "errors/cleanError",
       })
-      dispatch(fetchVideos)
+      dispatch(fetchVideos())
+      dispatch({
+        type: "form/show",
+        payload: {
+          type: "videoAdded",
+          img: `${url}`,
+        },
+      })
     })
     .catch((error) => {
       if (error.message === "Request failed with status code 403") {

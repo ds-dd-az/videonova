@@ -19,7 +19,16 @@ export default function HomePage() {
   function signInForm() {
     dispatch({
       type: "form/show",
-      payload: "signIn",
+      payload: { type: "signIn" },
+    })
+  }
+  function VideoAdded() {
+    dispatch({
+      type: "form/show",
+      payload: {
+        type: "videoAdded",
+        img: "https://youtu.be/hXNWa9E9vN8",
+      },
     })
   }
   const users = useSelector(SelectUsers)
@@ -44,6 +53,7 @@ export default function HomePage() {
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={signInForm} />
+            <Button text="test button again" click={VideoAdded} />
           </div>
           <div className="best-creators">
             <div className="best-creators__text">

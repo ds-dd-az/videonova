@@ -6,11 +6,13 @@ const formSlice = createSlice({
   initialState: {
     visibility: false,
     type: null,
+    img: null,
   },
   reducers: {
     show(state, action) {
       state.visibility = true
-      state.type = action.payload
+      state.type = action.payload.type
+      state.img = action.payload.img
     },
     hide(state) {
       state.visibility = false

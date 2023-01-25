@@ -45,7 +45,7 @@
   align-items: center;
 }
 
-.video-loading{
+.video-added{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -58,7 +58,7 @@ label{
   flex-direction: column;
 }
 
-.video-loading>div{
+.video-added>div{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -113,14 +113,36 @@ label>div{
 
 .vid-preview{
   display: flex;
-  flex-direction: column;
   width: 378px;
   height: 178px;
   border-radius: 11px;
   overflow: hidden;
+  position: relative;
   }
 
-.video-loading .button{
+.vid-preview__image{
+  width: 100%;
+  height: 100%;
+}
+
+.video-added .button{
   margin-top: 28px;
+}
+
+.vid-preview__check-icon{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 47px;
+}
+
+.vid-preview__shadow{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(51, 51, 51, 0.64);
 }
 
