@@ -12,10 +12,10 @@ function sortByName(a, b) {
 export default function Users() {
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)
-  const initialArr = users.map((arr) => arr)
-  console.log(initialArr)
-  console.log(initialArr.sort(sortByName))
-  const usersArr = initialArr.map((element) => {
+  const initialArr = users.map((element) => element)
+  const sortedArr = initialArr.sort(sortByName)
+  const reverseSortedArr = sortedArr.reverse()
+  const finalArr = reverseSortedArr.map((element) => {
     const countVideos = videos.filter((value) => value.userId === element.id)
     return (
       <UserCard
@@ -25,5 +25,5 @@ export default function Users() {
       />
     )
   })
-  return usersArr
+  return finalArr
 }
