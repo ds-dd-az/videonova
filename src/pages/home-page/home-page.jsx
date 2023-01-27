@@ -6,19 +6,28 @@ import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
 import { SelectLoading } from "../../modules/userdata/userdata.selectors"
 import LoadRing from "../../components/ui/Loading-ring/load-ring"
-import Users from "../../external_func/displaying-users/users"
+import Users from "../../containers/Users/users"
+import { selectReversed } from "../../modules/sorting"
 
 const star = {
   src: StarImage,
   alt: "",
 }
+
 export default function HomePage() {
   const dispatch = useDispatch()
+  const reversed = useSelector(selectReversed)
   function signInForm() {
     dispatch({
       type: "form/show",
       payload: { type: "signIn" },
     })
+  }
+  function reverseArr() {
+    dispatch({
+      type: "sorting/reverse",
+    })
+    console.log(reversed)
   }
   const loading = useSelector(SelectLoading)
   return (
@@ -30,6 +39,7 @@ export default function HomePage() {
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={signInForm} />
+            <Button text="reverse" click={reverseArr} />
           </div>
           <div className="best-creators">
             <div className="best-creators__text">

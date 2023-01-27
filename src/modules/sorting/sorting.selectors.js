@@ -1,3 +1,3 @@
 export const rootSelector = (state) => state
 
-export const selectSorting = (state) => state.sorting.sortBy
+export const selectReversed = (state) => state.sorting.reversed
