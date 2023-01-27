@@ -4,11 +4,15 @@ import { createSlice } from "@reduxjs/toolkit"
 const sortSlice = createSlice({
   name: "sorting",
   initialState: {
-    sortBy: null,
+    sorted: false,
+    reversed: false,
   },
   reducers: {
-    sort(state, action) {
-      state.sortBy = action.payload
+    sort(state) {
+      state.sorted = true
+    },
+    reverse(state) {
+      state.sorted = !state.sorted
     },
   },
 })
