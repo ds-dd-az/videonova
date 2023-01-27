@@ -8,6 +8,7 @@ import { SelectLoading } from "../../modules/userdata/userdata.selectors"
 import LoadRing from "../../components/ui/Loading-ring/load-ring"
 import Users from "../../containers/Users/users"
 import { selectReversed } from "../../modules/sorting"
+import SortIcon from "../../components/ui/sort-icon/sort-icon"
 
 const star = {
   src: StarImage,
@@ -42,9 +43,12 @@ export default function HomePage() {
             <Button text="reverse" click={reverseArr} />
           </div>
           <div className="best-creators">
-            <div className="best-creators__text">
-              <h2>Best creators</h2>
-              <img src={star.src} alt={star.alt} />
+            <div className="best-creators__header">
+              <div className="best-creators__text">
+                <h2>Best creators</h2>
+                <img src={star.src} alt={star.alt} />
+              </div>
+              <SortIcon click={reverseArr} />
             </div>
             <div className="best-creators__users">
               {loading ? <LoadRing isBig /> : <Users />}
