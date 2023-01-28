@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React from "react"
+import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
@@ -7,8 +7,11 @@ import StarImage from "./star-image.png"
 import { SelectLoading } from "../../modules/userdata/userdata.selectors"
 import LoadRing from "../../components/ui/Loading-ring/load-ring"
 import Users from "../../containers/Users/users"
-import { selectReversed } from "../../modules/sorting"
 import SortIcon from "../../components/ui/sort-icon/sort-icon"
+import {
+  signInForm,
+  reverseArr,
+} from "../../external_func/dispatches/dispatches"
 
 const star = {
   src: StarImage,
@@ -17,19 +20,9 @@ const star = {
 
 export default function HomePage() {
   const dispatch = useDispatch()
-  const reversed = useSelector(selectReversed)
-  function signInForm() {
-    dispatch({
-      type: "form/show",
-      payload: { type: "signIn" },
-    })
-  }
-  function reverseArr() {
-    dispatch({
-      type: "sorting/reverse",
-    })
-  }
   const loading = useSelector(SelectLoading)
+  const reverse = () => reverseArr(dispatch)
+  const openSignIn = () => signInForm(dispatch)
   return (
     <Layout>
       <div className="page-block">
@@ -38,7 +31,7 @@ export default function HomePage() {
             <h1>Welcome to VideoNova</h1>
             Create videos with single click. Add subtitles, transcribe audio and
             more
-            <Button text="Start Now" click={signInForm} />
+            <Button text="Start Now" click={openSignIn} />
           </div>
           <div className="best-creators">
             <div className="best-creators__header">
@@ -46,7 +39,7 @@ export default function HomePage() {
                 <h2>Best creators</h2>
                 <img src={star.src} alt={star.alt} />
               </div>
-              <SortIcon click={reverseArr} />
+              <SortIcon click={reverse} />
             </div>
             <div className="best-creators__users">
               {loading ? <LoadRing isBig /> : <Users />}
