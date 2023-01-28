@@ -28,7 +28,6 @@ export default function HomePage() {
     dispatch({
       type: "sorting/reverse",
     })
-    console.log(reversed)
   }
   const loading = useSelector(SelectLoading)
   return (
@@ -40,7 +39,6 @@ export default function HomePage() {
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={signInForm} />
-            <Button text="reverse" click={reverseArr} />
           </div>
           <div className="best-creators">
             <div className="best-creators__header">
