@@ -57,6 +57,13 @@ body{
   justify-content: space-between;
 }
 
+.best-creators__header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 .user{
   margin-top: 100px;

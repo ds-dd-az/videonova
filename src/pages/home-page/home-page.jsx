@@ -1,49 +1,35 @@
 /* eslint-disable react/jsx-no-bind */
-/* eslint-disable react/no-unescaped-entities */
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "./star-image.png"
-import UserCard from "../../components/ui/user-card/user-card"
-import { SelectUsers, SelectVideos } from "../../modules/userdata"
 import { SelectLoading } from "../../modules/userdata/userdata.selectors"
 import LoadRing from "../../components/ui/Loading-ring/load-ring"
+import Users from "../../containers/Users/users"
+import { selectReversed } from "../../modules/sorting"
+import SortIcon from "../../components/ui/sort-icon/sort-icon"
 
 const star = {
   src: StarImage,
   alt: "",
 }
+
 export default function HomePage() {
   const dispatch = useDispatch()
+  const reversed = useSelector(selectReversed)
   function signInForm() {
     dispatch({
       type: "form/show",
       payload: { type: "signIn" },
     })
   }
-  function VideoAdded() {
+  function reverseArr() {
     dispatch({
-      type: "form/show",
-      payload: {
-        type: "videoAdded",
-        img: "https://youtu.be/hXNWa9E9vN8",
-      },
+      type: "sorting/reverse",
     })
   }
-  const users = useSelector(SelectUsers)
-  const videos = useSelector(SelectVideos)
   const loading = useSelector(SelectLoading)
-  const renderUsers = users.map((element) => {
-    const countVideos = videos.filter((value) => value.userId === element.id)
-    return (
-      <UserCard
-        vidAmount={countVideos.length}
-        data={element}
-        key={element.id}
-      />
-    )
-  })
   return (
     <Layout>
       <div className="page-block">
@@ -53,15 +39,17 @@ export default function HomePage() {
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={signInForm} />
-            <Button text="test button again" click={VideoAdded} />
           </div>
           <div className="best-creators">
-            <div className="best-creators__text">
-              <h2>Best creators</h2>
-              <img src={star.src} alt={star.alt} />
+            <div className="best-creators__header">
+              <div className="best-creators__text">
+                <h2>Best creators</h2>
+                <img src={star.src} alt={star.alt} />
+              </div>
+              <SortIcon click={reverseArr} />
             </div>
             <div className="best-creators__users">
-              {loading ? <LoadRing isBig /> : renderUsers}
+              {loading ? <LoadRing isBig /> : <Users />}
             </div>
           </div>
         </div>
