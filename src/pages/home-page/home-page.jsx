@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-bind */
-import React, { useEffect } from "react"
+import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Layout from "../../components/layout/layout"
 import Button from "../../components/ui/button/button"
@@ -12,11 +12,6 @@ import {
   signInForm,
   reverseArr,
 } from "../../external_func/dispatches/dispatches"
-
-const star = {
-  src: StarImage,
-  alt: "",
-}
 
 export default function HomePage() {
   const dispatch = useDispatch()
@@ -37,7 +32,7 @@ export default function HomePage() {
             <div className="best-creators__header">
               <div className="best-creators__text">
                 <h2>Best creators</h2>
-                <img src={star.src} alt={star.alt} />
+                <img src={StarImage} alt=" " />
               </div>
               <SortIcon click={reverse} />
             </div>
