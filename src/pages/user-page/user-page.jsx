@@ -21,6 +21,10 @@ export default function UserPage() {
   const currentUser = useSelector(SelectCurrentUserId)
   const owner = users.find((value) => value.id === pageId)
   const loading = useSelector(SelectLoading)
+  const name =
+    owner.userName.slice(-1) !== "s"
+      ? `${owner.userName}\`s`
+      : `${owner.userName}\``
   return (
     <Layout>
       <div className="page-block">
@@ -31,7 +35,7 @@ export default function UserPage() {
         <div className="user-videos">
           <div className="user-videos__header">
             <div className="videos-text">
-              <h2>{owner.userName}`s videos</h2>
+              <h2>{name} videos</h2>
               <img src={VidIcon} alt="" />
             </div>
             {currentUser === pageId ? (
