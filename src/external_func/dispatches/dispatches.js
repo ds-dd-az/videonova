@@ -10,3 +10,10 @@ export function reverseArr(dispatch) {
     type: "sorting/reverse",
   })
 }
+
+export function addVideoForm(dispatch) {
+  dispatch({
+    type: "form/show",
+    payload: { type: "addVideo" },
+  })
+}
