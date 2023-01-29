@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import Layout from "../../components/layout/layout"
 import UserIcon from "../../components/ui/user-icon/user-icon"
 import Button from "../../components/ui/button/button"
-import VidIcon from "./video-icon.png"
+import VidIcon from "../../assets/icons/video-icon.png"
 import {
   SelectUsers,
   SelectLoading,
@@ -15,8 +15,8 @@ import Videos from "../../containers/videos/videos"
 
 export default function UserPage() {
   const dispatch = useDispatch()
-  const pageId = window.location.href.split("user/")[1]
   const openForm = () => addVideoForm(dispatch)
+  const pageId = window.location.href.split("user/")[1]
   const users = useSelector(SelectUsers)
   const currentUser = useSelector(SelectCurrentUserId)
   const owner = users.find((value) => value.id === pageId)
