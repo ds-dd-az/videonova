@@ -7,6 +7,7 @@ import Button from "../../button/button"
 import signInFunc from "../../../../external_func/sign-in-form/signin-functions"
 import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
 import ErrorMessage from "../form_error/form-error"
+import { SelectLoginLoading } from "../../../../modules/userdata"
 import {
   SelectPasswordError,
   SelectNameError,
@@ -20,6 +21,7 @@ export default function SignIn() {
   let passwordField
   const passwordError = useSelector(SelectPasswordError)
   const nameError = useSelector(SelectNameError)
+  const loading = useSelector(SelectLoginLoading)
   useEffect(() => {
     nameField = document.getElementById(`${name}`)
     passwordField = document.getElementById(`${password}`)
@@ -50,7 +52,7 @@ export default function SignIn() {
             placeholder="Type password..."
           />
         </label>
-        <Button text="Sign In" click={login} />
+        <Button text="Sign In" click={login} loading={loading} />
         <span>
           Don`t have account? <FormSwitcher />
         </span>
