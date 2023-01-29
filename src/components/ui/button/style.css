@@ -15,10 +15,10 @@
   box-sizing: border-box;
   width: fit-content;
   height: fit-content;
+  height: 54px;
 }
 
 .button_secondary{
-  height: 54px;
   background: none;
   border: 2px solid #5B4DFF;
   color: #5B4DFF;
