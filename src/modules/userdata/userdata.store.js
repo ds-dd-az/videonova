@@ -1,8 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
 import { getUsers, postUser, loginUser } from "../../api/users"
-import getVideos from "../../api/videos"
+import { getVideos, postVideo } from "../../api/videos"
 
 const initialState = {
   allUsers: {},
@@ -11,18 +10,6 @@ const initialState = {
     userId: "",
   },
   loading: false,
-}
-
-function getToken() {
-  const { cookie } = document
-  const token = cookie.split("=")[1]
-  return token
-}
-
-const axiosConfig = {
-  headers: {
-    Authorization: `${getToken()}`,
-  },
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -42,21 +29,11 @@ export const registerUser = createAsyncThunk("data/register", async (data) => {
 
 export const login = createAsyncThunk("data/login", async (data) => {
   const user = loginUser(data)
-  console.log(user)
   return user
 })
 
 export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
-  const videoInfo = {
-    url: data.url,
-    title: data.title,
-    description: data.description,
-  }
-  const video = axios.post(
-    "https://wonderful-app-lmk4d.cloud.serverless.com/video",
-    videoInfo,
-    axiosConfig
-  )
+  const video = postVideo(data)
   return video
 })
 const userDataSlice = createSlice({
