@@ -11,7 +11,6 @@ const initialState = {
     userId: "",
   },
   loading: false,
-  postLoading: false,
 }
 
 function getToken() {
@@ -65,7 +64,7 @@ export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
     videoInfo,
     axiosConfig
   )
-  console.log(video)
+  return video
 })
 const userDataSlice = createSlice({
   name: "data",
@@ -96,10 +95,10 @@ const userDataSlice = createSlice({
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
       document.cookie = `token=${action.payload.authToken};max-age=31536000 `
-      state.postLoading = false
+      state.loginLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
-      state.postLoading = true
+      state.loginLoading = true
     })
     builder.addCase(fetchUsers.rejected, (state) => {
       state.loading = false
@@ -108,7 +107,7 @@ const userDataSlice = createSlice({
       state.loading = false
     })
     builder.addCase(registerUser.rejected, (state) => {
-      state.postLoading = false
+      state.loginLoading = false
     })
     builder.addCase(loginUser.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
@@ -119,15 +118,6 @@ const userDataSlice = createSlice({
       state.loginLoading = true
     })
     builder.addCase(loginUser.rejected, (state) => {
-      state.postLoading = false
-    })
-    builder.addCase(addVideo.pending, (state) => {
-      state.postLoading = true
-    })
-    builder.addCase(addVideo.fulfilled, (state) => {
-      state.postLoading = false
-    })
-    builder.addCase(addVideo.rejected, (state) => {
       state.postLoading = false
     })
   },

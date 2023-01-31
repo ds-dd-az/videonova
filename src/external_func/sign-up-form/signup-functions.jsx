@@ -38,24 +38,20 @@ export default function signUp(dispatch, name, password, repeatPassword) {
   dispatch({
     type: "errors/cleanError",
   })
-  if (password !== repeatPassword) {
+  if (password.length < 8) {
+    dispatch({
+      type: "errors/addPasswordError",
+      payload: "Password must be at least eight symbols long",
+    })
+  } else if (password !== repeatPassword) {
     dispatch({
       type: "errors/addPasswordError",
       payload: "Passwords must be indentical",
     })
-    if (password.length < 8) {
-      dispatch({
-        type: "errors/addPasswordError",
-        payload: "Password must be at least eight symbols long",
-      })
-    }
-    if (name.length < 4) {
-      dispatch({
-        type: "errors/addNameError",
-        payload: "Name must be at least four symbols long",
-      })
-    }
-  } else {
-    register(dispatch, name, password)
-  }
+  } else if (name.length < 4) {
+    dispatch({
+      type: "errors/addNameError",
+      payload: "Name must be at least four symbols long",
+    })
+  } else register(dispatch, name, password)
 }
