@@ -11,8 +11,8 @@ export async function postUser(data) {
   console.log(data)
   const response = axios.post(
     "https://wonderful-app-lmk4d.cloud.serverless.com/register",
-    { data }
+    data
   )
-  console.log(response.json())
-  return response
+  console.log((await response).data)
+  return (await response).data
 }

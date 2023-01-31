@@ -36,8 +36,8 @@ export const fetchVideos = createAsyncThunk("data/fetchVideos", async () => {
 })
 
 export const registerUser = createAsyncThunk("data/register", async (data) => {
-  const user = await postUser(data)
-  return user.data
+  const user = postUser(data)
+  return user
 })
 
 export const loginUser = createAsyncThunk("data/login", async (data) => {
