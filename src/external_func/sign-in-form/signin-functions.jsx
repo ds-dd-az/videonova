@@ -1,9 +1,9 @@
 import { unwrapResult } from "@reduxjs/toolkit"
-import { loginUser } from "../../modules/userdata"
+import { login } from "../../modules/userdata"
 
 export default function signInFunc(dispatch, userName, userPassword) {
   dispatch(
-    loginUser({
+    login({
       username: userName,
       password: userPassword,
     })

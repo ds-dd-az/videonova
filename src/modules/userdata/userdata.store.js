@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-import { getUsers, postUser } from "../../api/users"
+import { getUsers, postUser, loginUser } from "../../api/users"
 import getVideos from "../../api/videos"
 
 const initialState = {
@@ -40,13 +40,10 @@ export const registerUser = createAsyncThunk("data/register", async (data) => {
   return user
 })
 
-export const loginUser = createAsyncThunk("data/login", async (data) => {
-  const user = axios.post(
-    "https://wonderful-app-lmk4d.cloud.serverless.com/auth",
-    data
-  )
+export const login = createAsyncThunk("data/login", async (data) => {
+  const user = loginUser(data)
   console.log(user)
-  return (await user).data
+  return user
 })
 
 export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
@@ -105,15 +102,15 @@ const userDataSlice = createSlice({
     builder.addCase(registerUser.rejected, (state) => {
       state.loginLoading = false
     })
-    builder.addCase(loginUser.fulfilled, (state, action) => {
+    builder.addCase(login.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
       document.cookie = `token=${action.payload.authToken};max-age=31536000 `
       state.loginLoading = false
     })
-    builder.addCase(loginUser.pending, (state) => {
+    builder.addCase(login.pending, (state) => {
       state.loginLoading = true
     })
-    builder.addCase(loginUser.rejected, (state) => {
+    builder.addCase(login.rejected, (state) => {
       state.postLoading = false
     })
   },
