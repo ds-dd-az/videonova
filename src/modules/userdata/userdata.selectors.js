@@ -9,5 +9,3 @@ export const SelectLoading = (state) => state.data.loading
 export const SelectLoginLoading = (state) => state.data.loginLoading
 
 export const SelectCurrentUserId = (state) => state.data.currentUser.userId
-
-export const SelectUserToken = (state) => state.data.currentUser.authToken

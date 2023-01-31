@@ -17,3 +17,12 @@ export function addVideoForm(dispatch) {
     payload: { type: "addVideo" },
   })
 }
+
+export function closeForm(dispatch) {
+  dispatch({
+    type: "form/hide",
+  })
+  dispatch({
+    type: "errors/clearError",
+  })
+}

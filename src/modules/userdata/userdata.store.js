@@ -36,6 +36,7 @@ export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
   const video = postVideo(data)
   return video
 })
+
 const userDataSlice = createSlice({
   name: "data",
   initialState,

@@ -24,7 +24,7 @@ const errorSlice = createSlice({
       state.unexpectedError = true
       state.errorMessage = action.payload
     },
-    cleanError(state) {
+    clearError(state) {
       state.passwordError = false
       state.nameError = false
       state.errorMessage = null
@@ -33,6 +33,6 @@ const errorSlice = createSlice({
 })
 
 const { reducer } = errorSlice
-const { addError, cleanError } = errorSlice.actions
+const { addError, clearError } = errorSlice.actions
 
-export { reducer, addError, cleanError }
+export { reducer, addError, clearError }
