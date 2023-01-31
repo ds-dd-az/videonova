@@ -29,7 +29,6 @@ export default function SignUp() {
   const nameError = useSelector(SelectNameError)
   const dispatch = useDispatch()
   const register = () => {
-    console.log(nameField.value, passwordField.value, confirmPassField.value)
     signUp(
       dispatch,
       nameField.value,
@@ -37,7 +36,6 @@ export default function SignUp() {
       confirmPassField.value
     )
   }
-
   const registrationLoading = useSelector(SelectLoginLoading)
   return (
     <div className="sign-up">
@@ -71,7 +69,6 @@ export default function SignUp() {
             placeholder="Repeat password..."
           />
         </label>
-        {/* eslint-disable-next-line react/jsx-no-bind */}
         <Button text="Sign up" loading={registrationLoading} click={register} />
         <span>
           Already have an account? <FormSwitcher />

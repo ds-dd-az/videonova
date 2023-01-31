@@ -10,7 +10,6 @@ function register(dispatch, userName, userPassword) {
   )
     .then(unwrapResult)
     .then((promiseResult) => {
-      console.log(promiseResult)
       dispatch({
         type: "form/hide",
       })

@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-import getUsers from "../../api/users"
+import { getUsers, postUser } from "../../api/users"
 import getVideos from "../../api/videos"
 
 const initialState = {
@@ -36,12 +36,8 @@ export const fetchVideos = createAsyncThunk("data/fetchVideos", async () => {
 })
 
 export const registerUser = createAsyncThunk("data/register", async (data) => {
-  const user = axios.post(
-    "https://wonderful-app-lmk4d.cloud.serverless.com/register",
-    data
-  )
-  console.log(user)
-  return (await user).data
+  const user = await postUser(data)
+  return user.data
 })
 
 export const loginUser = createAsyncThunk("data/login", async (data) => {
