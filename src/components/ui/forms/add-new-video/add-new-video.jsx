@@ -5,17 +5,12 @@ import "../style.css"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 import addNewVideo from "../../../../external_func/add-video/add-video"
-import { SelectUserToken } from "../../../../modules/userdata"
 import ErrorMessage from "../form_error/form-error"
+import { closeForm } from "../../../../external_func/dispatches/dispatches"
 
 export default function VideoForm() {
-  const token = useSelector(SelectUserToken)
   const dispatch = useDispatch()
-  function closeForm() {
-    dispatch({
-      type: "form/hide",
-    })
-  }
+  const close = () => closeForm(dispatch)
   const link = useId()
   const videoName = useId()
   const videoDesc = useId()
@@ -28,13 +23,7 @@ export default function VideoForm() {
     descField = document.getElementById(`${videoDesc}`)
   })
   function addVideo() {
-    addNewVideo(
-      dispatch,
-      linkField.value,
-      nameField.value,
-      descField.value,
-      token
-    )
+    addNewVideo(dispatch, linkField.value, nameField.value, descField.value)
   }
   return (
     <div className="add-new-vid">
@@ -66,7 +55,7 @@ export default function VideoForm() {
           />
         </label>
         <div className="form-buttons">
-          <Button text="Cancel" secondary click={closeForm} />
+          <Button text="Cancel" secondary click={close} />
           <Button text="Submit" click={addVideo} />
         </div>
       </form>

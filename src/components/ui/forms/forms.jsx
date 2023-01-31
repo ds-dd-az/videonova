@@ -2,15 +2,20 @@ import React from "react"
 import propTypes from "prop-types"
 import "./style.css"
 import SignIn from "./sign-in-form/sign-in-form"
-import XIcon from "./close-form-button/close-form"
 import SignUp from "./sign-up-form/sign-up-form"
 import VideoForm from "./add-new-video/add-new-video"
-import VideoAdded from "./add-new-video_added/video-added"
 import VideoAddedContainer from "../../../containers/video-added/video-added"
+import CloseForm from "../../../containers/close-form-button/close-form-button"
 
 export default function Form(props) {
-  // eslint-disable-next-line react/prop-types
-  const { variant, additional } = props
+  const { variant } = props
+  Form.propTypes = {
+    /**
+     * variant of the form that will be displayed
+     */
+    variant: propTypes.oneOf(["addVideo", "signUp", "videoAdded", "signIn"])
+      .isRequired,
+  }
   if (variant === "addVideo") {
     return (
       <div id="formId" className="form-wrapper">
@@ -21,7 +26,7 @@ export default function Form(props) {
   if (variant === "signUp") {
     return (
       <div id="formId" className="form-wrapper">
-        <XIcon />
+        <CloseForm />
         <SignUp />
       </div>
     )
@@ -29,7 +34,7 @@ export default function Form(props) {
   if (variant === "videoAdded") {
     return (
       <div id="formId" className="form-wrapper">
-        <XIcon />
+        <CloseForm />
         <VideoAddedContainer />
       </div>
     )
@@ -37,7 +42,7 @@ export default function Form(props) {
   if (variant === "signIn") {
     return (
       <div id="formId" className="form-wrapper">
-        <XIcon />
+        <CloseForm />
         <SignIn />
       </div>
     )

@@ -1,5 +1,6 @@
 import { unwrapResult } from "@reduxjs/toolkit"
 import { registerUser, fetchUsers } from "../../modules/userdata"
+import { closeForm } from "../dispatches/dispatches"
 
 function register(dispatch, userName, userPassword) {
   dispatch(
@@ -10,12 +11,7 @@ function register(dispatch, userName, userPassword) {
   )
     .then(unwrapResult)
     .then((promiseResult) => {
-      dispatch({
-        type: "form/hide",
-      })
-      dispatch({
-        type: "errors/cleanError",
-      })
+      closeForm(dispatch)
       dispatch(fetchUsers())
     })
     .catch((error) => {
@@ -35,7 +31,7 @@ function register(dispatch, userName, userPassword) {
 
 export default function signUp(dispatch, name, password, repeatPassword) {
   dispatch({
-    type: "errors/cleanError",
+    type: "errors/clearError",
   })
   if (password.length < 8) {
     dispatch({
