@@ -5,7 +5,7 @@ const formSlice = createSlice({
   name: "form",
   initialState: {
     visibility: false,
-    type: null,
+    type: "signIn",
     img: null,
   },
   reducers: {

@@ -13,7 +13,7 @@ export default function FormSwitcher() {
     })
     dispatch({
       type: "form/show",
-      payload: "signIn",
+      payload: { type: "signIn" },
     })
   }
   function switchToSignUp() {
@@ -22,7 +22,7 @@ export default function FormSwitcher() {
     })
     dispatch({
       type: "form/show",
-      payload: "signUp",
+      payload: { type: "signUp" },
     })
   }
   if (formType === "signUp") {
