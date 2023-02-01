@@ -1,16 +1,14 @@
-/* eslint-disable jsx-a11y/label-has-associated-control,react/jsx-no-bind,react-hooks/exhaustive-deps */
 import React, { useEffect, useId } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import "../style.css"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 import addNewVideo from "../../../../external_func/add-video/add-video"
 import ErrorMessage from "../form_error/form-error"
-import { closeForm } from "../../../../external_func/dispatches/dispatches"
+import CloseForm from "../../../../containers/close-form-button/close-form-button"
 
 export default function VideoForm() {
   const dispatch = useDispatch()
-  const close = () => closeForm(dispatch)
   const link = useId()
   const videoName = useId()
   const videoDesc = useId()
@@ -22,7 +20,7 @@ export default function VideoForm() {
     nameField = document.getElementById(`${videoName}`)
     descField = document.getElementById(`${videoDesc}`)
   })
-  function addVideo() {
+  const addVideo = () => {
     addNewVideo(dispatch, linkField.value, nameField.value, descField.value)
   }
   return (
@@ -55,7 +53,9 @@ export default function VideoForm() {
           />
         </label>
         <div className="form-buttons">
-          <Button text="Cancel" secondary click={close} />
+          <CloseForm>
+            <Button text="Cancel" secondary />
+          </CloseForm>
           <Button text="Submit" click={addVideo} />
         </div>
       </form>
