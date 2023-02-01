@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control,react-hooks/exhaustive-deps */
 import React, { useEffect, useId } from "react"
 import "../style.css"
 import { useDispatch, useSelector } from "react-redux"

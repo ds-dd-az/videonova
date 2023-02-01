@@ -3,6 +3,7 @@ import "../style.css"
 import propTypes from "prop-types"
 import Button from "../../button/button"
 import CheckIcon from "../../../../assets/icons/check-icon.svg"
+import CloseForm from "../../../../containers/close-form-button/close-form-button"
 
 export default function VideoAdded(props) {
   const { img } = props
@@ -25,7 +26,9 @@ export default function VideoAdded(props) {
           <img src={CheckIcon} className="vid-preview__check-icon" alt="done" />
         </div>
         <h2>Successful</h2>
-        <Button text="To video" />
+        <CloseForm>
+          <Button text="To video" />
+        </CloseForm>
       </div>
     </div>
   )

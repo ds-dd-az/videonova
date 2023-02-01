@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control,prefer-const,react-hooks/exhaustive-deps, react/jsx-no-bind  */
 import React, { useEffect, useId } from "react"
 import "../style.css"
 import { useDispatch, useSelector } from "react-redux"
@@ -26,7 +25,7 @@ export default function SignIn() {
     nameField = document.getElementById(`${name}`)
     passwordField = document.getElementById(`${password}`)
   })
-  function login() {
+  const login = () => {
     signInFunc(dispatch, nameField.value, passwordField.value)
   }
   return (
