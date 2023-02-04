@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import Video from "../../components/ui/video/video"
+import Video from "./video"
 import { SelectVideos } from "../../modules/userdata"
 
 export default function Videos() {

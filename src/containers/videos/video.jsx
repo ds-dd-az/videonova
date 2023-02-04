@@ -1,9 +1,8 @@
 import React, { useState } from "react"
-import "./style.css"
 import propTypes from "prop-types"
-import findPreview from "../../../external_func/find-preview-src/find-preview-src"
-import VideoPlayer from "./video-player"
-import Thumbnail from "./video-thumbnail"
+import findPreview from "../../external_func/find-preview-src/find-preview-src"
+import VideoPlayer from "../../components/ui/video/video-player"
+import Thumbnail from "../../components/ui/video/video-thumbnail"
 
 export default function Video({ data }) {
   Video.propTypes = {
