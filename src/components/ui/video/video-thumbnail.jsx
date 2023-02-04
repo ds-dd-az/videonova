@@ -1,6 +1,6 @@
 import React from "react"
 import propTypes from "prop-types"
-import Play from "./play-icon.png"
+import Play from "../../../assets/icons/play-icon.png"
 import "./style.css"
 
 export default function Thumbnail(props) {
