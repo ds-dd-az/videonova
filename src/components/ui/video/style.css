@@ -1,4 +1,4 @@
-.video-component{
+.thumbnail-wrapper{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -8,7 +8,7 @@
   flex-wrap: wrap;
 }
 
-.thumbnail-wrapper{
+.preview{
   border-radius: 14px;
   display: flex;
   height: 174px;
@@ -29,7 +29,7 @@
   width: 35px;
 }
 
-.thumbnail-wrapper img{
+.preview img{
   height: 100%;
   width: 100%;
 }
