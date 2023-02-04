@@ -1,21 +1,27 @@
 import React from "react"
 import propTypes from "prop-types"
 import ReactPlayer from "react-player"
+import Thumbnail from "./video-thumbnail"
 
 export default function VideoPlayer(props) {
-  const { url, func } = props
+  const { data, func, src } = props
   VideoPlayer.propTypes = {
     /**
-     * url of the displayed video
+     * all the information about the displayed video
      */
-    url: propTypes.string.isRequired,
+    data: propTypes.objectOf(propTypes.string).isRequired,
     /**
      * closing function that needs to be passed
      */
     func: propTypes.func,
+    /**
+     * source of preview image
+     */
+    src: propTypes.string,
   }
   VideoPlayer.defaultProps = {
     func: null,
+    src: "https://picsum.photos/320/200",
   }
   return (
     <div className="video-component">
@@ -28,7 +34,7 @@ export default function VideoPlayer(props) {
       />
       <ReactPlayer
         className="react-player"
-        url={url}
+        url={data.url}
         width="854px"
         height="480px"
         playing
@@ -42,21 +48,7 @@ export default function VideoPlayer(props) {
           },
         }}
       />
-      {/* <div
-        className="thumbnail-wrapper"
-        role="button"
-        tabIndex="0"
-        onKeyDown={toggleVisibility}
-        onClick={toggleVisibility}
-      >
-        <div className="play-icon">
-          <img src={Play} alt="" />
-        </div>
-        <img src={findPreview(url)} alt="" />
-      </div>
-      <h3>{data.title}</h3>
-      {data.description}
-    */}
+      <Thumbnail data={data} src={src} />
     </div>
   )
 }
