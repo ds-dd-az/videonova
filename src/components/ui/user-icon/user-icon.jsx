@@ -15,7 +15,7 @@ export default function UserIcon(props) {
      */
     size: propTypes.oneOf(["big", "small", "medium"]),
     /**
-     * class name of icon
+     * additional class name of icon(if needed)
      */
     className: propTypes.string,
     /**
@@ -25,7 +25,7 @@ export default function UserIcon(props) {
   }
 
   UserIcon.defaultProps = {
-    className: undefined,
+    className: null,
     iconSrc: "https://picsum.photos/200",
   }
 
