@@ -1,8 +1,8 @@
 import React from "react"
 import "./style.css"
 import propTypes from "prop-types"
-import LikeIcon from "./like-icon.png"
-import VideoIcon from "./video-icon.png"
+import LikeIcon from "../../../../assets/icons/like-icon.png"
+import VideoIcon from "../../../../assets/icons/video-icon-stats.png"
 
 const videoIcon = {
   src: VideoIcon,
