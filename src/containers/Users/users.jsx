@@ -15,11 +15,15 @@ export default function Users() {
     : initialArr.sort(sortByName)
   const returnedArr = finalArr.map((element) => {
     const countVideos = videos.filter((value) => value.userId === element.id)
+    const redirect = (id) => {
+      window.location.href = `http://localhost:3000/user/${id}`
+    }
     return (
       <UserCard
         vidAmount={countVideos.length}
         data={element}
         key={element.id}
+        redirectFunc={redirect}
       />
     )
   })
