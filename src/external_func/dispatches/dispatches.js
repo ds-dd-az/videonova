@@ -5,6 +5,13 @@ export function signInForm(dispatch) {
   })
 }
 
+export function signUpForm(dispatch) {
+  dispatch({
+    type: "form/show",
+    payload: { type: "signUp" },
+  })
+}
+
 export function reverseArr(dispatch) {
   dispatch({
     type: "sorting/reverse",
