@@ -1,23 +1,14 @@
 import React from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import "./style.css"
 import propTypes from "prop-types"
 import Logo from "../logo/logo"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
+import { signUpForm } from "../../../external_func/dispatches/dispatches"
 
 export default function Header(props) {
-  const { login, user } = props
-  const dispatch = useDispatch()
-  function showForm() {
-    dispatch({
-      type: "form/show",
-      payload: { type: "signUp" },
-    })
-  }
-  // function redirect() {
-  //   window.location.href = `http://localhost:3000/user/${userId}`
-  // }
+  const { login, user, func } = props
   Header.propTypes = {
     /**
      * variation of header based on authorisation
@@ -27,17 +18,29 @@ export default function Header(props) {
      * info on current user
      */
     user: propTypes.objectOf(propTypes.string),
+    /**
+     * redirection function, must lead to users page
+     */
+    func: propTypes.func,
   }
   Header.defaultProps = {
     login: false,
     user: null,
+    func: null,
   }
+  const dispatch = useDispatch()
 
   if (login) {
     return (
       <div className="header">
         <Logo color="blue" />
-        <div className="header__user-info" role="button" tabIndex={0}>
+        <div
+          className="header__user-info"
+          role="button"
+          tabIndex={0}
+          onClick={func}
+          onKeyDown={func}
+        >
           <UserIcon iconSrc={user.userPic} size="small" />
           {user.userName}
         </div>
@@ -48,7 +51,7 @@ export default function Header(props) {
   return (
     <div className="header">
       <Logo color="blue" />
-      <Button text="Sign up" click={() => showForm()} />
+      <Button text="Sign up" click={() => signUpForm(dispatch)} />
     </div>
   )
 }
