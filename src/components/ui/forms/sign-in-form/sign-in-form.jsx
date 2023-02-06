@@ -5,7 +5,7 @@ import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 import signInFunc from "../../../../external_func/sign-in-form/signin-functions"
 import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
-import ErrorMessage from "../form_error/form-error"
+import FormError from "../../../../containers/error-message-cont/form-error"
 import { SelectLoginLoading } from "../../../../modules/userdata"
 import {
   SelectPasswordError,
@@ -31,7 +31,7 @@ export default function SignIn() {
   return (
     <div className="sign-in">
       <h1>Sign In</h1>
-      <ErrorMessage />
+      <FormError />
       <form>
         <label htmlFor={name}>
           Name

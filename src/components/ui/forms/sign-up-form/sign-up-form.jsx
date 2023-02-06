@@ -3,7 +3,7 @@ import "../style.css"
 import { useDispatch, useSelector } from "react-redux"
 import signUp from "../../../../external_func/sign-up-form/signup-functions"
 import InputField from "../../input-field/input-field"
-import ErrorMessage from "../form_error/form-error"
+import FormError from "../../../../containers/error-message-cont/form-error"
 import Button from "../../button/button"
 import { SelectLoginLoading } from "../../../../modules/userdata"
 import {
@@ -39,7 +39,7 @@ export default function SignUp() {
   return (
     <div className="sign-up">
       <h1>Sign Up</h1>
-      <ErrorMessage />
+      <FormError />
       <form>
         <label htmlFor={name}>
           Name

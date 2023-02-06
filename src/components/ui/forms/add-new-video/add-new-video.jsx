@@ -4,7 +4,7 @@ import "../style.css"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 import addNewVideo from "../../../../external_func/add-video/add-video"
-import ErrorMessage from "../form_error/form-error"
+import FormError from "../../../../containers/error-message-cont/form-error"
 import CloseForm from "../../../../containers/close-form-button/close-form-button"
 
 export default function VideoForm() {
@@ -26,7 +26,7 @@ export default function VideoForm() {
   return (
     <div className="add-new-vid">
       <h1>Add New Video</h1>
-      <ErrorMessage />
+      <FormError />
       <form>
         <label htmlFor={link}>
           Youtube Link
