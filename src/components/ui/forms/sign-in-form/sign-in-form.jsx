@@ -25,9 +25,6 @@ export default function SignIn() {
     nameField = document.getElementById(`${name}`)
     passwordField = document.getElementById(`${password}`)
   })
-  const login = () => {
-    signInFunc(dispatch, nameField.value, passwordField.value)
-  }
   return (
     <div className="sign-in">
       <h1>Sign In</h1>
@@ -51,7 +48,13 @@ export default function SignIn() {
             placeholder="Type password..."
           />
         </label>
-        <Button text="Sign In" click={login} loading={loading} />
+        <Button
+          text="Sign In"
+          click={() =>
+            signInFunc(dispatch, nameField.value, passwordField.value)
+          }
+          loading={loading}
+        />
         <span>
           Don`t have account? <FormSwitcher />
         </span>
