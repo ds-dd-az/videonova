@@ -7,7 +7,7 @@ const initialState = {
   allUsers: {},
   videos: {},
   currentUser: {
-    userId: "",
+    userId: null,
   },
   loading: false,
 }
@@ -41,11 +41,8 @@ const userDataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    addUser(state, action) {
-      state.currentUser = action.payload
-    },
-    delUser(state) {
-      state.allUsers.pop()
+    logOut(state) {
+      state.currentUser.userId = null
     },
   },
   extraReducers: (builder) => {
