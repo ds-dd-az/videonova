@@ -1,17 +1,8 @@
 import React from "react"
 import "./style.css"
 import propTypes from "prop-types"
-import LikeIcon from "./like-icon.png"
-import VideoIcon from "./video-icon.png"
-
-const videoIcon = {
-  src: VideoIcon,
-  alt: "uploaded videos",
-}
-const likeIcon = {
-  src: LikeIcon,
-  alt: "likes",
-}
+import LikeIcon from "../../../../assets/icons/like-icon.png"
+import VideoIcon from "../../../../assets/icons/video-icon-stats.png"
 
 export default function UserStats(props) {
   const { videos, likes } = props
@@ -32,11 +23,11 @@ export default function UserStats(props) {
   return (
     <div className="user-card__stats">
       <div className="like-video-count">
-        <img src={videoIcon.src} alt={videoIcon.alt} />
+        <img src={VideoIcon} alt="uploaded videos" />
         {videos} videos
       </div>
       <div className="like-video-count">
-        <img src={likeIcon.src} alt={likeIcon.alt} />
+        <img src={LikeIcon} alt="likes" />
         {likes} likes
       </div>
     </div>

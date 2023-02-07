@@ -47,20 +47,6 @@ export default function Button(props) {
     secondary: false,
     loading: false,
   }
-  if (loading) {
-    return (
-      <div
-        className={buttonClasses.join(" ")}
-        onClick={click}
-        role="button"
-        tabIndex="0"
-        onKeyDown={click}
-      >
-        {text} <LoadRing />
-      </div>
-    )
-  }
-
   return (
     <div
       className={buttonClasses.join(" ")}
@@ -69,7 +55,7 @@ export default function Button(props) {
       tabIndex="0"
       onKeyDown={click}
     >
-      {text}
+      {loading ? <LoadRing /> : text}
     </div>
   )
 }

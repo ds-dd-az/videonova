@@ -1,29 +1,15 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import axios from "axios"
-import getUsers from "../../api/users"
-import getVideos from "../../api/videos"
+import { getUsers, postUser, loginUser } from "../../api/users"
+import { getVideos, postVideo } from "../../api/videos"
 
 const initialState = {
   allUsers: {},
   videos: {},
   currentUser: {
-    userId: "",
+    userId: null,
   },
   loading: false,
-  postLoading: false,
-}
-
-function getToken() {
-  const { cookie } = document
-  const token = cookie.split("=")[1]
-  return token
-}
-
-const axiosConfig = {
-  headers: {
-    Authorization: `${getToken()}`,
-  },
 }
 
 export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
@@ -37,45 +23,26 @@ export const fetchVideos = createAsyncThunk("data/fetchVideos", async () => {
 })
 
 export const registerUser = createAsyncThunk("data/register", async (data) => {
-  const user = axios.post(
-    "https://wonderful-app-lmk4d.cloud.serverless.com/register",
-    data
-  )
-  console.log(user)
-  return (await user).data
+  const user = postUser(data)
+  return user
 })
 
-export const loginUser = createAsyncThunk("data/login", async (data) => {
-  const user = axios.post(
-    "https://wonderful-app-lmk4d.cloud.serverless.com/auth",
-    data
-  )
-  console.log(user)
-  return (await user).data
+export const login = createAsyncThunk("data/login", async (data) => {
+  const user = loginUser(data)
+  return user
 })
 
 export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
-  const videoInfo = {
-    url: data.url,
-    title: data.title,
-    description: data.description,
-  }
-  const video = axios.post(
-    "https://wonderful-app-lmk4d.cloud.serverless.com/video",
-    videoInfo,
-    axiosConfig
-  )
-  console.log(video)
+  const video = postVideo(data)
+  return video
 })
+
 const userDataSlice = createSlice({
   name: "data",
   initialState,
   reducers: {
-    addUser(state, action) {
-      state.currentUser = action.payload
-    },
-    delUser(state) {
-      state.allUsers.pop()
+    logOut(state) {
+      state.currentUser.userId = null
     },
   },
   extraReducers: (builder) => {
@@ -96,10 +63,10 @@ const userDataSlice = createSlice({
     builder.addCase(registerUser.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
       document.cookie = `token=${action.payload.authToken};max-age=31536000 `
-      state.postLoading = false
+      state.loginLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
-      state.postLoading = true
+      state.loginLoading = true
     })
     builder.addCase(fetchUsers.rejected, (state) => {
       state.loading = false
@@ -108,26 +75,17 @@ const userDataSlice = createSlice({
       state.loading = false
     })
     builder.addCase(registerUser.rejected, (state) => {
-      state.postLoading = false
+      state.loginLoading = false
     })
-    builder.addCase(loginUser.fulfilled, (state, action) => {
+    builder.addCase(login.fulfilled, (state, action) => {
       state.currentUser.userId = action.payload.id
       document.cookie = `token=${action.payload.authToken};max-age=31536000 `
       state.loginLoading = false
     })
-    builder.addCase(loginUser.pending, (state) => {
+    builder.addCase(login.pending, (state) => {
       state.loginLoading = true
     })
-    builder.addCase(loginUser.rejected, (state) => {
-      state.postLoading = false
-    })
-    builder.addCase(addVideo.pending, (state) => {
-      state.postLoading = true
-    })
-    builder.addCase(addVideo.fulfilled, (state) => {
-      state.postLoading = false
-    })
-    builder.addCase(addVideo.rejected, (state) => {
+    builder.addCase(login.rejected, (state) => {
       state.postLoading = false
     })
   },

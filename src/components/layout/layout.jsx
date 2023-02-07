@@ -1,15 +1,17 @@
 import React from "react"
-import { useSelector } from "react-redux"
-import Header from "../ui/header/header"
+import propTypes from "prop-types"
 import Footer from "../ui/footer/footer"
 import Popup from "../ui/popup/popup"
+import AdaptiveHeader from "../../containers/header/header-container"
 
-// eslint-disable-next-line react/prop-types
 export default function Layout({ children }) {
+  Layout.propTypes = {
+    children: propTypes.node.isRequired,
+  }
   return (
     <>
       <Popup />
-      <Header />
+      <AdaptiveHeader />
       <main>{children}</main>
       <Footer />
     </>

@@ -1,16 +1,15 @@
 import { unwrapResult } from "@reduxjs/toolkit"
-import { loginUser } from "../../modules/userdata"
+import { login } from "../../modules/userdata"
 
 export default function signInFunc(dispatch, userName, userPassword) {
   dispatch(
-    loginUser({
+    login({
       username: userName,
       password: userPassword,
     })
   )
     .then(unwrapResult)
-    .then((promiseResult) => {
-      console.log(promiseResult)
+    .then(() => {
       dispatch({
         type: "form/hide",
       })
@@ -19,7 +18,6 @@ export default function signInFunc(dispatch, userName, userPassword) {
       })
     })
     .catch((error) => {
-      console.log(error)
       if (error.message === "Request failed with status code 404") {
         dispatch({
           type: "errors/addPasswordError",
