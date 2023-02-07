@@ -1,14 +1,12 @@
 import React from "react"
-import { useDispatch } from "react-redux"
 import "./style.css"
 import propTypes from "prop-types"
 import Logo from "../logo/logo"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
-import { signUpForm } from "../../../external_func/dispatches/dispatches"
 
 export default function Header(props) {
-  const { login, user, func } = props
+  const { login, user, func, signOutEnabled } = props
   Header.propTypes = {
     /**
      * variation of header based on authorisation
@@ -22,13 +20,26 @@ export default function Header(props) {
      * redirection function, must lead to users page
      */
     func: propTypes.func,
+    /**
+     * displays could sign out be performed or not
+     */
+    signOutEnabled: propTypes.bool,
   }
   Header.defaultProps = {
     login: false,
     user: null,
     func: null,
+    signOutEnabled: false,
   }
-  const dispatch = useDispatch()
+
+  if (login && signOutEnabled) {
+    return (
+      <div className="header">
+        <Logo color="blue" />
+        <Button text="Log Out" click={func} secondary />
+      </div>
+    )
+  }
 
   if (login) {
     return (
@@ -51,7 +62,7 @@ export default function Header(props) {
   return (
     <div className="header">
       <Logo color="blue" />
-      <Button text="Sign up" click={() => signUpForm(dispatch)} />
+      <Button text="Sign up" click={func} />
     </div>
   )
 }

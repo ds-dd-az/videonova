@@ -33,3 +33,9 @@ export function closeForm(dispatch) {
     type: "errors/clearError",
   })
 }
+
+export function logOut(dispatch) {
+  dispatch({
+    type: "data/logOut",
+  })
+}
