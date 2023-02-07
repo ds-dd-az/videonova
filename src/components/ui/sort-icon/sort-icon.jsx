@@ -6,16 +6,15 @@ import "./style.css"
 export default function SortIcon(props) {
   const { click } = props
   SortIcon.propTypes = {
+    /**
+     * onclick sorting func
+     */
     click: propTypes.func,
   }
   SortIcon.defaultProps = {
     click: null,
   }
 
-  const icon = {
-    src: sortIcon,
-    alt: "sort",
-  }
   return (
     <div
       className="sort-icon"
@@ -24,7 +23,7 @@ export default function SortIcon(props) {
       tabIndex="0"
       onKeyDown={click}
     >
-      <img src={icon.src} alt={icon.alt} />
+      <img src={sortIcon} alt="sort" />
     </div>
   )
 }
