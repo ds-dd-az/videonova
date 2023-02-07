@@ -8,7 +8,7 @@ import LoadRing from "../../components/ui/Loading-ring/load-ring"
 import Users from "../../containers/Users/users"
 import SortIcon from "../../components/ui/sort-icon/sort-icon"
 import {
-  signInForm,
+  signUpForm,
   reverseArr,
 } from "../../external_func/dispatches/dispatches"
 
@@ -16,7 +16,7 @@ export default function HomePage() {
   const dispatch = useDispatch()
   const loading = useSelector(SelectLoading)
   const reverse = () => reverseArr(dispatch)
-  const openSignIn = () => signInForm(dispatch)
+  const openSignUp = () => signUpForm(dispatch)
   return (
     <Layout>
       <div className="page-block">
@@ -25,7 +25,7 @@ export default function HomePage() {
             <h1>Welcome to VideoNova</h1>
             Create videos with single click. Add subtitles, transcribe audio and
             more
-            <Button text="Start Now" click={openSignIn} />
+            <Button text="Start Now" click={openSignUp} />
           </div>
           <div className="best-creators">
             <div className="best-creators__header">

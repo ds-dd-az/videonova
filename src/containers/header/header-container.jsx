@@ -5,7 +5,7 @@ import {
   SelectUsers,
 } from "../../modules/userdata/userdata.selectors"
 import Header from "../../components/ui/header/header"
-import { signUpForm, logOut } from "../../external_func/dispatches/dispatches"
+import { signInForm, logOut } from "../../external_func/dispatches/dispatches"
 
 export default function AdaptiveHeader() {
   const dispatch = useDispatch()
@@ -13,11 +13,10 @@ export default function AdaptiveHeader() {
   const userId = useSelector(SelectCurrentUserId)
   const allUsers = useSelector(SelectUsers)
   const currentUser = allUsers.filter((element) => element.id === userId)
-  console.log(currentUser[0])
-  const openSignUp = () => {
-    signUpForm(dispatch)
+  const openSignIn = () => {
+    signInForm(dispatch)
   }
-  let func = openSignUp
+  let func = openSignIn
   let signOutButtonDisplay = false
   const redirect = () => {
     window.location.href = `http://localhost:3000/user/${userId}`

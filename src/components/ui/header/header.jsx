@@ -62,7 +62,7 @@ export default function Header(props) {
   return (
     <div className="header">
       <Logo color="blue" />
-      <Button text="Sign up" click={func} />
+      <Button text="Sign In" click={func} />
     </div>
   )
 }
