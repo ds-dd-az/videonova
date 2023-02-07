@@ -86,7 +86,7 @@ const userDataSlice = createSlice({
       state.loginLoading = true
     })
     builder.addCase(login.rejected, (state) => {
-      state.postLoading = false
+      state.loginLoading = false
     })
   },
 })
