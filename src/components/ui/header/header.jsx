@@ -17,7 +17,7 @@ export default function Header(props) {
      */
     user: propTypes.objectOf(propTypes.string),
     /**
-     * redirection function, must lead to users page
+     * button function
      */
     func: propTypes.func,
     /**
