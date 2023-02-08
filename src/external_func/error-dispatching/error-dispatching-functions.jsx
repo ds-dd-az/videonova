@@ -1,5 +1,3 @@
-import React from "react"
-
 export function dispatchNameError(message) {
   return {
     type: "errors/addNameError",
