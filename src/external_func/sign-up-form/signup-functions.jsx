@@ -11,8 +11,10 @@ function register(dispatch, userName, userPassword) {
   )
     .then(unwrapResult)
     .then((promiseResult) => {
-      closeForm(dispatch)
       dispatch(fetchUsers())
+    })
+    .then((promiseResult) => {
+      closeForm(dispatch)
     })
     .catch((error) => {
       if (error.message === "Request failed with status code 409") {
