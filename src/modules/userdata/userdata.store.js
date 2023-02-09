@@ -1,7 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { getUsers, postUser, loginUser } from "../../api/users"
-import { getVideos, postVideo } from "../../api/videos"
+import {
+  getUsers,
+  postUser,
+  loginUser,
+} from "../../external_func/http-requests/users"
+import { getVideos, postVideo } from "../../external_func/http-requests/videos"
 
 const initialState = {
   allUsers: {},
