@@ -14,6 +14,7 @@ function register(dispatch, userName, userPassword) {
     .then(() => {
       dispatch(fetchUsers())
       signInFunc(dispatch, userName, userPassword)
+      closeForm(dispatch)
     })
     .catch((error) => {
       if (error.message === "Request failed with status code 409") {
