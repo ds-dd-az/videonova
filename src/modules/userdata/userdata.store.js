@@ -65,8 +65,6 @@ const userDataSlice = createSlice({
       state.loading = true
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
-      state.currentUser.userId = action.payload.id
-      document.cookie = `token=${action.payload.authToken};max-age=31536000 `
       state.loginLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {

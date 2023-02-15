@@ -1,6 +1,7 @@
 import { unwrapResult } from "@reduxjs/toolkit"
 import { registerUser, fetchUsers } from "../../modules/userdata"
 import { closeForm } from "../dispatches/dispatches"
+import signInFunc from "../sign-in-form/signin-functions"
 
 function register(dispatch, userName, userPassword) {
   dispatch(
@@ -10,11 +11,9 @@ function register(dispatch, userName, userPassword) {
     })
   )
     .then(unwrapResult)
-    .then((promiseResult) => {
+    .then(() => {
       dispatch(fetchUsers())
-    })
-    .then((promiseResult) => {
-      closeForm(dispatch)
+      signInFunc(dispatch, userName, userPassword)
     })
     .catch((error) => {
       if (error.message === "Request failed with status code 409") {
