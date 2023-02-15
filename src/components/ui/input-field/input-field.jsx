@@ -28,11 +28,12 @@ export default function InputField(props) {
     placeholder: "insert text please",
     error: false,
   }
+
   const [hiding, setHiding] = useState(true)
-  function changeHide() {
+  const changeHide = () => {
     setHiding(!hiding)
   }
-  const type = hiding ? "password" : "text"
+  const type = hiding && variant === "password" ? "password" : "text"
   const styles = ["field"]
   if (error) {
     styles.push("field_red")
@@ -52,33 +53,17 @@ export default function InputField(props) {
       </div>
     )
   }
-  if (variant === "password") {
-    return (
-      <div className="field-wrapper">
-        <input
-          id={id}
-          value={input}
-          onInput={(e) => setInput(e.target.value)}
-          className={styles.join(" ")}
-          type={type}
-          placeholder={placeholder}
-        />
-        {/* eslint-disable-next-line react/jsx-no-bind */}
-        <EyeToggle click={changeHide} />
-      </div>
-    )
-  }
-
   return (
-    <div>
+    <div className="field-wrapper">
       <input
         value={input}
         onInput={(e) => setInput(e.target.value)}
         id={id}
         className={styles.join(" ")}
-        type="text"
+        type={type}
         placeholder={placeholder}
       />
+      {variant === "password" ? <EyeToggle click={changeHide} /> : null}
     </div>
   )
 }

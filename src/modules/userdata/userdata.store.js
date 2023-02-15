@@ -1,7 +1,11 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
-import { getUsers, postUser, loginUser } from "../../api/users"
-import { getVideos, postVideo } from "../../api/videos"
+import {
+  getUsers,
+  postUser,
+  loginUser,
+} from "../../external_func/http-requests/users"
+import { getVideos, postVideo } from "../../external_func/http-requests/videos"
 
 const initialState = {
   allUsers: {},
@@ -61,8 +65,6 @@ const userDataSlice = createSlice({
       state.loading = true
     })
     builder.addCase(registerUser.fulfilled, (state, action) => {
-      state.currentUser.userId = action.payload.id
-      document.cookie = `token=${action.payload.authToken};max-age=31536000 `
       state.loginLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
@@ -86,7 +88,7 @@ const userDataSlice = createSlice({
       state.loginLoading = true
     })
     builder.addCase(login.rejected, (state) => {
-      state.postLoading = false
+      state.loginLoading = false
     })
   },
 })

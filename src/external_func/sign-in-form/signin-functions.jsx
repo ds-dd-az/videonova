@@ -1,5 +1,6 @@
 import { unwrapResult } from "@reduxjs/toolkit"
 import { login } from "../../modules/userdata"
+import { closeForm } from "../dispatches/dispatches"
 
 export default function signInFunc(dispatch, userName, userPassword) {
   dispatch(
@@ -10,9 +11,7 @@ export default function signInFunc(dispatch, userName, userPassword) {
   )
     .then(unwrapResult)
     .then(() => {
-      dispatch({
-        type: "form/hide",
-      })
+      closeForm(dispatch)
       dispatch({
         type: "errors/cleanError",
       })

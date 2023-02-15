@@ -1,9 +1,7 @@
 import { unwrapResult } from "@reduxjs/toolkit"
-import axios from "axios"
 import { addVideo, fetchVideos } from "../../modules/userdata"
 
 export default function addNewVideo(dispatch, url, title, description, token) {
-  console.log("adding vid")
   dispatch(
     addVideo({
       url,
@@ -14,7 +12,6 @@ export default function addNewVideo(dispatch, url, title, description, token) {
   )
     .then(unwrapResult)
     .then((promiseResult) => {
-      console.log(promiseResult)
       dispatch({
         type: "form/hide",
       })
