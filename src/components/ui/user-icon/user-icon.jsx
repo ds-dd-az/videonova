@@ -1,5 +1,5 @@
 import React from "react"
-import "./style.css"
+import "../../../styles/user-icon/user-icon.css"
 import propTypes from "prop-types"
 
 export default function UserIcon(props) {
