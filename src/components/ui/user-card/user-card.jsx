@@ -1,6 +1,6 @@
 import React from "react"
 import propTypes from "prop-types"
-import "./style.css"
+import "../../../styles/user-card/user-card.css"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
 import UserStats from "./user-card__stats/user-card__stats"

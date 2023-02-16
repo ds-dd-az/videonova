@@ -1,5 +1,4 @@
 import React from "react"
-import "./style.css"
 import propTypes from "prop-types"
 import LikeIcon from "../../../../assets/icons/like-icon.png"
 import VideoIcon from "../../../../assets/icons/video-icon-stats.png"
