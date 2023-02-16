@@ -107,3 +107,9 @@ body{
   gap: 28px;
   justify-content: flex-start;
 }
+
+.sort-icon{
+  display: flex;
+  width: 30px;
+  height: 30px;
+}
