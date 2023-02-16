@@ -2,7 +2,6 @@ import React from "react"
 import TelegramIcon from "../../../assets/icons/social-icons/telegram-icon.svg"
 import DiscordIcon from "../../../assets/icons/social-icons/discord-icon.svg"
 import TwitterIcon from "../../../assets/icons/social-icons/twitter-icon.svg"
-import "./style.css"
 
 export default function Socials() {
   return (
