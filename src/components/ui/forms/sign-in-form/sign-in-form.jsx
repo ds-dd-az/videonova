@@ -1,5 +1,4 @@
 import React, { useEffect, useId } from "react"
-import "../style.css"
 import { useDispatch, useSelector } from "react-redux"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"

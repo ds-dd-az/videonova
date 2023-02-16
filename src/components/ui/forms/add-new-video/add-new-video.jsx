@@ -1,6 +1,5 @@
 import React, { useEffect, useId } from "react"
 import { useDispatch } from "react-redux"
-import "../style.css"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 import addNewVideo from "../../../../external_func/add-video/add-video"

@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import propTypes from "prop-types"
-import "./style.css"
 import Regular from "../../../../assets/icons/eye-icon.png"
 import Crossed from "../../../../assets/icons/crossed-eye-icon.png"
 
