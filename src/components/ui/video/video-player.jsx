@@ -2,7 +2,7 @@ import React from "react"
 import propTypes from "prop-types"
 import ReactPlayer from "react-player"
 import Thumbnail from "./video-thumbnail"
-import "./style.css"
+import "../../../styles/video/video.css"
 
 export default function VideoPlayer(props) {
   const { data, func, src } = props
