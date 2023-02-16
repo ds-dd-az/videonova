@@ -1,5 +1,5 @@
 import React from "react"
-import "./style.css"
+import "../../../styles/header/header.css"
 import propTypes from "prop-types"
 import Logo from "../logo/logo"
 import UserIcon from "../user-icon/user-icon"
