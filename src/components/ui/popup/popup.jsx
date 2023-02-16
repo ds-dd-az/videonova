@@ -1,5 +1,5 @@
 import React from "react"
-import "./style.css"
+import "../../../styles/popup/popup.css"
 import { useSelector } from "react-redux"
 import Form from "../forms/forms"
 import { selectType, selectVisibility } from "../../../modules/form"
