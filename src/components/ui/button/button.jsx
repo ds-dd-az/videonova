@@ -1,5 +1,5 @@
 import React from "react"
-import "./style.css"
+import "../../../styles/button/button.css"
 import propTypes from "prop-types"
 import LoadRing from "../Loading-ring/load-ring"
 
