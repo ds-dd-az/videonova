@@ -1,5 +1,6 @@
 import React from "react"
-import "./styles/index.css"
+import "./App.css"
+import "./style.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import HomePage from "./pages/home-page/home-page"
