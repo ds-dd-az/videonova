@@ -1,6 +1,6 @@
 import React from "react"
 import propTypes from "prop-types"
-import "./style.css"
+import "../../../styles/loading-ring/loading-ring.css"
 
 export default function LoadRing(props) {
   const { isBig } = props

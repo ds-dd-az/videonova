@@ -1,6 +1,6 @@
 import React from "react"
 import propTypes from "prop-types"
-import "./style.css"
+import "../../../styles/forms"
 import SignIn from "./sign-in-form/sign-in-form"
 import SignUp from "./sign-up-form/sign-up-form"
 import VideoForm from "./add-new-video/add-new-video"

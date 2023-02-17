@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import "./style.css"
 import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
 

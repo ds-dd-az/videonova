@@ -1,7 +1,6 @@
 import React from "react"
 import propTypes from "prop-types"
 import sortIcon from "../../../assets/icons/sort.png"
-import "./style.css"
 
 export default function SortIcon(props) {
   const { click } = props

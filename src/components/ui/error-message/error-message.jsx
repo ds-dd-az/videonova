@@ -1,5 +1,5 @@
 import React from "react"
-import "./style.css"
+import "../../../styles/error-message/error-message.css"
 import propTypes from "prop-types"
 
 export default function ErrorMessage(props) {
