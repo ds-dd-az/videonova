@@ -22,7 +22,9 @@ export default function HomePage() {
       <div className="page-block">
         <div className="home-page">
           <div className="home-heading">
-            <h1>Welcome to VideoNova</h1>
+            <h1>
+              Welcome to <span>VideoNova</span>
+            </h1>
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={openSignUp} />
