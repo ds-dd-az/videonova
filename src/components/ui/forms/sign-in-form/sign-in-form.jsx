@@ -10,6 +10,7 @@ import {
   SelectPasswordError,
   SelectNameError,
 } from "../../../../modules/current_error"
+import Heading from "../../headings/headings"
 
 export default function SignIn() {
   const dispatch = useDispatch()
@@ -26,11 +27,13 @@ export default function SignIn() {
   })
   return (
     <div className="sign-in">
-      <h1>Sign In</h1>
+      <Heading size={1}>
+        Sign <span>In</span>
+      </Heading>
       <FormError />
       <form>
         <label htmlFor={name}>
-          Name
+          <Heading size={3}>Name</Heading>
           <InputField
             error={nameError}
             variant="smallText"
@@ -39,7 +42,7 @@ export default function SignIn() {
           />
         </label>
         <label htmlFor={password}>
-          Password
+          <Heading size={3}>Password</Heading>
           <InputField
             error={passwordError}
             id={password}

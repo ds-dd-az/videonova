@@ -4,6 +4,7 @@ import "../../../styles/user-card/user-card.css"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
 import UserStats from "./user-card__stats/user-card__stats"
+import Heading from "../headings/headings"
 
 export default function UserCard(props) {
   const { data, vidAmount, likeAmount, redirectFunc } = props
@@ -35,7 +36,7 @@ export default function UserCard(props) {
   return (
     <div className="user-card">
       <UserIcon iconSrc={data.userPic} size="medium" />
-      <h3>{data.userName}</h3>
+      <Heading size={3}>{data.userName}</Heading>
       <UserStats videos={vidAmount} likes={likeAmount} />
       <Button text="To profile" click={() => redirectFunc(data.id)} />
     </div>

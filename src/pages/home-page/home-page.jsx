@@ -23,7 +23,9 @@ export default function HomePage() {
       <div className="page-block">
         <div className="home-page">
           <div className="home-heading">
-            <Heading size={1} mainText="Welcome to " redText="VideoNova" />
+            <Heading size={1}>
+              Welcome to <span>Videonova</span>
+            </Heading>
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={openSignUp} />
@@ -31,7 +33,7 @@ export default function HomePage() {
           <div className="best-creators">
             <div className="best-creators__header">
               <div className="best-creators__text">
-                <h2>Best creators</h2>
+                <Heading size={2}>Best Creators</Heading>
                 <img src={StarImage} alt=" " />
               </div>
               <SortIcon click={reverse} />

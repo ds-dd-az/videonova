@@ -1,48 +1,26 @@
 import React from "react"
-import propTypes from "prop-types"
+import propTypes, { node, string } from "prop-types"
 import "../../../styles/headings/headings.css"
 
 export default function Heading(props) {
-  const { size, mainText, redText } = props
+  const { children, size } = props
   Heading.propTypes = {
     /**
-     * displayed text
+     * displayed text or node with text inside
      */
-    mainText: propTypes.string.isRequired,
-    /**
-     * part of text that we want to be red
-     */
-    redText: propTypes.string,
+    children: propTypes.oneOfType([string, node]).isRequired,
     /**
      * size of heading
      */
-    size: propTypes.oneOf(1, 2, 3).isRequired,
-  }
-  Heading.defaultProps = {
-    redText: "",
+    size: propTypes.oneOf([1, 2, 3]).isRequired,
   }
   if (size === 1) {
-    return (
-      <h1>
-        {mainText}
-        <span>{redText}</span>
-      </h1>
-    )
+    return <h1>{children}</h1>
   }
   if (size === 2) {
-    return (
-      <h2>
-        {mainText}
-        <span>{redText}</span>
-      </h2>
-    )
+    return <h2>{children}</h2>
   }
   if (size === 3) {
-    return (
-      <h3>
-        {mainText}
-        <span>{redText}</span>
-      </h3>
-    )
+    return <h3>{children}</h3>
   }
 }
