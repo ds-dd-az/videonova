@@ -30,13 +30,6 @@
   }
  }
 
-.user-card h3{
-  padding-top: -7px;
-  display: flex;
-  flex-wrap: nowrap;
-  font-size: 1.538vw;
-}
-
 .user-card .user-card__stats{
   padding-bottom: 33px;
 }

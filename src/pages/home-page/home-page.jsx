@@ -11,6 +11,7 @@ import {
   signUpForm,
   reverseArr,
 } from "../../external_func/dispatches/dispatches"
+import Heading from "../../components/ui/headings/headings"
 
 export default function HomePage() {
   const dispatch = useDispatch()
@@ -22,9 +23,7 @@ export default function HomePage() {
       <div className="page-block">
         <div className="home-page">
           <div className="home-heading">
-            <h1>
-              Welcome to <span>VideoNova</span>
-            </h1>
+            <Heading size={1} mainText="Welcome to " redText="VideoNova" />
             Create videos with single click. Add subtitles, transcribe audio and
             more
             <Button text="Start Now" click={openSignUp} />
