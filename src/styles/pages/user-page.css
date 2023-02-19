@@ -55,3 +55,9 @@
       justify-content: center;
     }
    }
+
+   @media screen and (max-width: 600px) {
+    .user-videos__header{
+        flex-direction: column;
+    }
+   }
