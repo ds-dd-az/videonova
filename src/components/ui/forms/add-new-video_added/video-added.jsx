@@ -3,6 +3,7 @@ import propTypes from "prop-types"
 import Button from "../../button/button"
 import CheckIcon from "../../../../assets/icons/check-icon.svg"
 import CloseForm from "../../../../containers/close-form-button/close-form-button"
+import Heading from "../../headings/headings"
 
 export default function VideoAdded(props) {
   const { img } = props
@@ -17,14 +18,16 @@ export default function VideoAdded(props) {
   }
   return (
     <div className="video-added">
-      <h1>Add New Video</h1>
+      <Heading size={1}>
+        Add <span>New</span> Video
+      </Heading>
       <div>
         <div className="vid-preview">
           <div className="vid-preview__shadow" />
           <img src={`${img}`} className="vid-preview__image" alt="prev" />
           <img src={CheckIcon} className="vid-preview__check-icon" alt="done" />
         </div>
-        <h2>Successful</h2>
+        <Heading size={2}>Succesfull</Heading>
         <CloseForm>
           <Button text="To video" />
         </CloseForm>

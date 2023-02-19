@@ -12,6 +12,7 @@ import {
 import LoadRing from "../../components/ui/Loading-ring/load-ring"
 import { addVideoForm } from "../../external_func/dispatches/dispatches"
 import Videos from "../../containers/videos/videos"
+import Heading from "../../components/ui/headings/headings"
 
 export default function UserPage() {
   const dispatch = useDispatch()
@@ -30,12 +31,12 @@ export default function UserPage() {
       <div className="page-block">
         <div className="user">
           <UserIcon iconSrc={owner.userPic} size="big" />
-          <h1>{owner.userName}</h1>
+          <Heading size={1}>{owner.userName} </Heading>
         </div>
         <div className="user-videos">
           <div className="user-videos__header">
             <div className="videos-text">
-              <h2>{name} videos</h2>
+              <Heading size={2}>{name} videos</Heading>
               <img src={VidIcon} alt="" />
             </div>
             {currentUser === pageId ? (

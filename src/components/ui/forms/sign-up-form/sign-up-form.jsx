@@ -10,6 +10,7 @@ import {
   SelectNameError,
 } from "../../../../modules/current_error"
 import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
+import Heading from "../../headings/headings"
 
 export default function SignUp() {
   const name = useId()
@@ -37,11 +38,13 @@ export default function SignUp() {
   const registrationLoading = useSelector(SelectLoginLoading)
   return (
     <div className="sign-up">
-      <h1>Sign Up</h1>
+      <Heading size={1}>
+        Sign <span>Up</span>
+      </Heading>
       <FormError />
       <form>
         <label htmlFor={name}>
-          Name
+          <Heading size={3}>Name</Heading>
           <InputField
             variant="smallText"
             id={name}
@@ -50,7 +53,7 @@ export default function SignUp() {
           />
         </label>
         <label htmlFor={password}>
-          Password
+          <Heading size={3}>Password</Heading>
           <InputField
             variant="password"
             id={password}
@@ -59,7 +62,7 @@ export default function SignUp() {
           />
         </label>
         <label htmlFor={repeatPassword}>
-          Repeat Password
+          <Heading size={3}>Repeat Password</Heading>
           <InputField
             variant="password"
             id={repeatPassword}

@@ -1,6 +1,7 @@
 import React from "react"
 import propTypes from "prop-types"
 import Play from "../../../assets/icons/play-icon.png"
+import Heading from "../headings/headings"
 
 export default function Thumbnail(props) {
   const { data, src, func } = props
@@ -36,7 +37,7 @@ export default function Thumbnail(props) {
         </div>
         <img src={src} alt="" />
       </div>
-      <h3>{data.title}</h3>
+      <Heading size={3}>{data.title}</Heading>
       {data.description}
     </div>
   )
