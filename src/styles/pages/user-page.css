@@ -41,3 +41,17 @@
     gap: 28px;
     justify-content: flex-start;
   }
+
+  @media screen and (max-width: 1200px) {
+    .videos {
+      justify-content: space-between;
+      gap:0;
+      row-gap: 28px;
+    }
+   }
+
+   @media screen and (max-width: 658px) {
+    .videos {
+      justify-content: center;
+    }
+   }
