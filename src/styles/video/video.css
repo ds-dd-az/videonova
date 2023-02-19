@@ -46,6 +46,8 @@
   bottom: 0;
   margin: auto auto;
   z-index: 2;
+  max-width: 90%;
+  max-height: 50%;
 }
 
 .closing-div{
