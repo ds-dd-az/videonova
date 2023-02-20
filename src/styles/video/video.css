@@ -47,7 +47,6 @@
   margin: auto auto;
   z-index: 2;
   max-width: 90%;
-  max-height: 50%;
 }
 
 .closing-div{
@@ -78,9 +77,27 @@
   }
  }
 
+ @media screen and (max-width: 1200px) {
+  .react-player {
+    max-height: 50%;
+    max-width: 80%;
+  }
+ }
+
+ @media screen and (max-width: 1200px) {
+  .react-player {
+    max-height: 50%;
+    max-width: 80%;
+  }
+ }
+ 
  @media screen and (max-width: 624px) {
   .thumbnail-wrapper {
     flex-basis: 99%;
+  }
+  .react-player {
+    max-height: 40%;
+    max-width: 99%;
   }
  }
 
