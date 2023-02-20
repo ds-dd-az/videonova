@@ -46,6 +46,7 @@
 }
 
 .video-added{
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -150,3 +151,51 @@ form h3{
   margin: 0;
 }
 
+@media screen and (max-width: 1200px) {
+  .form-wrapper{
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .form-wrapper{
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form-wrapper{
+    width: 90%;
+    padding: 50px 30px;
+  }
+  .x-icon{
+    top: 3%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .form-wrapper{
+    width: 95%;
+    padding: 50px 20px;
+  }
+  .x-icon{
+    left: 87%;
+  }
+  .vid-preview {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .form-wrapper{
+    width: 664px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .form-buttons{
+    flex-direction: column-reverse;
+    gap: 20px;
+    margin-top: 20px;
+  }
+}

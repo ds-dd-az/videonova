@@ -1,9 +1,12 @@
-@import url('https://fonts.cdnfonts.com/css/chillax');
 
 h1 {
     font-family: "Chillax", sans-serif;
     font-size: 3.472vw;
     font-weight: 600;
+  }
+
+  h1 span{
+    color:#FF6363;
   }
 
 h2 {
@@ -21,6 +24,7 @@ h3 {
   @media screen and (max-width: 1024px) {
     h1 {
       font-size: 50px;
+      line-height: 50px;
     }
     h2 {
       font-size: 30px;

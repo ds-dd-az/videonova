@@ -18,3 +18,9 @@
   gap: 16px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 726px) {
+  .header{
+    padding: 11px 17px 0;
+  }
+}

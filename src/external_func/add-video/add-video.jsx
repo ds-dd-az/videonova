@@ -34,10 +34,11 @@ export default function addNewVideo(dispatch, url, title, description, token) {
           payload:
             "There is a trouble with your authentification, please try to login again",
         })
+      } else {
+        dispatch({
+          type: "errors/addError",
+          payload: "Unexpected error ocurred, try again later",
+        })
       }
-      dispatch({
-        type: "errors/addError",
-        payload: "Unexpected error ocurred, try again later",
-      })
     })
 }
