@@ -1,5 +1,4 @@
 import React from "react"
-import "./styles/App.css"
 import "./styles/style.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useDispatch } from "react-redux"
