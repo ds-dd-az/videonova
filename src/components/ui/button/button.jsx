@@ -14,7 +14,7 @@ export default function Button(props) {
 
   Button.propTypes = {
     /**
-     *  Button classes
+     *  additional classNames
      */
     className: propTypes.string,
     /**
