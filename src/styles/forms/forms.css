@@ -21,7 +21,7 @@
   margin-block-start: 0;
 }
 
-.sign-in{
+.sign-in-form{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@
   align-items: center;
 }
 
-.sign-up{
+.sign-up-form{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@
   align-items: center;
 }
 
-.add-new-vid{
+.add-new-video-form{
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -67,7 +67,7 @@ label{
   gap: 22px;
 }
 
-.form-buttons{
+.add-new-video-form__buttons{
   display: flex;
   flex-direction: row;
   gap: 50px;

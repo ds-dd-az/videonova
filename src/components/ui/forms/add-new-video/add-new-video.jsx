@@ -24,7 +24,7 @@ export default function VideoForm() {
     addNewVideo(dispatch, linkField.value, nameField.value, descField.value)
   }
   return (
-    <div className="add-new-vid">
+    <div className="add-new-video-form">
       <Heading size={1}>
         Add <span>New</span> Video
       </Heading>
@@ -54,7 +54,7 @@ export default function VideoForm() {
             placeholder="Type description..."
           />
         </label>
-        <div className="form-buttons">
+        <div className="add-new-video-form__buttons">
           <CloseForm>
             <Button text="Cancel" secondary />
           </CloseForm>

@@ -26,7 +26,7 @@ export default function SignIn() {
     passwordField = document.getElementById(`${password}`)
   })
   return (
-    <div className="sign-in">
+    <div className="sign-in-form">
       <Heading size={1}>
         Sign <span>In</span>
       </Heading>
