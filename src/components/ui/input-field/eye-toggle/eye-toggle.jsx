@@ -13,14 +13,15 @@ export default function EyeToggle(props) {
   }
 
   const [crossed, setCrossed] = useState(false)
-  const icon = crossed ? Regular : Crossed
+  const icon = crossed ? Crossed : Regular
   function toggle() {
     setCrossed(!crossed)
     click()
   }
+  const classNames = crossed ? "eye-icon eye-icon_crossed" : "eye-icon"
   return (
     <div
-      className="eye-icon"
+      className={classNames}
       onClick={() => toggle()}
       onKeyDown={() => toggle()}
       tabIndex="0"
