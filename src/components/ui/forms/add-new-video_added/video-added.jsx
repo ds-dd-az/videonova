@@ -2,7 +2,7 @@ import React from "react"
 import propTypes from "prop-types"
 import Button from "../../button/button"
 import CheckIcon from "../../../../assets/icons/check-icon.svg"
-import CloseForm from "../../../../containers/close-form-button/close-form-button"
+import CloseFormButton from "../../../../containers/close-form-button/close-form-button"
 import Heading from "../../headings/headings"
 
 export default function VideoAdded(props) {
@@ -28,9 +28,9 @@ export default function VideoAdded(props) {
           <img src={CheckIcon} className="vid-preview__check-icon" alt="done" />
         </div>
         <Heading size={2}>Succesfull</Heading>
-        <CloseForm>
+        <CloseFormButton>
           <Button text="To video" />
-        </CloseForm>
+        </CloseFormButton>
       </div>
     </div>
   )
