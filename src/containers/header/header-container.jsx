@@ -14,10 +14,8 @@ export default function AdaptiveHeader() {
   const userId = useSelector(SelectCurrentUserId)
   const allUsers = useSelector(SelectUsers)
   const findCurrentUser = () => {
-    console.log(userId)
     dispatch(fetchUsers)
     const filteredArr = allUsers.filter((element) => element.id === userId)
-    console.log(filteredArr[0])
     return filteredArr[0]
   }
   const openSignIn = () => {
