@@ -5,15 +5,15 @@ import CheckIcon from "../../../../assets/icons/check-icon.svg"
 import CloseFormButton from "../../../../containers/close-form-button/close-form-button"
 import Heading from "../../headings/headings"
 
-export default function VideoAdded(props) {
+export default function VideoAddedMessage(props) {
   const { img } = props
-  VideoAdded.propTypes = {
+  VideoAddedMessage.propTypes = {
     /**
      * image preview of the added video
      */
     img: propTypes.string,
   }
-  VideoAdded.defaultProps = {
+  VideoAddedMessage.defaultProps = {
     img: "https://picsum.photos/400/200",
   }
   return (
