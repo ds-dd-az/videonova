@@ -17,7 +17,7 @@ import Heading from "../../components/ui/headings/headings"
 export default function HomePage() {
   const dispatch = useDispatch()
   const loading = useSelector(SelectLoading)
-  const reverse = () => reverseArr(dispatch)
+  const reverseSorted = () => reverseArr(dispatch)
   const openSignUp = () => signUpForm(dispatch)
   return (
     <Layout>
@@ -37,7 +37,7 @@ export default function HomePage() {
                 <Heading size={2}>Best Creators</Heading>
                 <img src={StarImage} alt=" " />
               </div>
-              <SortIcon clickFunc={reverse} />
+              <SortIcon clickFunc={reverseSorted} />
             </div>
             <div className="best-creators__users">
               {loading ? <LoadRing isBig /> : <Users />}

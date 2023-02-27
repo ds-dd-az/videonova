@@ -2,12 +2,13 @@ import React from "react"
 import propTypes from "prop-types"
 import sortIcon from "../../../assets/icons/sort.png"
 
+/**
+ * @param clickFunc "function that will be performed on click"
+ * @returns node
+ */
 export default function SortIcon(props) {
   const { clickFunc } = props
   SortIcon.propTypes = {
-    /**
-     * onclick sorting func
-     */
     clickFunc: propTypes.func,
   }
   SortIcon.defaultProps = {
