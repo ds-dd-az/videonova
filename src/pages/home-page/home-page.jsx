@@ -37,7 +37,7 @@ export default function HomePage() {
                 <Heading size={2}>Best Creators</Heading>
                 <img src={StarImage} alt=" " />
               </div>
-              <SortIcon click={reverse} />
+              <SortIcon clickFunc={reverse} />
             </div>
             <div className="best-creators__users">
               {loading ? <LoadRing isBig /> : <Users />}
