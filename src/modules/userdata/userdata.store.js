@@ -1,11 +1,12 @@
 /* eslint-disable no-param-reassign */
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 import {
-  getUsers,
-  postUser,
-  loginUser,
-} from "../../external_func/http-requests/users"
-import { getVideos, postVideo } from "../../external_func/http-requests/videos"
+  fetchUsers,
+  fetchVideos,
+  registerUser,
+  login,
+  addVideo,
+} from "./userdata.thunks"
 
 const initialState = {
   allUsers: {},
@@ -15,31 +16,6 @@ const initialState = {
   },
   loading: false,
 }
-
-export const fetchUsers = createAsyncThunk("data/fetchUsers", async () => {
-  const users = await getUsers()
-  return users
-})
-
-export const fetchVideos = createAsyncThunk("data/fetchVideos", async () => {
-  const videos = await getVideos()
-  return videos
-})
-
-export const registerUser = createAsyncThunk("data/register", async (data) => {
-  const user = postUser(data)
-  return user
-})
-
-export const login = createAsyncThunk("data/login", async (data) => {
-  const user = loginUser(data)
-  return user
-})
-
-export const addVideo = createAsyncThunk("data/addVideo", async (data) => {
-  const video = postVideo(data)
-  return video
-})
 
 const userDataSlice = createSlice({
   name: "data",
@@ -64,7 +40,7 @@ const userDataSlice = createSlice({
     builder.addCase(fetchVideos.pending, (state) => {
       state.loading = true
     })
-    builder.addCase(registerUser.fulfilled, (state, action) => {
+    builder.addCase(registerUser.fulfilled, (state) => {
       state.loginLoading = false
     })
     builder.addCase(registerUser.pending, (state) => {
