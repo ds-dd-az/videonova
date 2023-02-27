@@ -37,7 +37,7 @@ export default function UserCard(props) {
     <div className="user-card">
       <UserIcon iconSrc={data.userPic} size="medium" />
       <Heading size={3}>{data.userName}</Heading>
-      <UserStats videos={vidAmount} likes={likeAmount} />
+      <UserStats videosAmount={vidAmount} likesAmount={likeAmount} />
       <Button text="To profile" click={() => redirectFunc(data.id)} />
     </div>
   )
