@@ -11,13 +11,13 @@ import {
   SelectCurrentUserId,
 } from "../../modules/userdata"
 import LoadRing from "../../components/ui/Loading-ring/load-ring"
-import { addVideoForm } from "../../external_func/dispatches/dispatches"
+import { showAddVideoForm } from "../../external_func/dispatches/dispatches"
 import Videos from "../../containers/videos/videos"
 import Heading from "../../components/ui/headings/headings"
 
 export default function UserPage() {
   const dispatch = useDispatch()
-  const openForm = () => addVideoForm(dispatch)
+  const openForm = () => showAddVideoForm(dispatch)
   const pageId = window.location.href.split("user/")[1]
   const users = useSelector(SelectUsers)
   const currentUser = useSelector(SelectCurrentUserId)

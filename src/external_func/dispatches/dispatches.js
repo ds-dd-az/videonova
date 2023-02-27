@@ -1,11 +1,11 @@
-export function signInForm(dispatch) {
+export function showSignInForm(dispatch) {
   dispatch({
     type: "form/show",
     payload: { type: "signIn" },
   })
 }
 
-export function signUpForm(dispatch) {
+export function showSignUpForm(dispatch) {
   dispatch({
     type: "form/show",
     payload: { type: "signUp" },
@@ -18,7 +18,7 @@ export function reverseArr(dispatch) {
   })
 }
 
-export function addVideoForm(dispatch) {
+export function showAddVideoForm(dispatch) {
   dispatch({
     type: "form/show",
     payload: { type: "addVideo" },

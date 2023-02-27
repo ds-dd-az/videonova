@@ -9,7 +9,7 @@ import LoadRing from "../../components/ui/Loading-ring/load-ring"
 import Users from "../../containers/Users/users"
 import SortIcon from "../../components/ui/sort-icon/sort-icon"
 import {
-  signUpForm,
+  showSignUpForm,
   reverseArr,
 } from "../../external_func/dispatches/dispatches"
 import Heading from "../../components/ui/headings/headings"
@@ -18,7 +18,7 @@ export default function HomePage() {
   const dispatch = useDispatch()
   const loading = useSelector(SelectLoading)
   const reverseSorted = () => reverseArr(dispatch)
-  const openSignUp = () => signUpForm(dispatch)
+  const openSignUp = () => showSignUpForm(dispatch)
   return (
     <Layout>
       <div className="page-block">

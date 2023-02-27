@@ -5,7 +5,10 @@ import {
   SelectUsers,
 } from "../../modules/userdata/userdata.selectors"
 import Header from "../../components/ui/header/header"
-import { signInForm, logOut } from "../../external_func/dispatches/dispatches"
+import {
+  showSignInForm,
+  logOut,
+} from "../../external_func/dispatches/dispatches"
 import { fetchUsers } from "../../modules/userdata"
 
 export default function AdaptiveHeader() {
@@ -19,7 +22,7 @@ export default function AdaptiveHeader() {
     return filteredArr[0]
   }
   const openSignIn = () => {
-    signInForm(dispatch)
+    showSignInForm(dispatch)
   }
   let func = openSignIn
   let signOutButtonDisplay = false
