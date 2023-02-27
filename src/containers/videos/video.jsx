@@ -16,7 +16,11 @@ export default function Video({ data }) {
   const imgSrc = findPreview(url)
   if (visibility) {
     return (
-      <VideoPlayer data={data} func={() => toggleVisibility()} src={imgSrc} />
+      <VideoPlayer
+        data={data}
+        closingFunc={() => toggleVisibility()}
+        src={imgSrc}
+      />
     )
   }
 

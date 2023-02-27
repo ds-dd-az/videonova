@@ -24,7 +24,7 @@ export default function Thumbnail(props) {
     src: "https://picsum.photos/320/200",
   }
   return (
-    <div className="thumbnail-wrapper">
+    <div className="video-thumbnail-wrapper">
       <div
         className="preview"
         role="button"

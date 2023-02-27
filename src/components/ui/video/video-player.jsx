@@ -5,7 +5,7 @@ import Thumbnail from "./video-thumbnail"
 import "../../../styles/video/video.css"
 
 export default function VideoPlayer(props) {
-  const { data, func, src } = props
+  const { data, closingFunc, src } = props
   VideoPlayer.propTypes = {
     /**
      * all the information about the displayed video
@@ -14,24 +14,24 @@ export default function VideoPlayer(props) {
     /**
      * closing function that needs to be passed
      */
-    func: propTypes.func,
+    closingFunc: propTypes.func,
     /**
      * source of preview image
      */
     src: propTypes.string,
   }
   VideoPlayer.defaultProps = {
-    func: null,
+    closingFunc: null,
     src: "https://picsum.photos/320/200",
   }
   return (
     <div className="video-component">
       <div
         className="closing-div"
-        onClick={func}
+        onClick={closingFunc}
         role="button"
         tabIndex={0}
-        onKeyDown={func}
+        onKeyDown={closingFunc}
       />
       <ReactPlayer
         className="react-player"

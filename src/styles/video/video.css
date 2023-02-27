@@ -1,4 +1,4 @@
-.thumbnail-wrapper{
+.video-thumbnail-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -10,7 +10,7 @@
   width: fit-content;
 }
 
-.preview{
+.preview {
   border-radius: 14px;
   display: flex;
   height: 174px;
@@ -20,7 +20,7 @@
   position: relative;
   }
 
-.play-icon{
+.play-icon {
   display: flex;
   position: absolute;
   left: 0;
@@ -32,12 +32,12 @@
   width: 35px;
 }
 
-.preview img{
+.preview img {
   height: 100%;
   width: 100%;
 }
 
-.react-player{
+.react-player {
   position: fixed;
   display: flex;
   left: 0;
@@ -49,7 +49,7 @@
   max-width: 90%;
 }
 
-.closing-div{
+.closing-div {
   position: fixed;
   top: 0;
   left: 0;
@@ -60,19 +60,19 @@
   z-index: 1;
 }
 
-.thumbnail-wrapper h3{
+.thumbnail-wrapper h3 {
   margin-bottom: 0;
   margin-top: 5px;
 }
 
 @media screen and (max-width: 1200px) {
-  .thumbnail-wrapper {
+  .video-thumbnail-wrapper {
     flex-basis: 31%;
   }
  }
 
  @media screen and (max-width: 1000px) {
-  .thumbnail-wrapper {
+  .video-thumbnail-wrapper {
     flex-basis: 47%;
   }
  }
@@ -92,7 +92,7 @@
  }
  
  @media screen and (max-width: 624px) {
-  .thumbnail-wrapper {
+  .video-thumbnail-wrapper {
     flex-basis: 99%;
   }
   .react-player {
@@ -102,7 +102,7 @@
  }
 
  @media screen and (min-width: 1900px) {
-  .thumbnail-wrapper {
+  .video-thumbnail-wrapper {
     flex-basis: 17%;
   }
  }
