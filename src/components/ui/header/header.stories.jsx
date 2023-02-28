@@ -31,6 +31,7 @@ export const Authorised = Template.bind({})
 Authorised.args = {
   login: true,
   signOutEnabled: false,
+  user: { userPic: "https://picsum.photos/200", userName: "User Name" },
 }
 
 export const Unauthorised = Template.bind({})

@@ -21,4 +21,11 @@ function Template(args) {
 
 export const Card = Template.bind({})
 
-Card.args = { vidAmount: 100, likeAmount: 100 }
+Card.args = {
+  vidAmount: 100,
+  likeAmount: 100,
+  data: {
+    userName: "New User",
+    userPic: "https://picsum.photos/200",
+  },
+}
