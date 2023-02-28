@@ -15,6 +15,7 @@ textarea:focus, input:focus{
 
 .field_big{
   min-height: 134px;
+  width: 100%;
   resize: none;
 }
 
