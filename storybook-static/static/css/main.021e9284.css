@@ -112,6 +112,15 @@
   height: 100px;
   border-color: #5B4DFF transparent transparent transparent;
 }
+.error-message{
+  padding: 33px 10px;
+  color: rgb(37, 37, 37);
+  text-align: center;
+  border-radius: 14px;
+  background-color: salmon;
+  width: 100%;
+}
+
 .footer{
   height: 136px;
   background: #232323;
@@ -438,15 +447,6 @@ textarea:focus, input:focus{
   padding: 0;
 }
 
-.error-message{
-  padding: 33px 10px;
-  color: rgb(37, 37, 37);
-  text-align: center;
-  border-radius: 14px;
-  background-color: salmon;
-  width: 100%;
-}
-
 
 h1 {
     font-family: "Chillax", sans-serif;
@@ -635,4 +635,4 @@ h3 {
   justify-content: flex-start;
 }
 
-/*# sourceMappingURL=main.7cee3a70.css.map*/
+/*# sourceMappingURL=main.021e9284.css.map*/
