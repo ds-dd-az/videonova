@@ -2,7 +2,7 @@ import React from "react"
 import InputField from "./input-field"
 
 export default {
-  title: "input field",
+  title: "Components/ui/input field",
   component: InputField,
   argTypes: {
     isBig: { boolean: { action: false } },

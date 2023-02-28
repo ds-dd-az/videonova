@@ -2,7 +2,7 @@ import React from "react"
 import Thumbnail from "./video-thumbnail"
 
 export default {
-  title: "video-thumbnail",
+  title: "Components/ui/video-thumbnail",
   component: Thumbnail,
   argTypes: {},
 }

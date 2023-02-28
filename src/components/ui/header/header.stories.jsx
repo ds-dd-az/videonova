@@ -2,7 +2,7 @@ import React from "react"
 import Header from "./header"
 
 export default {
-  title: "Header",
+  title: "Components/ui/Header",
   component: Header,
   argTypes: {
     login: {

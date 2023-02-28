@@ -2,7 +2,7 @@ import React from "react"
 import UserCard from "./user-card"
 
 export default {
-  title: "User-card",
+  title: "Components/ui/User-card",
   component: UserCard,
 }
 

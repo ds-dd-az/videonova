@@ -17,8 +17,8 @@ function Template(args) {
   )
 }
 
-export const message = Template.bind({})
+export const Message = Template.bind({})
 
-message.args = {
+Message.args = {
   message: "There is an error somehwere",
 }

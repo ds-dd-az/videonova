@@ -2,7 +2,7 @@ import React from "react"
 import Form from "./forms"
 
 export default {
-  title: "form",
+  title: "Components/ui/form",
   component: Form,
   argTypes: {
     signIn: { boolean: { action: false } },

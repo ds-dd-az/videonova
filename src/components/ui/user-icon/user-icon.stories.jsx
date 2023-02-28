@@ -2,7 +2,7 @@ import React from "react"
 import UserIcon from "./user-icon"
 
 export default {
-  title: "user-icon",
+  title: "Components/ui/user-icon",
   component: UserIcon,
   argTypes: {
     size: {
