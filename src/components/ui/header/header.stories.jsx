@@ -5,7 +5,12 @@ export default {
   title: "Components/ui/Header",
   component: Header,
   argTypes: {
+    user: "object",
     login: {
+      options: [true, false],
+      control: { type: "radio" },
+    },
+    signOutEnabled: {
       options: [true, false],
       control: { type: "radio" },
     },
@@ -25,10 +30,19 @@ export const Authorised = Template.bind({})
 
 Authorised.args = {
   login: true,
+  signOutEnabled: false,
 }
 
 export const Unauthorised = Template.bind({})
 
 Unauthorised.args = {
   login: false,
+  signOutEnabled: false,
+}
+
+export const UserPageAuthorised = Template.bind({})
+
+UserPageAuthorised.args = {
+  login: true,
+  signOutEnabled: true,
 }
