@@ -33,7 +33,7 @@ export default function HomePage() {
           </div>
           <div className="best-creators">
             <div className="best-creators__header">
-              <div className="best-creators__text">
+              <div className="best-creators__heading">
                 <Heading size={2}>Best Creators</Heading>
                 <img src={StarImage} alt=" " />
               </div>

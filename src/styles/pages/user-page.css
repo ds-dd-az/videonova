@@ -21,15 +21,15 @@
     justify-content: space-between;
   }
   
-  .videos-text{
+  .user-videos__heading{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: baseline;
     justify-content: flex-start;
     gap: 10px;
   }
   
-  .videos-text img{
+  .user-videos__heading img{
     width: 20px;
     height: 20px;
   }

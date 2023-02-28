@@ -36,7 +36,7 @@ export default function UserPage() {
         </div>
         <div className="user-videos">
           <div className="user-videos__header">
-            <div className="videos-text">
+            <div className="user-videos__heading">
               <Heading size={2}>{name} videos</Heading>
               <img src={VidIcon} alt="" />
             </div>
