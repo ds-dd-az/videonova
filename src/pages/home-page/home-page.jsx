@@ -9,7 +9,7 @@ import LoadRing from "../../components/ui/Loading-ring/load-ring"
 import Users from "../../containers/Users/users"
 import SortIcon from "../../components/ui/sort-icon/sort-icon"
 import {
-  signUpForm,
+  showSignUpForm,
   reverseArr,
 } from "../../external_func/dispatches/dispatches"
 import Heading from "../../components/ui/headings/headings"
@@ -17,8 +17,8 @@ import Heading from "../../components/ui/headings/headings"
 export default function HomePage() {
   const dispatch = useDispatch()
   const loading = useSelector(SelectLoading)
-  const reverse = () => reverseArr(dispatch)
-  const openSignUp = () => signUpForm(dispatch)
+  const reverseSorted = () => reverseArr(dispatch)
+  const openSignUp = () => showSignUpForm(dispatch)
   return (
     <Layout>
       <div className="page-block">
@@ -33,11 +33,11 @@ export default function HomePage() {
           </div>
           <div className="best-creators">
             <div className="best-creators__header">
-              <div className="best-creators__text">
+              <div className="best-creators__heading">
                 <Heading size={2}>Best Creators</Heading>
                 <img src={StarImage} alt=" " />
               </div>
-              <SortIcon click={reverse} />
+              <SortIcon clickFunc={reverseSorted} />
             </div>
             <div className="best-creators__users">
               {loading ? <LoadRing isBig /> : <Users />}

@@ -4,30 +4,30 @@ import LikeIcon from "../../../../assets/icons/like-icon.png"
 import VideoIcon from "../../../../assets/icons/video-icon-stats.png"
 
 export default function UserStats(props) {
-  const { videos, likes } = props
+  const { videosAmount, likesAmount } = props
   UserStats.propTypes = {
     /**
      * amount of users videos
      */
-    videos: propTypes.number,
+    videosAmount: propTypes.number,
     /**
      * amount of users likes
      */
-    likes: propTypes.number,
+    likesAmount: propTypes.number,
   }
   UserStats.defaultProps = {
-    videos: 25,
-    likes: 100,
+    videosAmount: 0,
+    likesAmount: 100,
   }
   return (
     <div className="user-card__stats">
       <div className="like-video-count">
         <img src={VideoIcon} alt="uploaded videos" />
-        {videos} videos
+        {videosAmount} videos
       </div>
       <div className="like-video-count">
         <img src={LikeIcon} alt="likes" />
-        {likes} likes
+        {likesAmount} likes
       </div>
     </div>
   )

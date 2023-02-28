@@ -2,25 +2,26 @@ import React from "react"
 import propTypes from "prop-types"
 import sortIcon from "../../../assets/icons/sort.png"
 
+/**
+ * @param clickFunc "function that will be performed on click"
+ * @returns node
+ */
 export default function SortIcon(props) {
-  const { click } = props
+  const { clickFunc } = props
   SortIcon.propTypes = {
-    /**
-     * onclick sorting func
-     */
-    click: propTypes.func,
+    clickFunc: propTypes.func,
   }
   SortIcon.defaultProps = {
-    click: null,
+    clickFunc: null,
   }
 
   return (
     <div
       className="sort-icon"
-      onClick={click}
+      onClick={clickFunc}
       role="button"
       tabIndex="0"
-      onKeyDown={click}
+      onKeyDown={clickFunc}
     >
       <img src={sortIcon} alt="sort" />
     </div>

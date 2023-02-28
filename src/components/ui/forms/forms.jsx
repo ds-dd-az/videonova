@@ -5,7 +5,7 @@ import SignIn from "./sign-in-form/sign-in-form"
 import SignUp from "./sign-up-form/sign-up-form"
 import VideoForm from "./add-new-video/add-new-video"
 import VideoAddedContainer from "../../../containers/video-added/video-added"
-import CloseForm from "../../../containers/close-form-button/close-form-button"
+import CloseFormButton from "../../../containers/close-form-button/close-form-button"
 import XIcon from "./x-icon/x-icon"
 
 export default function Form(props) {
@@ -28,9 +28,9 @@ export default function Form(props) {
   if (variant === "signUp") {
     return (
       <div id="formId" className="form-wrapper">
-        <CloseForm>
+        <CloseFormButton>
           <XIcon />
-        </CloseForm>
+        </CloseFormButton>
         <SignUp />
       </div>
     )
@@ -38,9 +38,9 @@ export default function Form(props) {
   if (variant === "videoAdded") {
     return (
       <div id="formId" className="form-wrapper">
-        <CloseForm>
+        <CloseFormButton>
           <XIcon />
-        </CloseForm>
+        </CloseFormButton>
         <VideoAddedContainer />
       </div>
     )
@@ -48,9 +48,9 @@ export default function Form(props) {
   if (variant === "signIn") {
     return (
       <div id="formId" className="form-wrapper">
-        <CloseForm>
+        <CloseFormButton>
           <XIcon />
-        </CloseForm>
+        </CloseFormButton>
         <SignIn />
       </div>
     )

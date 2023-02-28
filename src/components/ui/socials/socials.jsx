@@ -8,21 +8,21 @@ export default function Socials() {
     <div className="social-icons">
       <a href="https://web.telegram.org/z/">
         <img
-          className="social-icons_icon"
+          className="social-icons__icon"
           src={TelegramIcon}
           alt="our telegram"
         />
       </a>
       <a href="https://discord.com/">
         <img
-          className="social-icons_icon"
+          className="social-icons__icon"
           src={DiscordIcon}
           alt="our discord"
         />
       </a>
       <a href="https://twitter.com/?lang=uk">
         <img
-          className="social-icons_icon"
+          className="social-icons__icon"
           src={TwitterIcon}
           alt="our twitter"
         />

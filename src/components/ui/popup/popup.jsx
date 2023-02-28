@@ -7,9 +7,9 @@ import CloseForm from "../../../containers/close-form-button/close-form-button"
 
 export default function Popup() {
   const visible = useSelector(selectVisibility)
-  const show = visible ? "popup_show" : "popup_hide"
+  const isShown = visible ? "popup_show" : "popup_hide"
   return (
-    <div className={`popup ${show}`}>
+    <div className={`popup ${isShown}`}>
       <CloseForm>
         <div className="bgBlur" />
       </CloseForm>

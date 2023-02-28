@@ -37,7 +37,7 @@ export default function SignUp() {
   }
   const registrationLoading = useSelector(SelectLoginLoading)
   return (
-    <div className="sign-up">
+    <div className="sign-up-form">
       <Heading size={1}>
         Sign <span>Up</span>
       </Heading>

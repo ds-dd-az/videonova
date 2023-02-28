@@ -10,10 +10,10 @@ export default function Users() {
   const videos = useSelector(SelectVideos)
   const reversed = useSelector(selectReversed)
   const initialArr = users.map((element) => element)
-  const finalArr = reversed
+  const sortedArr = reversed
     ? initialArr.sort(sortByName).reverse()
     : initialArr.sort(sortByName)
-  const returnedArr = finalArr.map((element) => {
+  const returnedArr = sortedArr.map((element) => {
     const countVideos = videos.filter((value) => value.userId === element.id)
     const redirect = (id) => {
       window.location.href = `http://localhost:3000/user/${id}`

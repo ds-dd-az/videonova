@@ -2,18 +2,18 @@ import React from "react"
 import propTypes from "prop-types"
 import Button from "../../button/button"
 import CheckIcon from "../../../../assets/icons/check-icon.svg"
-import CloseForm from "../../../../containers/close-form-button/close-form-button"
+import CloseFormButton from "../../../../containers/close-form-button/close-form-button"
 import Heading from "../../headings/headings"
 
-export default function VideoAdded(props) {
+export default function VideoAddedMessage(props) {
   const { img } = props
-  VideoAdded.propTypes = {
+  VideoAddedMessage.propTypes = {
     /**
      * image preview of the added video
      */
     img: propTypes.string,
   }
-  VideoAdded.defaultProps = {
+  VideoAddedMessage.defaultProps = {
     img: "https://picsum.photos/400/200",
   }
   return (
@@ -28,9 +28,9 @@ export default function VideoAdded(props) {
           <img src={CheckIcon} className="vid-preview__check-icon" alt="done" />
         </div>
         <Heading size={2}>Succesfull</Heading>
-        <CloseForm>
+        <CloseFormButton>
           <Button text="To video" />
-        </CloseForm>
+        </CloseFormButton>
       </div>
     </div>
   )

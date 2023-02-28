@@ -11,7 +11,7 @@ export default function addNewVideo(dispatch, url, title, description, token) {
     })
   )
     .then(unwrapResult)
-    .then((promiseResult) => {
+    .then(() => {
       dispatch({
         type: "form/hide",
       })

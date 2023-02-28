@@ -25,7 +25,7 @@
     margin: auto;
   }
   
-  .best-creators__text{
+  .best-creators__heading{
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

@@ -9,14 +9,18 @@ export default function Video({ data }) {
     data: propTypes.objectOf(propTypes.string).isRequired,
   }
   const { url } = data
-  const [visibility, setVisibility] = useState(false)
+  const [isVisible, setVisibility] = useState(false)
   function toggleVisibility() {
-    setVisibility(!visibility)
+    setVisibility(!isVisible)
   }
   const imgSrc = findPreview(url)
-  if (visibility) {
+  if (isVisible) {
     return (
-      <VideoPlayer data={data} func={() => toggleVisibility()} src={imgSrc} />
+      <VideoPlayer
+        data={data}
+        closingFunc={() => toggleVisibility()}
+        src={imgSrc}
+      />
     )
   }
 

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import propTypes from "prop-types"
 import { closeForm } from "../../external_func/dispatches/dispatches"
 
-export default function CloseForm(props) {
+export default function CloseFormButton(props) {
   const { children } = props
   const dispatch = useDispatch()
   const close = () => closeForm(dispatch)
@@ -14,6 +14,6 @@ export default function CloseForm(props) {
   )
 }
 
-CloseForm.propTypes = {
+CloseFormButton.propTypes = {
   children: propTypes.node.isRequired,
 }

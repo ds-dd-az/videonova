@@ -25,7 +25,6 @@ export async function postVideo(data) {
     title: data.title,
     description: data.description,
   }
-  console.log(data)
   const response = axios.post(
     "https://wonderful-app-lmk4d.cloud.serverless.com/video",
     videoInfo,
