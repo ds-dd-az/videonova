@@ -1,14 +1,11 @@
 import React, { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import Form from "../../components/ui/forms/forms"
 import addNewVideo from "../../external_func/add-video/add-video"
 import VideoForm from "../../components/ui/forms/add-new-video/add-new-video"
-import { selectType } from "../../modules/form"
 
-export default function FormHandler() {
+export default function AddVideoWrapper() {
   const dispatch = useDispatch()
-  const formType = useSelector(selectType)
-  console.log(formType)
   let linkField
   let nameField
   let descField
@@ -25,11 +22,9 @@ export default function FormHandler() {
       descField.value
     )
   }
-  if (formType === "addVideo") {
-    return (
-      <Form>
-        <VideoForm submitFunc={() => addVideo} />
-      </Form>
-    )
-  }
+  return (
+    <Form>
+      <VideoForm submitFunc={() => addVideo} />
+    </Form>
+  )
 }
