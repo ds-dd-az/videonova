@@ -5,7 +5,7 @@ import addNewVideo from "../../external_func/add-video/add-video"
 import VideoForm from "../../components/ui/forms/add-new-video/add-new-video"
 import { SelectErrorMessage } from "../../modules/current_error"
 
-export default function AddVideoWrapper() {
+export default function AddVideoWithLogic() {
   const dispatch = useDispatch()
   const errorMessage = useSelector(SelectErrorMessage)
   let linkField

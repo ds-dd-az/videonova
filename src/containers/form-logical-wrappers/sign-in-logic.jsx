@@ -13,7 +13,7 @@ import FormSwitcher from "../../external_func/switch-form/form-switcher"
 import CloseFormButton from "../close-form-button/close-form-button"
 import XIcon from "../../components/ui/forms/x-icon/x-icon"
 
-export default function SignInFormWrapper() {
+export default function SignInFormWithLogic() {
   const dispatch = useDispatch()
   const errorMessage = useSelector(SelectErrorMessage)
   let nameField
