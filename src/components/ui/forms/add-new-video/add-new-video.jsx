@@ -7,7 +7,7 @@ import CloseForm from "../../../../containers/close-form-button/close-form-butto
 import Heading from "../../headings/headings"
 
 export default function VideoForm(props) {
-  const { submitFunc, errorMessage } = props
+  const { submitFunc, errorMessage, formCloser } = props
   VideoForm.propTypes = {
     /**
      * function performed on submit
@@ -17,10 +17,15 @@ export default function VideoForm(props) {
      * error message that will be displayed when error is occured
      */
     errorMessage: propTypes.string,
+    /**
+     * component with closing function
+     */
+    formCloser: propTypes.node,
   }
   VideoForm.defaultProps = {
     submitFunc: null,
     errorMessage: null,
+    formCloser: <Button text="Cancel" secondary />,
   }
 
   return (
@@ -55,9 +60,7 @@ export default function VideoForm(props) {
           />
         </label>
         <div className="add-new-video-form__buttons">
-          <CloseForm>
-            <Button text="Cancel" secondary />
-          </CloseForm>
+          {formCloser}
           <Button text="Submit" click={submitFunc} />
         </div>
       </form>

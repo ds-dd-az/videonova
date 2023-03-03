@@ -4,6 +4,8 @@ import Form from "../../components/ui/forms/forms"
 import addNewVideo from "../../external_func/add-video/add-video"
 import VideoForm from "../../components/ui/forms/add-new-video/add-new-video"
 import { SelectErrorMessage } from "../../modules/current_error"
+import CloseFormButton from "../close-form-button/close-form-button"
+import Button from "../../components/ui/button/button"
 
 export default function AddVideoWithLogic() {
   const dispatch = useDispatch()
@@ -20,7 +22,15 @@ export default function AddVideoWithLogic() {
     addNewVideo(dispatch, linkField.value, nameField.value, descField.value)
   return (
     <Form>
-      <VideoForm submitFunc={addVideo} errorMessage={errorMessage} />
+      <VideoForm
+        submitFunc={addVideo}
+        errorMessage={errorMessage}
+        formCloser={
+          <CloseFormButton>
+            <Button text="Cancel" secondary />
+          </CloseFormButton>
+        }
+      />
     </Form>
   )
 }
