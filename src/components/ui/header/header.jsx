@@ -27,7 +27,7 @@ export default function Header(props) {
   }
   Header.defaultProps = {
     login: false,
-    user: null,
+    user: { userPic: "https://picsum.photos/200", userName: "User Name" },
     func: null,
     signOutEnabled: false,
   }

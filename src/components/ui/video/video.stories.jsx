@@ -1,18 +1,28 @@
 import React from "react"
-import Video from "./video"
+import Thumbnail from "./video-thumbnail"
+import "../../../styles/video/video.css"
 
 export default {
-  title: "video",
-  component: Video,
+  title: "Components/ui/video-thumbnail",
+  component: Thumbnail,
   argTypes: {},
 }
 
 function Template(args) {
   return (
-    <div style={{ backgroundColor: "#ccc" }}>
-      <Video {...args} />
+    <div style={{ backgroundColor: "white" }}>
+      <div className="video-component">
+        <Thumbnail {...args} />
+      </div>
     </div>
   )
 }
 
-export const video = Template.bind({})
+export const VideoThumbnail = Template.bind({})
+
+VideoThumbnail.args = {
+  data: {
+    title: "Great video",
+    description: "This video is great indeed, must watch for everyone",
+  },
+}

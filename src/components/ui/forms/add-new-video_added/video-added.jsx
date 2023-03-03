@@ -6,15 +6,20 @@ import CloseFormButton from "../../../../containers/close-form-button/close-form
 import Heading from "../../headings/headings"
 
 export default function VideoAddedMessage(props) {
-  const { img } = props
+  const { img, formCloser } = props
   VideoAddedMessage.propTypes = {
     /**
      * image preview of the added video
      */
     img: propTypes.string,
+    /**
+     * component with closing function
+     */
+    formCloser: propTypes.node,
   }
   VideoAddedMessage.defaultProps = {
     img: "https://picsum.photos/400/200",
+    formCloser: null,
   }
   return (
     <div className="video-added">
@@ -28,9 +33,7 @@ export default function VideoAddedMessage(props) {
           <img src={CheckIcon} className="vid-preview__check-icon" alt="done" />
         </div>
         <Heading size={2}>Succesfull</Heading>
-        <CloseFormButton>
-          <Button text="To video" />
-        </CloseFormButton>
+        {formCloser}
       </div>
     </div>
   )

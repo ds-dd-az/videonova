@@ -2,7 +2,7 @@ import React from "react"
 import Footer from "./footer"
 
 export default {
-  title: "footer",
+  title: "Components/ui/footer",
   component: Footer,
   argTypes: {},
 }

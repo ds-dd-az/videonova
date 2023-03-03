@@ -1,15 +1,15 @@
 import React from "react"
 import Form from "./forms"
+import SignIn from "./sign-in-form/sign-in-form"
+import SignUp from "./sign-up-form/sign-up-form"
+import XIcon from "./x-icon/x-icon"
+import VideoForm from "./add-new-video/add-new-video"
+import VideoAddedMessage from "./add-new-video_added/video-added"
+import Button from "../button/button"
 
 export default {
-  title: "form",
+  title: "Components/ui/form",
   component: Form,
-  argTypes: {
-    signIn: { boolean: { action: false } },
-    signUp: { boolean: { action: false } },
-    addVideo: { boolean: { action: false } },
-    videoLoading: { boolean: { action: false } },
-  },
 }
 
 function Template(args) {
@@ -20,35 +20,49 @@ function Template(args) {
   )
 }
 
-export const SignIn = Template.bind({})
+export const SignInForm = Template.bind({})
 
-SignIn.args = {
-  signIn: true,
-  signUp: false,
-  addVideo: false,
-  videoLoading: false,
+SignInForm.args = {
+  children: (
+    <>
+      <XIcon />
+      <SignIn
+        formSwitcher={
+          <span>
+            Don`t have account? <span style={{ color: "blue" }}>Sign Up</span>
+          </span>
+        }
+      />
+    </>
+  ),
 }
 
-export const SignUp = Template.bind({})
+export const SignUpForm = Template.bind({})
 
-SignUp.args = {
-  ...SignIn.args,
-  signIn: false,
-  signUp: true,
+SignUpForm.args = {
+  children: (
+    <>
+      <XIcon />
+      <SignUp
+        formSwitcher={
+          <span>
+            Already have an account?{" "}
+            <span style={{ color: "blue" }}>Sign In</span>
+          </span>
+        }
+      />
+    </>
+  ),
 }
 
-export const AddVideo = Template.bind({})
+export const AddVideoForm = Template.bind({})
 
-AddVideo.args = {
-  ...SignIn.args,
-  signIn: false,
-  addVideo: true,
+AddVideoForm.args = {
+  children: <VideoForm formCloser={<Button text="Cancel" secondary />} />,
 }
 
-export const VideoLoading = Template.bind({})
+export const VideoAdded = Template.bind({})
 
-VideoLoading.args = {
-  ...SignIn.args,
-  signIn: false,
-  videoLoading: true,
+VideoAdded.args = {
+  children: <VideoAddedMessage img="https://picsum.photos/400/200" />,
 }

@@ -1,6 +1,7 @@
 .form-wrapper{
   background: #FFFFFF;
   border-radius: 20px;
+  box-shadow: 2px 2px 5px grey;
   display: flex;
   justify-content: center;
   align-items: center;

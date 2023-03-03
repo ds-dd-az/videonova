@@ -1,10 +1,19 @@
 import React from "react"
-import { useSelector } from "react-redux"
+import propTypes from "prop-types"
 import ErrorMessage from "../../components/ui/error-message/error-message"
-import { SelectErrorMessage } from "../../modules/current_error"
 
-export default function FormError() {
-  const message = useSelector(SelectErrorMessage)
+export default function FormError(props) {
+  const { message } = props
+  FormError.propTypes = {
+    /**
+     * message that will be displayed
+     */
+    message: propTypes.string,
+  }
+
+  FormError.defaultProps = {
+    message: null,
+  }
   if (message !== null) {
     return <ErrorMessage message={message} />
   }

@@ -2,7 +2,7 @@ import React from "react"
 import Button from "./button"
 
 export default {
-  title: "button",
+  title: "Components/ui/button",
   component: Button,
   argTypes: {
     text: "button",
@@ -33,6 +33,7 @@ export const Disabled = Template.bind({})
 
 Disabled.args = {
   ...Primary.args,
+  text: "Disabled button",
   disabled: true,
 }
 
@@ -40,6 +41,7 @@ export const Secondary = Template.bind({})
 
 Secondary.args = {
   ...Primary.args,
+  text: "Secondary button",
   secondary: true,
 }
 

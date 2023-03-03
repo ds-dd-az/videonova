@@ -40,7 +40,7 @@ export default function InputField(props) {
   if (variant === "bigText") {
     styles.push("field_big")
     return (
-      <div>
+      <div className="field-wrapper">
         <textarea
           id={id}
           value={input}
