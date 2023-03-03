@@ -58,7 +58,7 @@ export default function VideoForm(props) {
           <CloseForm>
             <Button text="Cancel" secondary />
           </CloseForm>
-          <Button text="Submit" click={() => submitFunc} />
+          <Button text="Submit" click={submitFunc} />
         </div>
       </form>
     </div>

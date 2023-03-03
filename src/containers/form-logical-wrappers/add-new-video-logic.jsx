@@ -16,17 +16,11 @@ export default function AddVideoWithLogic() {
     nameField = document.getElementById("videoName")
     descField = document.getElementById("videoDesc")
   })
-  function addVideo() {
-    return addNewVideo(
-      dispatch,
-      linkField.value,
-      nameField.value,
-      descField.value
-    )
-  }
+  const addVideo = () =>
+    addNewVideo(dispatch, linkField.value, nameField.value, descField.value)
   return (
     <Form>
-      <VideoForm submitFunc={() => addVideo} errorMessage={errorMessage} />
+      <VideoForm submitFunc={addVideo} errorMessage={errorMessage} />
     </Form>
   )
 }
