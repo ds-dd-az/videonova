@@ -26,6 +26,7 @@ export default function SignInFormWrapper() {
     passwordField = document.getElementById("password")
   })
   const login = () => signInFunc(dispatch, nameField.value, passwordField.value)
+
   return (
     <Form>
       <CloseFormButton>

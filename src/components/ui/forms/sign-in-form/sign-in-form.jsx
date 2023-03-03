@@ -1,16 +1,8 @@
-import React, { useEffect, useId } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import React from "react"
 import propTypes from "prop-types"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
-import signInFunc from "../../../../external_func/sign-in-form/signin-functions"
-import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
 import FormError from "../../../../containers/error-message-cont/form-error"
-import { SelectLoginLoading } from "../../../../modules/userdata"
-import {
-  SelectPasswordError,
-  SelectNameError,
-} from "../../../../modules/current_error"
 import Heading from "../../headings/headings"
 
 export default function SignIn(props) {
@@ -56,6 +48,7 @@ export default function SignIn(props) {
     loading: false,
     formSwitcher: null,
   }
+
   return (
     <div className="sign-in-form">
       <Heading size={1}>
