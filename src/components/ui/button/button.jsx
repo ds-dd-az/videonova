@@ -3,6 +3,16 @@ import "../../../styles/button/button.css"
 import propTypes from "prop-types"
 import LoadRing from "../Loading-ring/load-ring"
 
+/**
+ * Button component
+ * @param text - string, text content of the button
+ * @param click - func, onclick function
+ * @param className - string, additional classnames
+ * @param disabled - bool, displays disabled button variant without pointer events
+ * @param secondary - bool, displays secondary button variant
+ * @param loading - bool, displays loading spinner in button
+ * @returns node
+ */
 export default function Button(props) {
   const { text, click, className, disabled, secondary, loading } = props
 
@@ -18,7 +28,7 @@ export default function Button(props) {
      */
     className: propTypes.string,
     /**
-     * Text on the button
+     * text content of the button
      */
     text: propTypes.string,
     /**
