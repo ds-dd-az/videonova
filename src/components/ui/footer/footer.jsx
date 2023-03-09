@@ -3,6 +3,10 @@ import "../../../styles/footer"
 import Logo from "../logo/logo"
 import Socials from "../socials/socials"
 
+/**
+ * footer component
+ * @returns node, footer component with social links
+ */
 export default function Footer() {
   return (
     <div className="footer">
