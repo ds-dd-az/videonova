@@ -1,15 +1,19 @@
 import React from "react"
 import propTypes from "prop-types"
-import Button from "../../button/button"
 import CheckIcon from "../../../../assets/icons/check-icon.svg"
-import CloseFormButton from "../../../../containers/close-form-button/close-form-button"
 import Heading from "../../headings/headings"
 
+/**
+ * Video added message component displayed after adding video in videoform
+ * @param img - string, source of preview image of added video
+ * @param formCloser - node, component with closing function
+ * @returns node, video added message component
+ */
 export default function VideoAddedMessage(props) {
   const { img, formCloser } = props
   VideoAddedMessage.propTypes = {
     /**
-     * image preview of the added video
+     * source of preview image of added video
      */
     img: propTypes.string,
     /**
