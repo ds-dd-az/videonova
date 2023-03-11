@@ -2,6 +2,12 @@ import React from "react"
 import "../../../styles/popup/popup.css"
 import propTypes from "prop-types"
 
+/**
+ * Popup component
+ * @param children - node, components in the popup
+ * @param isVisible - bool, determines popup`s visibility
+ * @returns node, visible or invisible popup components
+ */
 export default function Popup(props) {
   const { children, isVisible } = props
   Popup.propTypes = {
