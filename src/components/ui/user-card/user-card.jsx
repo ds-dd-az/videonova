@@ -6,6 +6,14 @@ import Button from "../button/button"
 import UserStats from "./user-card__stats/user-card__stats"
 import Heading from "../headings/headings"
 
+/**
+ * User's card for the home page
+ * @param data - object of strings, data of user that will be displayed
+ * @param vidAmount - number, amount of users' videos
+ * @param likeAmount - number, amount of likes user recieved
+ * @param redirectFunc - func, redirection function to open this user`s page
+ * @returns node, user's card with provided info
+ */
 export default function UserCard(props) {
   const { data, vidAmount, likeAmount, redirectFunc } = props
   UserCard.propTypes = {
@@ -22,7 +30,7 @@ export default function UserCard(props) {
      */
     likeAmount: propTypes.number,
     /**
-     * redirect function to open this user`s page
+     * redirect functionion to open this user`s page
      */
     redirectFunc: propTypes.func,
   }
