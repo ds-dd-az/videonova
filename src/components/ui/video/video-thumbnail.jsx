@@ -3,6 +3,13 @@ import propTypes from "prop-types"
 import Play from "../../../assets/icons/play-icon.png"
 import Heading from "../headings/headings"
 
+/**
+ * Video thumbnail component
+ * @param data - object of strings, all the information about the displayed video
+ * @param src - string, source of preview image
+ * @param func - function that toggles video's visibility
+ * @returns Video thumbnail with preview, title and description
+ */
 export default function Thumbnail(props) {
   const { data, src, func } = props
   Thumbnail.propTypes = {
