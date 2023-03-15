@@ -5,6 +5,12 @@ import UserCard from "../../components/ui/user-card/user-card"
 import sortByName from "../../external_func/sorting/sorting"
 import { selectReversed } from "../../modules/sorting"
 
+/**
+ * Users component array
+ *
+ * Works with state also does mapping, sorting and filtering of array recieved from state
+ * @returns array of nodes, a card for each user on the array
+ */
 export default function Users() {
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)
