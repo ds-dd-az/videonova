@@ -10,7 +10,7 @@ import Button from "../../components/ui/button/button"
 /**
  * Logical wrapper for addVideo form
  *
- * used for passing props to the form
+ * used for passing props to the form also contains form closing button
  * @returns node, addVideo form with enabled functionality
  */
 export default function AddVideoWithLogic() {
