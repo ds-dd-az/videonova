@@ -7,6 +7,12 @@ import { SelectErrorMessage } from "../../modules/current_error"
 import CloseFormButton from "../close-form-button/close-form-button"
 import Button from "../../components/ui/button/button"
 
+/**
+ * Logical wrapper for addVideo form
+ *
+ * used for passing props to the form
+ * @returns node, addVideo form with enabled functionality
+ */
 export default function AddVideoWithLogic() {
   const dispatch = useDispatch()
   const errorMessage = useSelector(SelectErrorMessage)
