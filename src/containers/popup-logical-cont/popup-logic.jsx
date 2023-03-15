@@ -5,6 +5,12 @@ import { selectVisibility } from "../../modules/form"
 import CloseFormButton from "../close-form-button/close-form-button"
 import FormHandler from "../form-logical-wrappers/formHandler"
 
+/**
+ * Popup logical wrapper
+ *
+ * Works with state
+ * @returns node, popup with blurred background and form handler
+ */
 export default function PopupWithLogic() {
   const visibility = useSelector(selectVisibility)
 
