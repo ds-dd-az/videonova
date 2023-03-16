@@ -1,5 +1,9 @@
 import axios from "axios"
 
+/**
+ * getVideos function
+ * @returns promise
+ */
 export async function getVideos() {
   const response = await fetch(
     "https://wonderful-app-lmk4d.cloud.serverless.com/video"
@@ -19,6 +23,11 @@ const axiosConfig = {
   },
 }
 
+/**
+ * postVideo
+ * @param data - object of strings, information about video that needs to be pushed(url, title and description)
+ * @returns response's data
+ */
 export async function postVideo(data) {
   const videoInfo = {
     url: data.url,
