@@ -1,6 +1,17 @@
 import { unwrapResult } from "@reduxjs/toolkit"
 import { addVideo, fetchVideos } from "../../modules/userdata"
 
+/**
+ * Add new video function
+ *
+ * Dispatches addVideo redux thunk, unwraps its result and if succesfull opens "video added" message component,
+ * if not it will display an error message inside of the form
+ * @param dispatch - useDispatch hook
+ * @param url - video's url
+ * @param title - title of video that will be displayed on the thumbnail
+ * @param description - video's description for thumbnail
+ * @param token - user's auth token used for post request
+ */
 export default function addNewVideo(dispatch, url, title, description, token) {
   dispatch(
     addVideo({
