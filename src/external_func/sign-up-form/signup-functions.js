@@ -35,7 +35,9 @@ function register(dispatch, userName, userPassword) {
  *
  * Checks user's name for its length(must be at least 4 symbols long),
  * also checks if password is long enough and if it is identical with "repeat password" field's content,
- * if all checks are passed it will execute registration function which dispatches redux thunk with http request and unwraps its result
+ * if all checks are passed it will execute registration function which dispatches redux thunk with http request
+ * and unwraps its result
+ *
  * @param dispatch - useDispatch hook, needs to be passed down to the registration function, which dispatches a thunk
  * @param name - user's name, also goes to the dispatching function if all checks are passed
  * @param password - users desireable password
