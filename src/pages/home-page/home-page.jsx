@@ -27,8 +27,10 @@ export default function HomePage() {
             <Heading size={1}>
               Welcome to <span>Videonova</span>
             </Heading>
-            Create videos with single click. Add subtitles, transcribe audio and
-            more
+            <span className="home-heading__desc">
+              Create videos with single click. Add subtitles, transcribe audio
+              and more
+            </span>
             <Button text="Start Now" click={openSignUp} />
           </div>
           <div className="best-creators">

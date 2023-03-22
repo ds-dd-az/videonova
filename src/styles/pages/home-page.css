@@ -21,6 +21,10 @@
   .home-heading .button{
     margin-top: 50px;
   }
+
+  .home-heading__desc {
+    color: #5B5B5B;
+  }
   
   .best-creators{
     display: flex;
