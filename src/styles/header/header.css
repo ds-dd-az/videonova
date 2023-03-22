@@ -19,6 +19,7 @@
   cursor: pointer;
   font-weight: 700;
   font-size: 22px;
+  color: black;
 }
 
 @media screen and (max-width: 726px) {

@@ -1,6 +1,7 @@
 import React from "react"
 import "../../../styles/header/header.css"
 import propTypes from "prop-types"
+import { Link } from "react-router-dom"
 import Logo from "../logo/logo"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
@@ -53,16 +54,12 @@ export default function Header(props) {
     return (
       <div className="header">
         <Logo color="blue" />
-        <div
-          className="header__user-info"
-          role="button"
-          tabIndex={0}
-          onClick={func}
-          onKeyDown={func}
-        >
-          <UserIcon iconSrc={user.userPic} size="small" />
-          {user.userName}
-        </div>
+        <Link to={`user/${user.id}`} style={{ textDecoration: "none" }}>
+          <div className="header__user-info" role="button" tabIndex={0}>
+            <UserIcon iconSrc={user.userPic} size="small" />
+            {user.userName}
+          </div>
+        </Link>
       </div>
     )
   }
