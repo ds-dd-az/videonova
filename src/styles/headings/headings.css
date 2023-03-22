@@ -3,6 +3,8 @@ h1 {
     font-family: "Chillax", sans-serif;
     font-size: 3.472vw;
     font-weight: 600;
+    margin-block-start: 0;
+    margin-block-end: 0;
   }
 
   h1 span{

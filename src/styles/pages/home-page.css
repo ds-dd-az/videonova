@@ -13,6 +13,10 @@
     flex-direction: column;
     align-items: center;
   }
+
+  .home-heading h1{
+    padding-bottom: 20px;
+  }
   
   .home-heading .button{
     margin-top: 50px;
