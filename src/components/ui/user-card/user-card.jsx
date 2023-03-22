@@ -1,6 +1,7 @@
 import React from "react"
 import propTypes from "prop-types"
 import "../../../styles/user-card/user-card.css"
+import { Link } from "react-router-dom"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
 import UserStats from "./user-card__stats/user-card__stats"
@@ -15,7 +16,7 @@ import Heading from "../headings/headings"
  * @returns node, user's card with provided info
  */
 export default function UserCard(props) {
-  const { data, vidAmount, likeAmount, redirectFunc } = props
+  const { data, vidAmount, likeAmount } = props
   UserCard.propTypes = {
     /**
      * data of user that will be displayed
@@ -29,16 +30,15 @@ export default function UserCard(props) {
      * amount of likes user recieved
      */
     likeAmount: propTypes.number,
-    /**
-     * redirect functionion to open this user`s page
-     */
-    redirectFunc: propTypes.func,
   }
   UserCard.defaultProps = {
-    data: { userPic: "https://picsum.photos/200", userName: "New User" },
+    data: {
+      userPic: "https://picsum.photos/200",
+      userName: "New User",
+      id: "1",
+    },
     vidAmount: 100,
     likeAmount: 100,
-    redirectFunc: null,
   }
 
   return (
@@ -46,7 +46,9 @@ export default function UserCard(props) {
       <UserIcon iconSrc={data.userPic} size="medium" />
       <Heading size={3}>{data.userName}</Heading>
       <UserStats videosAmount={vidAmount} likesAmount={likeAmount} />
-      <Button text="To profile" click={() => redirectFunc(data.id)} />
+      <Link to={`user/${data.id}`} style={{ textDecoration: "none" }}>
+        <Button text="To profile" />
+      </Link>
     </div>
   )
 }
