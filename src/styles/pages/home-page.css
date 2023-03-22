@@ -27,6 +27,7 @@
     flex-direction: column;
     width: 100%;
     margin: auto;
+    gap: 40px;
   }
   
   .best-creators__heading{
