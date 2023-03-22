@@ -2,6 +2,13 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { selectType } from "../../modules/form"
 
+/**
+ * Form switcher container component
+ *
+ * reads current form type from state and dispatches closing and reopening of the other form type,
+ * if signIn opened it will close it and open signUp form
+ * @returns node, clickable span with blue text in it
+ */
 export default function FormSwitcher() {
   const dispatch = useDispatch()
   const formType = useSelector(selectType)
