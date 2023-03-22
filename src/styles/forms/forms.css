@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 44%;
+  width: 44.723%;
   height: fit-content;
   padding: 90px;
   position: absolute;
@@ -29,7 +29,7 @@
   }
 
 .form-wrapper h1{
-  margin-block-start: 0;
+  padding-bottom: 22px;
 }
 
 .sign-in-form{
@@ -181,6 +181,10 @@ form h3{
   }
   .x-icon{
     top: 3%;
+  }
+  .add-new-video-form__buttons{
+    flex-direction: column-reverse;
+    gap: 15px;
   }
 }
 

@@ -10,10 +10,15 @@
   width: fit-content;
 }
 
+.video-thumbnail-wrapper h3{
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
 .preview {
   border-radius: 14px;
   display: flex;
-  height: 174px;
+  height: 178px;
   min-width: 314px;
   width: 100%;
   overflow: hidden;

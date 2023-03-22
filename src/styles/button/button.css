@@ -3,17 +3,13 @@
   background: #5B4DFF;
   border-radius: 44px;
   color: white;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding: 16px 56px;
-  gap: 10px;
+  padding: 16px 56.5px;
   min-width: 11.528vw;
   cursor: pointer;
   pointer-events: auto;
   line-height: 140%;
   box-sizing: border-box;
-  width: fit-content;
   height: fit-content;
   height: 54px;
 }
