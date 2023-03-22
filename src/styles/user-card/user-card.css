@@ -6,7 +6,7 @@
   align-items: center;
   background: #E6E8FF;
   border-radius: 14px;
-  flex-basis: 22%;
+  flex-basis: 22.55%;
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
@@ -37,7 +37,7 @@
  }
 
 .user-card .user-card__stats{
-  padding-bottom: 33px;
+  padding-bottom: 30px;
 }
 
 .user-card__stats{
@@ -48,6 +48,12 @@
   width: 220px;
 }
 
+.user-card h3{
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-top: 18px;
+  padding-bottom: 25px;
+}
 
 
 .like-video-count{
