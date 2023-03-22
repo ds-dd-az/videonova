@@ -1,3 +1,10 @@
+/**
+ * FindPreview function
+ *
+ * finds id part of youtube link and returns preview source url
+ * @param url - string, original url of the video
+ * @returns string, source link of the preview image
+ */
 export default function findPreview(url) {
   let videoId
   if (url.includes("youtu.be")) {

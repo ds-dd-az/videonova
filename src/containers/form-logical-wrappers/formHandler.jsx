@@ -6,9 +6,12 @@ import SignInFormWithLogic from "./sign-in-logic"
 import SignUpFormWithLogic from "./sign-up-logic"
 import VideoAddedMessageWithLogic from "./video-added-logic"
 
+/**
+ * FormHandler component, reads forms state and opens requested form
+ * @returns node, requested form with enabled functionality
+ */
 export default function FormHandler() {
   const formType = useSelector(selectType)
-  console.log(formType)
 
   if (formType === "signIn") {
     return <SignInFormWithLogic />

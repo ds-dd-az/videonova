@@ -3,9 +3,15 @@ import propTypes from "prop-types"
 import InputField from "../../input-field/input-field"
 import Button from "../../button/button"
 import FormError from "../../../../containers/error-message-cont/form-error"
-import CloseForm from "../../../../containers/close-form-button/close-form-button"
 import Heading from "../../headings/headings"
 
+/**
+ * Form component for adding video
+ * @param submitFunc - function performed on submit
+ * @param errorMessage - string, error message that will be displayed when error is occured
+ * @param formCloser - node, component with closing function
+ * @returns node, "add video" form component
+ */
 export default function VideoForm(props) {
   const { submitFunc, errorMessage, formCloser } = props
   VideoForm.propTypes = {

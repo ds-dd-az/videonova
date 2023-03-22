@@ -4,6 +4,13 @@ import ReactPlayer from "react-player"
 import Thumbnail from "./video-thumbnail"
 import "../../../styles/video/video.css"
 
+/**
+ * Video player component
+ * @param data - object of strings, all the information about the displayed video
+ * @param closingFunc - function that will hide the player
+ * @param src - string, source of preview image
+ * @returns node, video player with darkened background
+ */
 export default function VideoPlayer(props) {
   const { data, closingFunc, src } = props
   VideoPlayer.propTypes = {

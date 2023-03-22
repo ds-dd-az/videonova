@@ -5,6 +5,14 @@ import Logo from "../logo/logo"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
 
+/**
+ * Header component
+ * @param login - bool, changes variation of header based on authorisation, if true returns header with user info
+ * @param user - object of strings, info on current user
+ * @param func - button function
+ * @param signOutEnabled - bool, if true displays sign out button
+ * @returns node, header component
+ */
 export default function Header(props) {
   const { login, user, func, signOutEnabled } = props
   Header.propTypes = {
@@ -21,7 +29,7 @@ export default function Header(props) {
      */
     func: propTypes.func,
     /**
-     * displays could sign out be performed or not
+     * if true displays sign out button
      */
     signOutEnabled: propTypes.bool,
   }

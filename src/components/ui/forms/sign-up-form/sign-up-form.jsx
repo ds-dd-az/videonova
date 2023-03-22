@@ -1,18 +1,20 @@
-import React, { useEffect, useId } from "react"
-import { useDispatch, useSelector } from "react-redux"
+import React from "react"
 import propTypes from "prop-types"
-import signUp from "../../../../external_func/sign-up-form/signup-functions"
 import InputField from "../../input-field/input-field"
 import FormError from "../../../../containers/error-message-cont/form-error"
 import Button from "../../button/button"
-import { SelectLoginLoading } from "../../../../modules/userdata"
-import {
-  SelectPasswordError,
-  SelectNameError,
-} from "../../../../modules/current_error"
-import FormSwitcher from "../../../../external_func/switch-form/form-switcher"
 import Heading from "../../headings/headings"
 
+/**
+ * Sign up form component
+ * @param submitFunc - function performed on submit
+ * @param errorMessage - string, error message that will be displayed when error is occured
+ * @param passwordError - bool, highlights password field if true
+ * @param nameError - bool, highlights name field if true
+ * @param loading - bool, displays loading spinner in button if true
+ * @param formSwitcher - node, form switcher component
+ * @returns node, sign up form component
+ */
 export default function SignUp(props) {
   const {
     submitFunc,

@@ -2,6 +2,14 @@ import React, { useState } from "react"
 import propTypes from "prop-types"
 import EyeToggle from "./eye-toggle/eye-toggle"
 
+/**
+ * Input Field component
+ * @param placeholder - string, default text on input field
+ * @param error - bool, turns error effect on by highlighting field with red border
+ * @param id - string, id of the component
+ * @param variant - possible values: "password", "smallText", "bigText" - returns input field of mentioned variant
+ * @returns Input field with specified parameters
+ */
 export default function InputField(props) {
   const { placeholder, error, id, variant } = props
   const [input, setInput] = useState("")
@@ -11,7 +19,7 @@ export default function InputField(props) {
      */
     placeholder: propTypes.string,
     /**
-     * provides unique id
+     * id of the component
      */
     id: propTypes.string.isRequired,
     /**

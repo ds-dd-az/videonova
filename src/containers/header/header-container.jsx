@@ -11,6 +11,12 @@ import {
 } from "../../external_func/dispatches/dispatches"
 import { fetchUsers } from "../../modules/userdata"
 
+/**
+ * Header logical container
+ *
+ * Works with state
+ * @returns node, header based on state with buttons or current user's info
+ */
 export default function AdaptiveHeader() {
   const dispatch = useDispatch()
   let login = false

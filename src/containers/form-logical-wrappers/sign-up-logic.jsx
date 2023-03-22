@@ -13,6 +13,12 @@ import XIcon from "../../components/ui/forms/x-icon/x-icon"
 import SignUp from "../../components/ui/forms/sign-up-form/sign-up-form"
 import FormSwitcher from "../../external_func/switch-form/form-switcher"
 
+/**
+ * Logical wrapper for sign Up form
+ *
+ * reads state, passes props to the form also contains form closing button
+ * @returns node, sign up form with enabled functionality
+ */
 export default function SignUpFormWithLogic() {
   const dispatch = useDispatch()
   let nameField

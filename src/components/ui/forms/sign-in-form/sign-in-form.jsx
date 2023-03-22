@@ -5,6 +5,16 @@ import Button from "../../button/button"
 import FormError from "../../../../containers/error-message-cont/form-error"
 import Heading from "../../headings/headings"
 
+/**
+ * Sign in form component
+ * @param submitFunc - function performed on submit
+ * @param errorMessage - string, error message that will be displayed when error is occured
+ * @param passwordError - bool, highlights password field if true
+ * @param nameError - bool, highlights name field if true
+ * @param loading - bool, displays loading spinner in button if true
+ * @param formSwitcher - node, form switcher component
+ * @returns node, sign in form component
+ */
 export default function SignIn(props) {
   const {
     submitFunc,

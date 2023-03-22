@@ -1,30 +1,34 @@
 import React from "react"
 import TelegramIcon from "../../../assets/icons/social-icons/telegram-icon.svg"
-import DiscordIcon from "../../../assets/icons/social-icons/discord-icon.svg"
-import TwitterIcon from "../../../assets/icons/social-icons/twitter-icon.svg"
+import GitHubIcon from "../../../assets/icons/social-icons/github-mark-white.png"
+import LinkedInIcon from "../../../assets/icons/social-icons/linkedin-logo.png"
 
+/**
+ * Social icons group component
+ * @returns node, group of social network`s icons with hyperlinks
+ */
 export default function Socials() {
   return (
     <div className="social-icons">
-      <a href="https://web.telegram.org/z/">
+      <a href="https://t.me/dsdyaz">
         <img
           className="social-icons__icon"
           src={TelegramIcon}
-          alt="our telegram"
+          alt="my telegram"
         />
       </a>
-      <a href="https://discord.com/">
+      <a href="https://github.com/dsdyaz">
         <img
           className="social-icons__icon"
-          src={DiscordIcon}
-          alt="our discord"
+          src={GitHubIcon}
+          alt="github page"
         />
       </a>
-      <a href="https://twitter.com/?lang=uk">
+      <a href="https://www.linkedin.com/in/daria-semeniyk-a50619262">
         <img
           className="social-icons__icon"
-          src={TwitterIcon}
-          alt="our twitter"
+          src={LinkedInIcon}
+          alt="my linkedIn"
         />
       </a>
     </div>

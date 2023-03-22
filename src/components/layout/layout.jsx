@@ -1,8 +1,14 @@
 import React from "react"
 import propTypes from "prop-types"
 import Footer from "../ui/footer/footer"
-import Popup from "../ui/popup/popup"
+import PopupWithLogic from "../../containers/popup-logical-cont/popup-logic"
 import AdaptiveHeader from "../../containers/header/header-container"
+
+/**
+ * layout component
+ * @param children - node, components wrapped by this layout component
+ * @returns node, children wrapped by header and hiden by default popup component which displays forms
+ */
 
 export default function Layout({ children }) {
   Layout.propTypes = {
@@ -10,7 +16,7 @@ export default function Layout({ children }) {
   }
   return (
     <>
-      <Popup />
+      <PopupWithLogic />
       <AdaptiveHeader />
       <main>{children}</main>
       <Footer />

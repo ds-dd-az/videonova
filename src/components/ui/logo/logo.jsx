@@ -3,6 +3,11 @@ import propTypes from "prop-types"
 import blueLogo from "../../../assets/logos/logo-blue.png"
 import whiteLogo from "../../../assets/logos/logo-white.png"
 
+/**
+ * Logo component
+ * @param color - string, possible values: "white", "blue" - determines logo`s color
+ * @returns node, app`s logo of requested color
+ */
 export default function Logo(props) {
   const { color } = props
   Logo.propTypes = {

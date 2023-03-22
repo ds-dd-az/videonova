@@ -13,6 +13,12 @@ import FormSwitcher from "../../external_func/switch-form/form-switcher"
 import CloseFormButton from "../close-form-button/close-form-button"
 import XIcon from "../../components/ui/forms/x-icon/x-icon"
 
+/**
+ * Logical wrapper for sign In form
+ *
+ * reads state, passes props to the form also contains form closing button
+ * @returns node, signIn form with enabled functionality
+ */
 export default function SignInFormWithLogic() {
   const dispatch = useDispatch()
   const errorMessage = useSelector(SelectErrorMessage)
