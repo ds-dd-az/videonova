@@ -15,4 +15,4 @@ function Template(args) {
   )
 }
 
-export const footer = Template.bind({})
+export const FooterTemplate = Template.bind({})
