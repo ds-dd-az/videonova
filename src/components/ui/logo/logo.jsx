@@ -1,5 +1,6 @@
 import React from "react"
 import propTypes from "prop-types"
+import { Link } from "react-router-dom"
 import blueLogo from "../../../assets/logos/logo-blue.png"
 import whiteLogo from "../../../assets/logos/logo-white.png"
 
@@ -20,7 +21,9 @@ export default function Logo(props) {
   const img = color === "blue" ? blueLogo : whiteLogo
   return (
     <div className={`logo-${color}`}>
-      <img src={img} alt="videonova" />
+      <Link to="/">
+        <img src={img} alt="videonova" />
+      </Link>
     </div>
   )
 }
