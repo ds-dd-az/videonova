@@ -46,11 +46,14 @@ export default function AdaptiveHeader() {
       signOutButtonDisplay = true
     } else func = redirect
   }
-
+  let currentUser = null
+  if (login === true) {
+    currentUser = findCurrentUser
+  }
   return (
     <Header
       login={login}
-      user={findCurrentUser()}
+      user={currentUser}
       signOutEnabled={signOutButtonDisplay}
       func={func}
     />
