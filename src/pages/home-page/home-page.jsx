@@ -13,6 +13,7 @@ import {
   reverseArr,
 } from "../../external_func/dispatches/dispatches"
 import Heading from "../../components/ui/headings/headings"
+import ScrollToTopButton from "../../containers/scroll-to-top-button/scroll-button"
 
 export default function HomePage() {
   const dispatch = useDispatch()
@@ -44,6 +45,7 @@ export default function HomePage() {
             <div className="best-creators__users">
               {loading ? <LoadRing isBig /> : <Users />}
             </div>
+            <ScrollToTopButton />
           </div>
         </div>
       </div>
