@@ -46,7 +46,7 @@ export default function UserCard(props) {
       <UserIcon iconSrc={data.userPic} size="medium" />
       <Heading size={3}>{data.userName}</Heading>
       <UserStats videosAmount={vidAmount} likesAmount={likeAmount} />
-      <Link to={`user/${data.id}`} style={{ textDecoration: "none" }}>
+      <Link to={`videonova/user/${data.id}`} style={{ textDecoration: "none" }}>
         <Button text="To profile" />
       </Link>
     </div>
