@@ -1,12 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from "@reduxjs/toolkit"
-import {
-  fetchUsers,
-  fetchVideos,
-  registerUser,
-  login,
-  addVideo,
-} from "./userdata.thunks"
+import { fetchUsers, fetchVideos, registerUser, login } from "./userdata.thunks"
 
 const initialState = {
   allUsers: {},
@@ -14,7 +8,8 @@ const initialState = {
   currentUser: {
     userId: null,
   },
-  loading: false,
+  usersLoading: false,
+  videosLoading: false,
 }
 
 const userDataSlice = createSlice({
@@ -27,18 +22,18 @@ const userDataSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
-      state.loading = false
+      state.usersLoading = false
       state.allUsers = action.payload
     })
     builder.addCase(fetchUsers.pending, (state) => {
-      state.loading = true
+      state.usersLoading = true
     })
     builder.addCase(fetchVideos.fulfilled, (state, action) => {
-      state.loading = false
+      state.videosLoading = false
       state.videos = action.payload
     })
     builder.addCase(fetchVideos.pending, (state) => {
-      state.loading = true
+      state.videosLoading = true
     })
     builder.addCase(registerUser.fulfilled, (state) => {
       state.loginLoading = false
@@ -47,10 +42,10 @@ const userDataSlice = createSlice({
       state.loginLoading = true
     })
     builder.addCase(fetchUsers.rejected, (state) => {
-      state.loading = false
+      state.usersLoading = false
     })
     builder.addCase(fetchVideos.rejected, (state) => {
-      state.loading = false
+      state.videosLoading = false
     })
     builder.addCase(registerUser.rejected, (state) => {
       state.loginLoading = false

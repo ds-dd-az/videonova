@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import Logo from "../logo/logo"
 import UserIcon from "../user-icon/user-icon"
 import Button from "../button/button"
+import LoadRing from "../Loading-ring/load-ring"
 
 /**
  * Header component
@@ -15,7 +16,7 @@ import Button from "../button/button"
  * @returns node, header component
  */
 export default function Header(props) {
-  const { login, user, func, signOutEnabled } = props
+  const { login, user, func, signOutEnabled, loading } = props
   Header.propTypes = {
     /**
      * variation of header based on authorisation
@@ -33,12 +34,17 @@ export default function Header(props) {
      * if true displays sign out button
      */
     signOutEnabled: propTypes.bool,
+    /**
+     * if true displays loading spinner
+     */
+    loading: propTypes.bool,
   }
   Header.defaultProps = {
     login: false,
     user: { userPic: "https://picsum.photos/200", userName: "User Name" },
     func: null,
     signOutEnabled: false,
+    loading: false,
   }
 
   if (login && signOutEnabled) {

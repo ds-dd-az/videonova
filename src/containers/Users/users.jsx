@@ -12,9 +12,9 @@ import { selectReversed } from "../../modules/sorting"
  * @returns array of nodes, a card for each user on the array
  */
 export default function Users() {
+  const reversed = useSelector(selectReversed)
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)
-  const reversed = useSelector(selectReversed)
   const initialArr = users.map((element) => element)
   const sortedArr = reversed
     ? initialArr.sort(sortByName).reverse()

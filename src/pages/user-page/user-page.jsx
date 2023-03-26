@@ -1,16 +1,11 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import "../../styles/pages/user-page.css"
-import Layout from "../../components/layout/layout"
+import Layout from "../../containers/layout/layout"
 import UserIcon from "../../components/ui/user-icon/user-icon"
 import Button from "../../components/ui/button/button"
 import VidIcon from "../../assets/icons/video-icon.png"
-import {
-  SelectUsers,
-  SelectLoading,
-  SelectCurrentUserId,
-} from "../../modules/userdata"
-import LoadRing from "../../components/ui/Loading-ring/load-ring"
+import { SelectUsers, SelectCurrentUserId } from "../../modules/userdata"
 import { showAddVideoForm } from "../../external_func/dispatches/dispatches"
 import Videos from "../../containers/videos/videos"
 import Heading from "../../components/ui/headings/headings"
@@ -20,9 +15,9 @@ export default function UserPage() {
   const openForm = () => showAddVideoForm(dispatch)
   const pageId = window.location.href.split("user/")[1]
   const users = useSelector(SelectUsers)
+  console.log(users)
   const currentUser = useSelector(SelectCurrentUserId)
   const owner = users.find((value) => value.id === pageId)
-  const loading = useSelector(SelectLoading)
   const name =
     owner.userName.slice(-1) !== "s"
       ? `${owner.userName}\`s`
@@ -45,7 +40,7 @@ export default function UserPage() {
             ) : null}
           </div>
           <div className="videos">
-            {loading ? <LoadRing isBig /> : <Videos pageId={pageId} />}
+            <Videos pageId={pageId} />
           </div>
         </div>
       </div>

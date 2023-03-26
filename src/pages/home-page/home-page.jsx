@@ -1,11 +1,9 @@
 import React from "react"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import "../../styles/pages/home-page.css"
-import Layout from "../../components/layout/layout"
+import Layout from "../../containers/layout/layout"
 import Button from "../../components/ui/button/button"
 import StarImage from "../../assets/icons/star-image.png"
-import { SelectLoading } from "../../modules/userdata/userdata.selectors"
-import LoadRing from "../../components/ui/Loading-ring/load-ring"
 import Users from "../../containers/Users/users"
 import SortIcon from "../../components/ui/sort-icon/sort-icon"
 import {
@@ -17,7 +15,6 @@ import ScrollToTopButton from "../../containers/scroll-to-top-button/scroll-butt
 
 export default function HomePage() {
   const dispatch = useDispatch()
-  const loading = useSelector(SelectLoading)
   const reverseSorted = () => reverseArr(dispatch)
   const openSignUp = () => showSignUpForm(dispatch)
   return (
@@ -43,7 +40,7 @@ export default function HomePage() {
               <SortIcon clickFunc={reverseSorted} />
             </div>
             <div className="best-creators__users">
-              {loading ? <LoadRing isBig /> : <Users />}
+              <Users />
             </div>
             <ScrollToTopButton />
           </div>
