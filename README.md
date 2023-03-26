@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Deployed at:
 App:
-dsdyaz.github.io/videonova/
+https://dsdyaz.github.io/videonova/
 
 ## Available Scripts
 
