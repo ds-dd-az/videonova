@@ -14,7 +14,7 @@ export default function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="*/user/:module" element={<UserPage />} />
+          <Route path="videonova/user/:module" element={<UserPage />} />
           <Route path="*" element={<HomePage />} />
         </Routes>
       </BrowserRouter>
