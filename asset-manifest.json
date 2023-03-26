@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/videonova/static/css/main.84445552.css",
-    "main.js": "/videonova/static/js/main.6e2c1337.js",
+    "main.js": "/videonova/static/js/main.623c2678.js",
     "static/js/787.97eb320f.chunk.js": "/videonova/static/js/787.97eb320f.chunk.js",
     "static/media/sort.png": "/videonova/static/media/sort.e2d3223249e1020aceea.png",
     "index.html": "/videonova/index.html",
     "static/media/telegram-icon.svg": "/videonova/static/media/telegram-icon.658b28ffad2731511df0d6d6f0cd53c6.svg",
     "static/media/check-icon.svg": "/videonova/static/media/check-icon.342dc32c03d28edc2e96f6c89d6952c0.svg",
     "main.84445552.css.map": "/videonova/static/css/main.84445552.css.map",
-    "main.6e2c1337.js.map": "/videonova/static/js/main.6e2c1337.js.map",
+    "main.623c2678.js.map": "/videonova/static/js/main.623c2678.js.map",
     "787.97eb320f.chunk.js.map": "/videonova/static/js/787.97eb320f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84445552.css",
-    "static/js/main.6e2c1337.js"
+    "static/js/main.623c2678.js"
   ]
 }
