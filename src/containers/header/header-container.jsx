@@ -32,19 +32,15 @@ export default function AdaptiveHeader() {
   }
   let func = openSignIn
   let signOutButtonDisplay = false
-  const redirect = () => {
-    window.location.href = `http://localhost:3000/user/${userId}`
-  }
   const signOut = () => {
     logOut(dispatch)
-    window.location.href = `http://localhost:3000`
   }
   if (userId !== null) {
     login = true
-    if (window.location.href === `http://localhost:3000/user/${userId}`) {
+    if (window.location.href.includes(`/user/${userId}`)) {
       func = signOut
       signOutButtonDisplay = true
-    } else func = redirect
+    } else func = null
   }
   return (
     <Header

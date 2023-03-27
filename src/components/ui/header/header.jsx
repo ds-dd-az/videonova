@@ -61,7 +61,7 @@ export default function Header(props) {
       <div className="header">
         <Logo color="blue" />
         <Link
-          to={`videonova/user/${user.id}`}
+          to={`/videonova/user/${user.id}`}
           style={{ textDecoration: "none" }}
         >
           <div className="header__user-info" role="button" tabIndex={0}>
