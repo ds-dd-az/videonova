@@ -1,6 +1,6 @@
 import { unwrapResult } from "@reduxjs/toolkit"
 import { registerUser, fetchUsers } from "../../modules/userdata"
-import { closeForm } from "../dispatches/dispatches"
+import { closeForm, logOut } from "../dispatches/dispatches"
 import signInFunc from "../sign-in-form/signin-functions"
 
 function register(dispatch, userName, userPassword) {
@@ -12,6 +12,7 @@ function register(dispatch, userName, userPassword) {
   )
     .then(unwrapResult)
     .then(() => {
+      logOut(dispatch)
       dispatch(fetchUsers())
       signInFunc(dispatch, userName, userPassword)
       closeForm(dispatch)
