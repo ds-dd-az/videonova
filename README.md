@@ -3,9 +3,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Deployed at:
-App:
+
+###App:
 https://dsdyaz.github.io/videonova/
-Storybook: https://6422b4257db30ca007e528ed-pvokjosyuq.chromatic.com
+
+###Storybook: https://6422b4257db30ca007e528ed-pvokjosyuq.chromatic.com
 
 ## Available Scripts
 
