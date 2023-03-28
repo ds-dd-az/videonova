@@ -11,16 +11,10 @@ export async function getVideos() {
   return response.json()
 }
 
-function getToken() {
+const getToken = () => {
   const { cookie } = document
   const token = cookie.split("=")[1]
   return token
-}
-
-const axiosConfig = {
-  headers: {
-    Authorization: `${getToken()}`,
-  },
 }
 
 /**
@@ -33,6 +27,11 @@ export async function postVideo(data) {
     url: data.url,
     title: data.title,
     description: data.description,
+  }
+  const axiosConfig = {
+    headers: {
+      Authorization: `${getToken()}`,
+    },
   }
   const response = axios.post(
     "https://wonderful-app-lmk4d.cloud.serverless.com/video",

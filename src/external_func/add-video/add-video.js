@@ -1,5 +1,6 @@
 import { unwrapResult } from "@reduxjs/toolkit"
 import { addVideo, fetchVideos } from "../../modules/userdata"
+import findPreview from "../find-preview-src/find-preview-src"
 
 /**
  * Add new video function
@@ -34,7 +35,7 @@ export default function addNewVideo(dispatch, url, title, description, token) {
         type: "form/show",
         payload: {
           type: "videoAdded",
-          img: `${url}`,
+          img: `${findPreview(url)}`,
         },
       })
     })
