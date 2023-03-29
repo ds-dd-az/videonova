@@ -20,7 +20,8 @@ export default function ScrollToTopButton() {
 
   window.addEventListener("scroll", toggleVisibility)
 
-  return (
-    <Button className={style} click={() => scrollToTop} text="Go to the top" />
-  )
+  const smooth = true
+  const scrollFunc = () => scrollToTop(smooth)
+
+  return <Button className={style} click={scrollFunc} text="Go to the top" />
 }
