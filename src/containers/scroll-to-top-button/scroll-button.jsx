@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Button from "../../components/ui/button/button"
+import scrollToTop from "../../external_func/scroll-to-the-top/scroll-to-the-top"
 
 export default function ScrollToTopButton() {
   const [visible, setVisible] = useState(false)
@@ -17,14 +18,9 @@ export default function ScrollToTopButton() {
     }
   }
 
-  const scroll = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    })
-  }
-
   window.addEventListener("scroll", toggleVisibility)
 
-  return <Button className={style} click={scroll} text="Go to the top" />
+  return (
+    <Button className={style} click={() => scrollToTop} text="Go to the top" />
+  )
 }
