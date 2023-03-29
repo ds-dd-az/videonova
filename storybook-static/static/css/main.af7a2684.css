@@ -1,51 +1,3 @@
-.button{
-  display: flex;
-  background: #5B4DFF;
-  border-radius: 44px;
-  color: white;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 56px;
-  gap: 10px;
-  min-width: 11.528vw;
-  cursor: pointer;
-  pointer-events: auto;
-  line-height: 140%;
-  box-sizing: border-box;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  height: 54px;
-}
-
-.button_secondary{
-  background: none;
-  border: 2px solid #5B4DFF;
-  color: #5B4DFF;
-}
-
-.button_disabled{
-  background: rgba(91, 77, 255, 0.6);
-  pointer-events: none;
-}
-
-.button:hover{
-  box-shadow: 0 4px 22px rgba(91, 77, 255, 0.2);
-}
-
-.button:active{
-  box-shadow: inset 0 4px 22px rgba(5, 0, 61, 0.2);
-}
-
-@media screen and (min-width: 1440px) {
-  .button {
-    min-width: 166px;
-  }
-}
 .ring {
   display: inline-block;
   position: relative;
@@ -112,6 +64,73 @@
   height: 100px;
   border-color: #5B4DFF transparent transparent transparent;
 }
+
+.ring_centered{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.button{
+  display: flex;
+  background: #5B4DFF;
+  border-radius: 44px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 56.5px;
+  min-width: 11.528vw;
+  cursor: pointer;
+  pointer-events: auto;
+  line-height: 140%;
+  box-sizing: border-box;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  height: 54px;
+}
+
+.button_secondary{
+  background: none;
+  border: 2px solid #5B4DFF;
+  color: #5B4DFF;
+}
+
+.button_disabled{
+  background: rgba(91, 77, 255, 0.6);
+  pointer-events: none;
+}
+
+.button:hover{
+  box-shadow: 0 4px 22px rgba(91, 77, 255, 0.2);
+}
+
+.button:active{
+  box-shadow: inset 0 4px 22px rgba(5, 0, 61, 0.2);
+}
+
+@media screen and (min-width: 1440px) {
+  .button {
+    min-width: 166px;
+  }
+}
+
+.button-scroll {
+  position: fixed;
+  padding: 16px 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  bottom: 5%;
+  transition: opacity 1s;
+  z-index: 3;
+}
+
+.button-scroll_invisible{
+  opacity: 0;
+  pointer-events: none;
+}
 .error-message{
   padding: 33px 10px;
   color: rgb(37, 37, 37);
@@ -119,6 +138,7 @@
   border-radius: 14px;
   background-color: salmon;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .footer{
@@ -166,6 +186,7 @@
 }
 
 .social-icons{
+  max-height: 30px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -177,13 +198,19 @@
   cursor: pointer;
 }
 
+.social-icons__icon{
+  max-height: 30px;
+  max-width: 35px;
+}
+
 .form-wrapper{
   background: #FFFFFF;
   border-radius: 20px;
+  box-shadow: 2px 2px 5px grey;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 44%;
+  width: 44.723%;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -196,11 +223,30 @@
   margin-top: 50px;
   text-align: left;
   box-sizing: border-box;
+  -webkit-animation: fadeInAnimation ease 0.7s;
+          animation: fadeInAnimation ease 0.7s;
 }
 
+@-webkit-keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+  }
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+  }
+
 .form-wrapper h1{
-  -webkit-margin-before: 0;
-          margin-block-start: 0;
+  padding-bottom: 22px;
 }
 
 .sign-in-form{
@@ -355,6 +401,10 @@ form h3{
   .x-icon{
     top: 3%;
   }
+  .add-new-video-form__buttons{
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
 }
 
 @media screen and (max-width: 400px) {
@@ -400,6 +450,7 @@ textarea:focus, input:focus{
 
 .field_big{
   min-height: 134px;
+  width: 100%;
   resize: none;
 }
 
@@ -452,6 +503,10 @@ h1 {
     font-family: "Chillax", sans-serif;
     font-size: 3.472vw;
     font-weight: 600;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
+    -webkit-margin-after: 0;
+            margin-block-end: 0;
   }
 
   h1 span{
@@ -462,12 +517,20 @@ h2 {
     font-weight: 900;
     font-size: 2.083vw;
     line-height: 140%;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
+    -webkit-margin-after: 0;
+            margin-block-end: 0;
   }
 
 h3 {
     font-weight: 700;
-    font-size: 25px;
-    line-height: 140%
+    font-size: 1.736vw;
+    line-height: 140%;
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
+    -webkit-margin-after: 0;
+            margin-block-end: 0;
   }
 
   @media screen and (max-width: 1024px) {
@@ -507,6 +570,7 @@ h3 {
   cursor: pointer;
   font-weight: 700;
   font-size: 22px;
+  color: black;
 }
 
 @media screen and (max-width: 726px) {
@@ -537,34 +601,6 @@ h3 {
 
 }
 
-.popup{
-  position: absolute;
-  width: 100%;
-  min-height: 100%;
-  z-index: 3;
-}
-
-.popup_show{
-  opacity: 1;
-  pointer-events: auto;
-  display: block;
-}
-
-.popup_hide{
-  opacity: 0;
-  pointer-events: none;
-  display: none;
-}
-
-.bgBlur{
-  position: fixed;
-  width: 100%;
-  min-height: 100%;
-  background: rgba(5, 0, 34, 0.2);
-  backdrop-filter: blur(50px);
-  -webkit-backdrop-filter: blur(50px);
-}
-
 .user-card{
   box-sizing: border-box;
   display: flex;
@@ -573,7 +609,7 @@ h3 {
   align-items: center;
   background: #E6E8FF;
   border-radius: 14px;
-  flex-basis: 22%;
+  flex-basis: 22.55%;
   overflow: hidden;
   text-overflow: ellipsis;
   word-wrap: break-word;
@@ -604,7 +640,7 @@ h3 {
  }
 
 .user-card .user-card__stats{
-  padding-bottom: 33px;
+  padding-bottom: 30px;
 }
 
 .user-card__stats{
@@ -615,6 +651,14 @@ h3 {
   width: 220px;
 }
 
+.user-card h3{
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+  padding-top: 18px;
+  padding-bottom: 25px;
+}
 
 
 .like-video-count{
@@ -634,5 +678,141 @@ h3 {
 .user-card__stats>*:first-child{
   justify-content: flex-start;
 }
+.video-thumbnail-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 314px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  flex-wrap: wrap;
+  line-height: 22.4px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
 
-/*# sourceMappingURL=main.021e9284.css.map*/
+.video-thumbnail-wrapper h3{
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.preview {
+  border-radius: 14px;
+  display: flex;
+  height: 178px;
+  min-width: 314px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  }
+
+.play-icon {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+  height: 35px;
+  width: 35px;
+}
+
+.preview img {
+  height: 100%;
+  width: 100%;
+}
+
+.react-player {
+  position: fixed;
+  display: flex;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto auto;
+  z-index: 2;
+  max-width: 90%;
+  -webkit-animation: fadeInAnimation ease 1s;
+          animation: fadeInAnimation ease 1s;
+}
+
+@-webkit-keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+  }
+
+@keyframes fadeInAnimation {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+   }
+  }
+
+.closing-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 150vh;
+  background-color: black;
+  opacity: 50%;
+  z-index: 1;
+}
+
+.thumbnail-wrapper h3 {
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 1200px) {
+  .video-thumbnail-wrapper {
+    flex-basis: 31%;
+  }
+ }
+
+ @media screen and (max-width: 1000px) {
+  .video-thumbnail-wrapper {
+    flex-basis: 47%;
+  }
+ }
+
+ @media screen and (max-width: 1200px) {
+  .react-player {
+    max-height: 50%;
+    max-width: 80%;
+  }
+ }
+
+ @media screen and (max-width: 1200px) {
+  .react-player {
+    max-height: 50%;
+    max-width: 80%;
+  }
+ }
+ 
+ @media screen and (max-width: 624px) {
+  .video-thumbnail-wrapper {
+    flex-basis: 99%;
+  }
+  .react-player {
+    max-height: 40%;
+    max-width: 99%;
+  }
+ }
+
+ @media screen and (min-width: 1900px) {
+  .video-thumbnail-wrapper {
+    flex-basis: 17%;
+  }
+ }
+
+/*# sourceMappingURL=main.af7a2684.css.map*/
