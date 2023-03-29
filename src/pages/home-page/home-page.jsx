@@ -12,11 +12,13 @@ import {
 } from "../../external_func/dispatches/dispatches"
 import Heading from "../../components/ui/headings/headings"
 import ScrollToTopButton from "../../containers/scroll-to-top-button/scroll-button"
+import scrollToTop from "../../external_func/scroll-to-the-top/scroll-to-the-top"
 
 export default function HomePage() {
   const dispatch = useDispatch()
   const reverseSorted = () => reverseArr(dispatch)
   const openSignUp = () => showSignUpForm(dispatch)
+  scrollToTop()
   return (
     <Layout>
       <div className="page-block">
