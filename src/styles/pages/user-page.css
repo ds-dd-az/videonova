@@ -62,3 +62,10 @@
         flex-direction: column;
     }
    }
+
+   @media screen and (max-width: 350px) {
+    .videos {
+      gap:0;
+      row-gap: 15px;
+    }
+   }

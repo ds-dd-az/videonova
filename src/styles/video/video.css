@@ -120,3 +120,12 @@
     flex-basis: 17%;
   }
  }
+
+ @media screen and (max-width: 350px) {
+  .video-thumbnail-wrapper {
+    max-width: 100%;
+  }
+  .preview{
+    min-width: 0;
+  }
+}
