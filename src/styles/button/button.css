@@ -42,7 +42,7 @@
 
 .button-scroll {
   position: fixed;
-  padding: 16px 5px;
+  padding: 16px 29px;
   left: 50%;
   transform: translateX(-50%);
   bottom: 5%;
