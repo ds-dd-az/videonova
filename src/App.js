@@ -12,7 +12,7 @@ export default function App() {
   dispatch(fetchVideos())
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/videonova">
         <Routes>
           <Route path="/videonova/user/:module" element={<UserPage />} />
           <Route path="*" element={<HomePage />} />
