@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { SelectUsers, SelectVideos } from "../../modules/userdata"
 import UserCard from "../../components/ui/user-card/user-card"
 import sortByName from "../../external_func/sorting/sorting"
 import { selectReversed } from "../../modules/sorting"
+import Button from "../../components/ui/button/button"
 
 /**
  * Users component array
@@ -15,7 +16,12 @@ export default function Users() {
   const reversed = useSelector(selectReversed)
   const users = useSelector(SelectUsers)
   const videos = useSelector(SelectVideos)
-  const initialArr = users.map((element) => element)
+  const defaultAmount = 8
+  const [amount, setAmount] = useState(defaultAmount)
+  const addMore = () => {
+    setAmount(amount + defaultAmount)
+  }
+  const initialArr = users.slice(0, amount).map((element) => element)
   const sortedArr = reversed
     ? initialArr.sort(sortByName).reverse()
     : initialArr.sort(sortByName)
@@ -29,5 +35,12 @@ export default function Users() {
       />
     )
   })
-  return returnedArr
+  return (
+    <div>
+      {returnedArr}
+      {amount < users.length && (
+        <Button text="Show more" className="button-show-more" />
+      )}
+    </div>
+  )
 }
