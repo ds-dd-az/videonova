@@ -1,18 +1,40 @@
 {
   "files": {
-    "main.css": "/videonova/static/css/main.eec6b95c.css",
-    "main.js": "/videonova/static/js/main.5dcca809.js",
+    "main.css": "/videonova/static/css/main.5cef8c3d.css",
+    "main.js": "/videonova/static/js/main.5c1b7f6f.js",
+    "static/css/711.6e0d625d.chunk.css": "/videonova/static/css/711.6e0d625d.chunk.css",
+    "static/js/711.2dfb84c2.chunk.js": "/videonova/static/js/711.2dfb84c2.chunk.js",
+    "static/css/111.c12913e9.chunk.css": "/videonova/static/css/111.c12913e9.chunk.css",
+    "static/js/111.837e08b2.chunk.js": "/videonova/static/js/111.837e08b2.chunk.js",
     "static/js/787.97eb320f.chunk.js": "/videonova/static/js/787.97eb320f.chunk.js",
+    "static/css/92.c64941f4.chunk.css": "/videonova/static/css/92.c64941f4.chunk.css",
+    "static/js/92.f0a77b7d.chunk.js": "/videonova/static/js/92.f0a77b7d.chunk.js",
+    "static/css/531.40c190b1.chunk.css": "/videonova/static/css/531.40c190b1.chunk.css",
+    "static/js/531.225427db.chunk.js": "/videonova/static/js/531.225427db.chunk.js",
+    "static/css/557.8efa675b.chunk.css": "/videonova/static/css/557.8efa675b.chunk.css",
+    "static/js/557.39021f80.chunk.js": "/videonova/static/js/557.39021f80.chunk.js",
+    "static/js/710.87033713.chunk.js": "/videonova/static/js/710.87033713.chunk.js",
     "static/media/sort.png": "/videonova/static/media/sort.e2d3223249e1020aceea.png",
     "index.html": "/videonova/index.html",
     "static/media/telegram-icon.svg": "/videonova/static/media/telegram-icon.658b28ffad2731511df0d6d6f0cd53c6.svg",
     "static/media/check-icon.svg": "/videonova/static/media/check-icon.342dc32c03d28edc2e96f6c89d6952c0.svg",
-    "main.eec6b95c.css.map": "/videonova/static/css/main.eec6b95c.css.map",
-    "main.5dcca809.js.map": "/videonova/static/js/main.5dcca809.js.map",
-    "787.97eb320f.chunk.js.map": "/videonova/static/js/787.97eb320f.chunk.js.map"
+    "main.5cef8c3d.css.map": "/videonova/static/css/main.5cef8c3d.css.map",
+    "main.5c1b7f6f.js.map": "/videonova/static/js/main.5c1b7f6f.js.map",
+    "711.6e0d625d.chunk.css.map": "/videonova/static/css/711.6e0d625d.chunk.css.map",
+    "711.2dfb84c2.chunk.js.map": "/videonova/static/js/711.2dfb84c2.chunk.js.map",
+    "111.c12913e9.chunk.css.map": "/videonova/static/css/111.c12913e9.chunk.css.map",
+    "111.837e08b2.chunk.js.map": "/videonova/static/js/111.837e08b2.chunk.js.map",
+    "787.97eb320f.chunk.js.map": "/videonova/static/js/787.97eb320f.chunk.js.map",
+    "92.c64941f4.chunk.css.map": "/videonova/static/css/92.c64941f4.chunk.css.map",
+    "92.f0a77b7d.chunk.js.map": "/videonova/static/js/92.f0a77b7d.chunk.js.map",
+    "531.40c190b1.chunk.css.map": "/videonova/static/css/531.40c190b1.chunk.css.map",
+    "531.225427db.chunk.js.map": "/videonova/static/js/531.225427db.chunk.js.map",
+    "557.8efa675b.chunk.css.map": "/videonova/static/css/557.8efa675b.chunk.css.map",
+    "557.39021f80.chunk.js.map": "/videonova/static/js/557.39021f80.chunk.js.map",
+    "710.87033713.chunk.js.map": "/videonova/static/js/710.87033713.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eec6b95c.css",
-    "static/js/main.5dcca809.js"
+    "static/css/main.5cef8c3d.css",
+    "static/js/main.5c1b7f6f.js"
   ]
 }
