@@ -42,7 +42,15 @@
     gap: 12px;
   }
   
-  .best-creators__users{
+  .users{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 38px;
+  }
+
+  .users__list{
     display: flex;
     flex-direction: row;
     row-gap: 38px;
@@ -51,9 +59,13 @@
   }
 
   @media screen and (max-width: 624px){
-  .best-creators__users {
+  .users__list {
     row-gap: 15px;
     }
+
+  .users {
+    gap: 15px;
+  }
   }
   
   .best-creators__header{
