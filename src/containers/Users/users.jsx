@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import { useSelector } from "react-redux"
 import { SelectUsers, SelectVideos } from "../../modules/userdata"
-import UserCard from "../../components/ui/user-card/user-card"
 import sortByName from "../../external_func/sorting/sorting"
 import { selectReversed } from "../../modules/sorting"
 import Button from "../../components/ui/button/button"
 
+const UserCard = React.lazy(() =>
+  import("../../components/ui/user-card/user-card")
+)
 /**
  * Users component array
  *
