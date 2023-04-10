@@ -18,7 +18,7 @@ export default function Users() {
   const videos = useSelector(SelectVideos)
   const defaultAmount = 8
   const [amount, setAmount] = useState(defaultAmount)
-  const addMore = () => {
+  const showMore = () => {
     setAmount(amount + defaultAmount)
   }
   const initialArr = users.slice(0, amount).map((element) => element)
@@ -36,10 +36,10 @@ export default function Users() {
     )
   })
   return (
-    <div>
-      {returnedArr}
+    <div className="users">
+      <div className="users__list">{returnedArr}</div>
       {amount < users.length && (
-        <Button text="Show more" className="button-show-more" />
+        <Button text="Show more" click={() => showMore()} />
       )}
     </div>
   )
