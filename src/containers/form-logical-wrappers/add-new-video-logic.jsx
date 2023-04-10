@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Form from "../../components/ui/forms/forms"
 import addNewVideo from "../../external_func/add-video/add-video"
@@ -16,16 +16,12 @@ import Button from "../../components/ui/button/button"
 export default function AddVideoWithLogic() {
   const dispatch = useDispatch()
   const errorMessage = useSelector(SelectErrorMessage)
-  let linkField
-  let nameField
-  let descField
-  useEffect(() => {
-    linkField = document.getElementById("videoLink")
-    nameField = document.getElementById("videoName")
-    descField = document.getElementById("videoDesc")
-  })
-  const addVideo = () =>
+  const addVideo = () => {
+    const linkField = document.getElementById("videoLink")
+    const nameField = document.getElementById("videoName")
+    const descField = document.getElementById("videoDesc")
     addNewVideo(dispatch, linkField.value, nameField.value, descField.value)
+  }
   return (
     <Form>
       <VideoForm

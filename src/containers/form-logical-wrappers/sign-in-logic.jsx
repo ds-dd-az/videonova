@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {
   SelectErrorMessage,
@@ -22,16 +22,15 @@ import XIcon from "../../components/ui/forms/x-icon/x-icon"
 export default function SignInFormWithLogic() {
   const dispatch = useDispatch()
   const errorMessage = useSelector(SelectErrorMessage)
-  let nameField
-  let passwordField
   const passwordError = useSelector(SelectPasswordError)
   const nameError = useSelector(SelectNameError)
   const loading = useSelector(SelectLoginLoading)
-  useEffect(() => {
-    nameField = document.getElementById("name")
-    passwordField = document.getElementById("password")
-  })
-  const login = () => signInFunc(dispatch, nameField.value, passwordField.value)
+
+  const login = () => {
+    const nameField = document.getElementById("name")
+    const passwordField = document.getElementById("password")
+    signInFunc(dispatch, nameField.value, passwordField.value)
+  }
 
   return (
     <Form>

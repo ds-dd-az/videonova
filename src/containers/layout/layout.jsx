@@ -1,8 +1,6 @@
-import React from "react"
+import React, { lazy } from "react"
 import propTypes from "prop-types"
 import { useSelector } from "react-redux"
-import Footer from "../../components/ui/footer/footer"
-import PopupWithLogic from "../popup-logical-cont/popup-logic"
 import AdaptiveHeader from "../header/header-container"
 import {
   SelectUserLoading,
@@ -10,6 +8,8 @@ import {
 } from "../../modules/userdata/userdata.selectors"
 import LoadRing from "../../components/ui/Loading-ring/load-ring"
 
+const PopupWithLogic = lazy(() => import("../popup-logical-cont/popup-logic"))
+const Footer = lazy(() => import("../../components/ui/footer/footer"))
 /**
  * layout component
  * @param children - node, components wrapped by this layout component

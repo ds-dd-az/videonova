@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import Button from "../../components/ui/button/button"
 import scrollToTop from "../../external_func/scroll-to-the-top/scroll-to-the-top"
 
@@ -25,7 +25,9 @@ export default function ScrollToTopButton() {
     }
   }
 
-  window.addEventListener("scroll", toggleVisibility)
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisibility)
+  })
 
   const smooth = true
   const scrollFunc = () => scrollToTop(smooth)

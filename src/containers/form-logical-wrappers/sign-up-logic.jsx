@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { useSelector, useDispatch } from "react-redux"
 import {
   SelectNameError,
@@ -21,18 +21,13 @@ import FormSwitcher from "../../external_func/switch-form/form-switcher"
  */
 export default function SignUpFormWithLogic() {
   const dispatch = useDispatch()
-  let nameField
-  let passwordField
-  let confirmPassField
-  useEffect(() => {
-    nameField = document.getElementById("name")
-    passwordField = document.getElementById("password")
-    confirmPassField = document.getElementById("repeatPassword")
-  })
   const errorMessage = useSelector(SelectErrorMessage)
   const passwordError = useSelector(SelectPasswordError)
   const nameError = useSelector(SelectNameError)
   const register = () => {
+    const nameField = document.getElementById("name")
+    const passwordField = document.getElementById("password")
+    const confirmPassField = document.getElementById("repeatPassword")
     signUp(
       dispatch,
       nameField.value,
