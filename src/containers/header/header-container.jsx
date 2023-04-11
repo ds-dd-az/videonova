@@ -9,7 +9,6 @@ import {
   showSignInForm,
   logOut,
 } from "../../external_func/dispatches/dispatches"
-import { fetchUsers } from "../../modules/userdata"
 
 /**
  * Header logical container
@@ -23,7 +22,6 @@ export default function AdaptiveHeader() {
   const userId = useSelector(SelectCurrentUserId)
   const allUsers = useSelector(SelectUsers)
   const findCurrentUser = () => {
-    dispatch(fetchUsers)
     const filteredArr = allUsers.filter((element) => element.id === userId)
     return filteredArr[0]
   }
