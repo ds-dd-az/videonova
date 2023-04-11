@@ -79,13 +79,14 @@
   margin-top: 5px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1439px) {
   .video-thumbnail-wrapper {
-    flex-basis: 31%;
+    flex-basis: 31.5%;
+    max-width: none;
   }
  }
 
- @media screen and (max-width: 1000px) {
+ @media screen and (max-width: 1045px) {
   .video-thumbnail-wrapper {
     flex-basis: 47%;
   }
