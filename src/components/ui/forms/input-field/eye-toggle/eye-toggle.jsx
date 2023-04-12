@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import propTypes from "prop-types"
-import Regular from "../../../../assets/icons/eye-icon.png"
-import Crossed from "../../../../assets/icons/crossed-eye-icon.png"
+import Regular from "../../../../../assets/icons/eye-icon.png"
+import Crossed from "../../../../../assets/icons/crossed-eye-icon.png"
 
 export default function EyeToggle(props) {
   const { click } = props
