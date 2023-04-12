@@ -1,5 +1,5 @@
 import React from "react"
-import ErrorMessage from "./error-message"
+import ErrorMessage from "./form-error-message"
 
 export default {
   tittle: "Components/ui/error message",
