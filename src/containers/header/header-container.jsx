@@ -4,7 +4,7 @@ import {
   SelectCurrentUserId,
   SelectUsers,
 } from "../../modules/userdata/userdata.selectors"
-import Header from "../../components/ui/header/header"
+import Header from "./header"
 import {
   showSignInForm,
   logOut,
