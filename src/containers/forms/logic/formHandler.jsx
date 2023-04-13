@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector } from "react-redux"
-import { selectType } from "../../modules/form"
+import { selectType } from "../../../modules/form"
 import AddVideoWithLogic from "./add-new-video-logic"
 import SignInFormWithLogic from "./sign-in-logic"
 import SignUpFormWithLogic from "./sign-up-logic"

@@ -4,14 +4,14 @@ import {
   SelectErrorMessage,
   SelectPasswordError,
   SelectNameError,
-} from "../../modules/current_error"
-import Form from "./forms/forms"
-import { SelectLoginLoading } from "../../modules/userdata"
-import SignIn from "./forms/sign-in-form/sign-in-form"
-import signInFunc from "../../external_func/sign-in-form/signin-functions"
-import FormSwitcher from "../../external_func/switch-form/form-switcher"
-import CloseFormButton from "../close-form-button/close-form-button"
-import XIcon from "./forms/x-icon/x-icon"
+} from "../../../modules/current_error"
+import Form from "../forms/forms"
+import { SelectLoginLoading } from "../../../modules/userdata"
+import SignIn from "../forms/sign-in-form/sign-in-form"
+import signInFunc from "../../../external_func/sign-in-form/signin-functions"
+import FormSwitcher from "../../../external_func/switch-form/form-switcher"
+import CloseFormButton from "../../close-form-button/close-form-button"
+import XIcon from "../forms/x-icon/x-icon"
 
 /**
  * Logical wrapper for sign In form

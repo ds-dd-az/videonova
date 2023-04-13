@@ -2,7 +2,7 @@ import React from "react"
 import propTypes from "prop-types"
 import InputField from "../../../../components/ui/input-field/input-field"
 import Button from "../../../../components/ui/button/button"
-import FormError from "../../../error-message-cont/form-error"
+import FormError from "../../../error-message/form-error-logic"
 import Heading from "../../../../components/ui/headings/headings"
 
 /**
