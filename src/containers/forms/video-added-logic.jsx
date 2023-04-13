@@ -1,10 +1,10 @@
 import React from "react"
 import { useSelector } from "react-redux"
 import Button from "../../components/ui/button/button"
-import VideoAddedMessage from "../../components/ui/forms/add-new-video_added/video-added"
+import VideoAddedMessage from "./forms/add-new-video_added/video-added"
 import { selectImg } from "../../modules/form"
 import CloseFormButton from "../close-form-button/close-form-button"
-import Form from "../../components/ui/forms/forms"
+import Form from "./forms/forms"
 
 /**
  * Logical wrapper for "video added" message

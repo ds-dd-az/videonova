@@ -7,10 +7,10 @@ import {
 } from "../../modules/current_error"
 import signUp from "../../external_func/sign-up-form/signup-functions"
 import { SelectLoginLoading } from "../../modules/userdata"
-import Form from "../../components/ui/forms/forms"
+import Form from "./forms/forms"
 import CloseFormButton from "../close-form-button/close-form-button"
-import XIcon from "../../components/ui/forms/x-icon/x-icon"
-import SignUp from "../../components/ui/forms/sign-up-form/sign-up-form"
+import XIcon from "./forms/x-icon/x-icon"
+import SignUp from "./forms/sign-up-form/sign-up-form"
 import FormSwitcher from "../../external_func/switch-form/form-switcher"
 
 /**
