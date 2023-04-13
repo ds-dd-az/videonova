@@ -1,6 +1,6 @@
 import React from "react"
 import propTypes from "prop-types"
-import ErrorMessage from "../../components/ui/error-message/error-message"
+import ErrorMessage from "./form-error-message"
 
 /**
  * Form error logical wrapper

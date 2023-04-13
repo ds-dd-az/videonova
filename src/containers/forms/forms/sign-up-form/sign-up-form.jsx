@@ -1,9 +1,9 @@
 import React from "react"
 import propTypes from "prop-types"
-import InputField from "../../input-field/input-field"
-import FormError from "../../../../containers/error-message-cont/form-error"
-import Button from "../../button/button"
-import Heading from "../../headings/headings"
+import FormError from "../../../error-message/form-error-logic"
+import Button from "../../../../components/ui/button/button"
+import Heading from "../../../../components/ui/headings/headings"
+import InputField from "../../../../components/ui/input-field/input-field"
 
 /**
  * Sign up form component

@@ -1,5 +1,5 @@
 import React from "react"
-import "../../../styles/error-message/error-message.css"
+import "../../styles/error-message/error-message.css"
 import propTypes from "prop-types"
 
 /**

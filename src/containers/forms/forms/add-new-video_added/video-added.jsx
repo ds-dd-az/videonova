@@ -1,7 +1,7 @@
 import React from "react"
 import propTypes from "prop-types"
 import CheckIcon from "../../../../assets/icons/check-icon.svg"
-import Heading from "../../headings/headings"
+import Heading from "../../../../components/ui/headings/headings"
 
 /**
  * Video added message component displayed after adding video in videoform

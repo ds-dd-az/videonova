@@ -3,7 +3,7 @@ import { useSelector } from "react-redux"
 import Popup from "../../components/ui/popup/popup"
 import { selectVisibility } from "../../modules/form"
 import CloseFormButton from "../close-form-button/close-form-button"
-import FormHandler from "../form-logical-wrappers/formHandler"
+import FormHandler from "../forms/logic/formHandler"
 
 /**
  * Popup logical wrapper

@@ -1,7 +1,7 @@
 import React from "react"
 import "../../../styles/footer"
 import Logo from "../logo/logo"
-import Socials from "../socials/socials"
+import Socials from "./socials/socials"
 
 /**
  * footer component
