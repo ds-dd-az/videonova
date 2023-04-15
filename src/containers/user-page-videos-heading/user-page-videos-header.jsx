@@ -1,5 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { useLocation } from "react-router-dom"
 import Button from "../../components/ui/button/button"
 import VidIcon from "../../assets/icons/video-icon.png"
 import Heading from "../../components/ui/headings/headings"
@@ -9,7 +10,8 @@ import { SelectUsers, SelectCurrentUserId } from "../../modules/userdata"
 export default function VideoHeader() {
   const dispatch = useDispatch()
   const openForm = () => showAddVideoForm(dispatch)
-  const pageId = window.location.href.split("user/")[1]
+  const location = useLocation()
+  const pageId = location.pathname.split("user/")[1]
   const users = useSelector(SelectUsers)
   const owner = users.find((value) => value.id === pageId)
   const name =

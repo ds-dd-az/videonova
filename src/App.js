@@ -31,7 +31,7 @@ export default function App() {
     <div className="App">
       <BrowserRouter basename="/videonova">
         <Routes>
-          <Route path="/videonova/user/:userId" element={<Users />} />
+          <Route path="/user/:userId" element={<Users />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>

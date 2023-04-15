@@ -1,5 +1,6 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
+import { useLocation } from "react-router-dom"
 import {
   SelectCurrentUserId,
   SelectUsers,
@@ -18,6 +19,7 @@ import {
  */
 export default function AdaptiveHeader() {
   const dispatch = useDispatch()
+  const location = useLocation()
   let login = false
   const userId = useSelector(SelectCurrentUserId)
   const allUsers = useSelector(SelectUsers)
@@ -35,7 +37,7 @@ export default function AdaptiveHeader() {
   }
   if (userId !== null) {
     login = true
-    if (window.location.href.includes(`/user/${userId}`)) {
+    if (location.pathname.includes(`/user/${userId}`)) {
       func = signOut
       signOutButtonDisplay = true
     } else func = null
