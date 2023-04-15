@@ -1,7 +1,7 @@
 import React from "react"
-import TelegramIcon from "../../../assets/icons/social-icons/telegram-icon.svg"
-import GitHubIcon from "../../../assets/icons/social-icons/github-mark-white.png"
-import LinkedInIcon from "../../../assets/icons/social-icons/linkedin-logo.png"
+import TelegramIcon from "../../../../assets/icons/social-icons/telegram-icon.svg"
+import GitHubIcon from "../../../../assets/icons/social-icons/github-mark-white.png"
+import LinkedInIcon from "../../../../assets/icons/social-icons/linkedin-logo.png"
 
 /**
  * Social icons group component

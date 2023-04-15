@@ -1,10 +1,10 @@
 import React from "react"
-import "../../../styles/header/header.css"
+import "../../styles/header/header.css"
 import propTypes from "prop-types"
 import { Link } from "react-router-dom"
-import Logo from "../logo/logo"
-import UserIcon from "../user-icon/user-icon"
-import Button from "../button/button"
+import Logo from "../../components/ui/logo/logo"
+import UserIcon from "../../components/ui/user-icon/user-icon"
+import Button from "../../components/ui/button/button"
 
 /**
  * Header component
