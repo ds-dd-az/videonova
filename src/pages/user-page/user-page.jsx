@@ -8,8 +8,8 @@ import VideoHeader from "../../containers/user-page-videos-heading/user-page-vid
 import scrollToTop from "../../external_func/scroll-to-the-top/scroll-to-the-top"
 
 export default function UserPage() {
-  const pageId = window.location.href.split("user/")[1]
   const location = useLocation()
+  const pageId = location.pathname.split("user/")[1]
   scrollToTop()
   return (
     <Layout>
