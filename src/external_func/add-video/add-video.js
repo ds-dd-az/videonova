@@ -13,13 +13,12 @@ import findPreview from "../find-preview-src/find-preview-src"
  * @param description - video's description for thumbnail
  * @param token - user's auth token used for post request
  */
-export default function addNewVideo(dispatch, url, title, description, token) {
+function addNewVideo(dispatch, url, title, description) {
   dispatch(
     addVideo({
       url,
       title,
       description,
-      token,
     })
   )
     .then(unwrapResult)
@@ -53,4 +52,32 @@ export default function addNewVideo(dispatch, url, title, description, token) {
         })
       }
     })
+}
+
+export default function submitVideo(dispatch, url, title, description) {
+  dispatch({
+    type: "errors/clearError",
+  })
+  if (
+    (url.includes("http://www.youtube.com") ||
+      url.includes("http://youtube.com") ||
+      url.includes("http://m.youtube.com") ||
+      url.includes("https://www.youtube.com") ||
+      url.includes("https://youtube.com") ||
+      url.includes("https://m.youtube.com") ||
+      url.includes("http://youtu.be") ||
+      url.includes("https://youtu.be")) === false
+  ) {
+    dispatch({
+      type: "errors/addError",
+      payload: "Seems like what you are trying to pass is not a youtube link",
+    })
+  } else if (!title || !description) {
+    dispatch({
+      type: "errors/addError",
+      payload: "both title and description must not be empty",
+    })
+  } else {
+    addNewVideo(dispatch, url, title, description)
+  }
 }
