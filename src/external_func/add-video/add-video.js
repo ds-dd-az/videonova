@@ -5,8 +5,10 @@ import findPreview from "../find-preview-src/find-preview-src"
 /**
  * Add new video function
  *
- * Dispatches addVideo redux thunk, unwraps its result and if succesfull opens "video added" message component,
+ * Dispatches addVideo redux thunk,
+ * unwraps its result and if succesfull opens "video added" message component,
  * if not it will display an error message inside of the form
+ *
  * @param dispatch - useDispatch hook
  * @param url - video's url
  * @param title - title of video that will be displayed on the thumbnail
@@ -54,6 +56,18 @@ function addNewVideo(dispatch, url, title, description) {
     })
 }
 
+/** SubmitVideo function
+ *
+ * Checks submitted video information
+ * for including youtube links and for being not empty,
+ * after all checks proceeds to addVideo function that will dispatch a thunk
+ * and work with its result
+ *
+ * @param dispatch - useDispatch hook,
+ * @param url - string, videos url,
+ * @param title - string, videos title,
+ * @param description - string, videos description
+ */
 export default function submitVideo(dispatch, url, title, description) {
   dispatch({
     type: "errors/clearError",
