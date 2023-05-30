@@ -5,7 +5,7 @@ import SignUp from "./sign-up-form/sign-up-form"
 import XIcon from "./x-icon/x-icon"
 import VideoForm from "./add-new-video/add-new-video"
 import VideoAddedMessage from "./add-new-video_added/video-added"
-import Button from "../button/button"
+import Button from "../../../components/ui/button/button"
 
 export default {
   title: "Components/ui/form",
