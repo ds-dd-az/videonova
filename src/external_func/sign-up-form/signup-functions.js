@@ -56,7 +56,7 @@ export default function signUp(dispatch, name, password, repeatPassword) {
   } else if (password !== repeatPassword) {
     dispatch({
       type: "errors/addPasswordError",
-      payload: "Passwords must be indentical",
+      payload: "Passwords must be identical",
     })
   } else if (name.length < 4) {
     dispatch({
